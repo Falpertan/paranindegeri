@@ -1175,83 +1175,13 @@
       font-size: 0.78rem;
     }
 
-    /* PNG filigranı */
+    /* PNG filigranı yalnızca indirmede (canvas); sitede görünmez */
     .pano-export-kutu {
       position: relative;
     }
 
     .paylas-filigran {
-      position: absolute;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 3px 6px;
-      background: rgba(245, 241, 232, 0.92);
-      border: 1px solid rgba(200, 191, 168, 0.55);
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(26, 24, 20, 0.06);
-      pointer-events: none;
-      opacity: 0.9;
-      top: auto;
-      right: auto;
-      bottom: 10px;
-      left: 10px;
-    }
-
-    .paylas-filigran img {
-      width: 14px;
-      height: 14px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .paylas-filigran-metin {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 1.1;
-      font-size: 0.5rem;
-      color: var(--ink-3);
-    }
-
-    .paylas-filigran-site {
-      font-size: 0.48rem;
-      color: var(--brand-gold);
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    .paylas-filigran-metin strong {
-      font-size: 0.54rem;
-      color: var(--ink-2);
-      font-weight: 600;
-    }
-
-    .paylas-filigran-metin span:last-child {
-      font-size: 0.46rem;
-      color: var(--muted);
-    }
-
-    /* Veri Panosu: sol alt boş alan (deniz / erken yıllar) */
-    #pano-grafik-export .paylas-filigran {
-      bottom: 38px;
-      left: 8px;
-    }
-
-    #pano-harita-export .paylas-filigran {
-      bottom: 8px;
-      left: 8px;
-    }
-
-    #pano-grafik-export .paylas-filigran-site,
-    #pano-harita-export .paylas-filigran-site {
-      display: none;
-    }
-
-    .sonuc-karti .paylas-filigran {
-      bottom: 12px;
-      left: 12px;
+      display: none !important;
     }
 
     .pano-baslik-satir {
@@ -1564,14 +1494,6 @@
               <p>Çubuklar, seçtiğiniz yıldaki tutarın bugünkü <strong>tahmini karşılığını</strong> farklı göstergelere göre gösterir. TÜFE ve kur verileri TCMB EVDS’ten; et / kira / market çubukları model tahminidir.</p>
               <p class="veri-kaynak-tarih" id="enf-veri-tarih-sonuc"></p>
             </div>
-            <div class="paylas-filigran" aria-hidden="true">
-              <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
-              <div class="paylas-filigran-metin">
-                <span class="paylas-filigran-site">Paranın Değeri</span>
-                <strong>AlperTan™</strong>
-                <span>paranindegeri.com</span>
-              </div>
-            </div>
           </div>
           <div class="sonuc-aksiyon btn-grup" id="enf-aksiyon">
             <button class="btn" onclick="kartPngIndir('enflasyon')">📥 PNG indir</button>
@@ -1646,14 +1568,6 @@
               <p>Profil çarpanları (kişi sayısı, tarz vb.) Paranın Değeri modelidir. Asgari ücret karşılaştırması bilgilendirme amaçlıdır.</p>
               <p class="veri-kaynak-tarih" id="yasam-veri-tarih-sonuc"></p>
             </div>
-            <div class="paylas-filigran" aria-hidden="true">
-              <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
-              <div class="paylas-filigran-metin">
-                <span class="paylas-filigran-site">Paranın Değeri</span>
-                <strong>AlperTan™</strong>
-                <span>paranindegeri.com</span>
-              </div>
-            </div>
           </div>
           <div class="sonuc-aksiyon btn-grup" id="yasam-aksiyon">
             <button class="btn" onclick="kartPngIndir('yasam')">📥 PNG indir</button>
@@ -1692,14 +1606,6 @@
               <div class="pano-grafik-kutu">
                 <canvas id="pano-makro-chart" aria-label="Makro ekonomi grafiği"></canvas>
               </div>
-              <div class="paylas-filigran" aria-hidden="true">
-                <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
-                <div class="paylas-filigran-metin">
-                  <span class="paylas-filigran-site">Paranın Değeri</span>
-                  <strong>AlperTan™</strong>
-                  <span>paranindegeri.com</span>
-                </div>
-              </div>
             </div>
             <div class="pano-indir-satir">
               <button type="button" class="btn" onclick="panoPngIndir('grafik')">📥 Grafiği PNG indir</button>
@@ -1724,14 +1630,6 @@
               <div class="pano-harita-wrap" id="pano-harita-panel">
                 <div class="pano-harita-svg" id="pano-harita-svg"></div>
                 <div class="pano-harita-tooltip" id="pano-harita-tooltip" hidden></div>
-              </div>
-              <div class="paylas-filigran" aria-hidden="true">
-                <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
-                <div class="paylas-filigran-metin">
-                  <span class="paylas-filigran-site">Paranın Değeri</span>
-                  <strong>AlperTan™</strong>
-                  <span>paranindegeri.com</span>
-                </div>
               </div>
             </div>
             <div class="pano-indir-satir">
@@ -3254,24 +3152,14 @@
     async function pngIndir(el, dosyaAdi) {
       await html2canvasHazir();
       await markaLogoYukle();
-      const marks = el.querySelectorAll('.paylas-filigran');
-      marks.forEach(m => { m.style.visibility = 'hidden'; });
-      let canvas;
-      try {
-        canvas = await html2canvas(el, {
-          backgroundColor: '#fdfaf2',
-          scale: 2,
-          useCORS: true,
-          logging: false
-        });
-      } finally {
-        marks.forEach(m => { m.style.visibility = ''; });
-      }
-      const sonucKarti = el.classList.contains('sonuc-karti');
-      canvas = await pngMarkaSagUst(canvas, {
-        compact: !sonucKarti,
-        corner: 'bl'
+      let canvas = await html2canvas(el, {
+        backgroundColor: '#fdfaf2',
+        scale: 2,
+        useCORS: true,
+        logging: false
       });
+      /* Tüm PNG indirmeler: küçük filigran sol üst (sitede görünmez) */
+      canvas = await pngMarkaSagUst(canvas, { compact: true, corner: 'tl' });
       const link = document.createElement('a');
       link.download = dosyaAdi;
       link.href = canvas.toDataURL('image/png');
