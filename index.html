@@ -16,7 +16,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/alpertan_logo.png">
   <meta name="theme-color" content="#f5f1e8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
   <style>
     /* AlperTan™ · Seçim Arşivi ile uyumlu editorial palet */
     :root {
@@ -577,6 +576,7 @@
     /* Result cards */
     .sonuc-karti {
       display: none;
+      position: relative;
     }
 
     .sonuc-karti.goster {
@@ -1167,6 +1167,79 @@
       font-size: 0.78rem;
     }
 
+    /* PNG filigranı — sağ üst köşe (boş alan) */
+    .pano-export-kutu {
+      position: relative;
+    }
+
+    .paylas-filigran {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      bottom: auto;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      background: rgba(245, 241, 232, 0.88);
+      border: 1px solid rgba(200, 191, 168, 0.55);
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(26, 24, 20, 0.06);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .paylas-filigran img {
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .paylas-filigran-metin {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.2;
+      font-size: 0.62rem;
+      color: var(--ink-3);
+    }
+
+    .paylas-filigran-site {
+      font-size: 0.58rem;
+      color: var(--brand-gold);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .paylas-filigran-metin strong {
+      font-size: 0.7rem;
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+
+    .pano-baslik-satir {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .pano-baslik-satir .pano-alt-baslik {
+      margin: 0;
+    }
+
+    .pano-indir-satir {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     footer .footer-kaynak {
       margin: 12px auto 0;
       max-width: 42rem;
@@ -1244,6 +1317,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       padding: 12px;
+      min-height: 200px;
     }
 
     .pano-harita-svg {
@@ -1441,9 +1515,17 @@
               <p>Çubuklar, seçtiğiniz yıldaki tutarın bugünkü <strong>tahmini karşılığını</strong> farklı göstergelere göre gösterir. TÜFE ve kur verileri TCMB EVDS’ten; et / kira / market çubukları model tahminidir.</p>
               <p class="veri-kaynak-tarih" id="enf-veri-tarih-sonuc"></p>
             </div>
+            <div class="paylas-filigran" aria-hidden="true">
+              <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+              <div class="paylas-filigran-metin">
+                <span class="paylas-filigran-site">Paranın Değeri</span>
+                <strong>AlperTan™</strong>
+                <span>paranindegeri.com</span>
+              </div>
+            </div>
           </div>
           <div class="sonuc-aksiyon btn-grup" id="enf-aksiyon">
-            <button class="btn" onclick="kartPaylas('enflasyon')">📤 Paylaş</button>
+            <button class="btn" onclick="kartPngIndir('enflasyon')">📥 PNG indir</button>
             <button class="btn btn-outline" onclick="linkKopyala('enflasyon')">🔗 Link Kopyala</button>
           </div>
 
@@ -1515,9 +1597,17 @@
               <p>Profil çarpanları (kişi sayısı, tarz vb.) Paranın Değeri modelidir. Asgari ücret karşılaştırması bilgilendirme amaçlıdır.</p>
               <p class="veri-kaynak-tarih" id="yasam-veri-tarih-sonuc"></p>
             </div>
+            <div class="paylas-filigran" aria-hidden="true">
+              <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+              <div class="paylas-filigran-metin">
+                <span class="paylas-filigran-site">Paranın Değeri</span>
+                <strong>AlperTan™</strong>
+                <span>paranindegeri.com</span>
+              </div>
+            </div>
           </div>
           <div class="sonuc-aksiyon btn-grup" id="yasam-aksiyon">
-            <button class="btn" onclick="kartPaylas('yasam')">📤 Paylaş</button>
+            <button class="btn" onclick="kartPngIndir('yasam')">📥 PNG indir</button>
             <button class="btn btn-outline" onclick="linkKopyala('yasam')">🔗 Link Kopyala</button>
           </div>
 
@@ -1536,7 +1626,10 @@
           </div>
 
           <div class="kart">
-            <h3 class="pano-alt-baslik">Makro trendler (2003 → bugün)</h3>
+            <div class="pano-baslik-satir">
+              <h3 class="pano-alt-baslik">Makro trendler (2003 → bugün)</h3>
+              <button type="button" class="btn btn-outline" onclick="panoPngIndir('grafik')">📥 Grafiği PNG indir</button>
+            </div>
             <div class="pano-kontroller">
               <label><input type="radio" name="pano-grafik-tip" value="cizgi" checked onchange="panoGrafikGuncelle()"> Çizgi</label>
               <label><input type="radio" name="pano-grafik-tip" value="cubuk" onchange="panoGrafikGuncelle()"> Çubuk (yıllık TÜFE)</label>
@@ -1546,14 +1639,30 @@
               <label><input type="checkbox" id="pano-seri-altin" onchange="panoGrafikGuncelle()"> Altın (TL/gr)</label>
               <label><input type="checkbox" id="pano-seri-satin" onchange="panoGrafikGuncelle()"> 1.000 TL satın alma (TÜFE, 2003=1000)</label>
             </div>
-            <div class="pano-grafik-kutu">
-              <canvas id="pano-makro-chart" aria-label="Makro ekonomi grafiği"></canvas>
+            <div class="pano-export-kutu" id="pano-grafik-export">
+              <div class="pano-grafik-kutu">
+                <canvas id="pano-makro-chart" aria-label="Makro ekonomi grafiği"></canvas>
+              </div>
+              <div class="paylas-filigran" aria-hidden="true">
+                <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+                <div class="paylas-filigran-metin">
+                  <span class="paylas-filigran-site">Paranın Değeri</span>
+                  <strong>AlperTan™</strong>
+                  <span>paranindegeri.com</span>
+                </div>
+              </div>
+            </div>
+            <div class="pano-indir-satir">
+              <button type="button" class="btn" onclick="panoPngIndir('grafik')">📥 Grafiği PNG indir</button>
             </div>
             <p class="ipucu-inline">Dolar serisi 2005’ten itibaren gösterilir (EVDS’te erken yıllar hatalı kayıt içerebilir). «Satın alma» çizgisi yıllık TÜFE ile bileşiklenmiştir.</p>
           </div>
 
           <div class="kart">
-            <h3 class="pano-alt-baslik">81 il haritası</h3>
+            <div class="pano-baslik-satir">
+              <h3 class="pano-alt-baslik">81 il haritası</h3>
+              <button type="button" class="btn btn-outline" onclick="panoPngIndir('harita')">📥 Haritayı PNG indir</button>
+            </div>
             <div class="pano-kontroller">
               <label for="pano-harita-metrik">Gösterge</label>
               <select id="pano-harita-metrik" onchange="panoHaritaGuncelle()">
@@ -1562,9 +1671,22 @@
                 <option value="min_gecim">Tahmini aylık minimum geçim (tek, kiracı, orta)</option>
               </select>
             </div>
-            <div class="pano-harita-wrap" id="pano-harita-panel">
-              <div class="pano-harita-svg" id="pano-harita-svg"></div>
-              <div class="pano-harita-tooltip" id="pano-harita-tooltip" hidden></div>
+            <div class="pano-export-kutu" id="pano-harita-export">
+              <div class="pano-harita-wrap" id="pano-harita-panel">
+                <div class="pano-harita-svg" id="pano-harita-svg"></div>
+                <div class="pano-harita-tooltip" id="pano-harita-tooltip" hidden></div>
+              </div>
+              <div class="paylas-filigran" aria-hidden="true">
+                <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+                <div class="paylas-filigran-metin">
+                  <span class="paylas-filigran-site">Paranın Değeri</span>
+                  <strong>AlperTan™</strong>
+                  <span>paranindegeri.com</span>
+                </div>
+              </div>
+            </div>
+            <div class="pano-indir-satir">
+              <button type="button" class="btn" onclick="panoPngIndir('harita')">📥 Haritayı PNG indir</button>
             </div>
             <div class="pano-legend" id="pano-harita-legend"></div>
             <p class="pano-il-ozet" id="pano-il-ozet">Bir ile tıklayın veya üzerine gelin.</p>
@@ -2810,6 +2932,7 @@
         return;
       }
       try {
+        await html2canvasHazir();
         await panoScriptYukle('https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js');
         await panoGeoYukle();
         panoHazir = true;
@@ -2950,18 +3073,158 @@
       sonucGoster('sonuc-karti-yasam', 'yasam-aksiyon');
     }
 
-    async function kartPaylas(modul) {
+    async function html2canvasHazir() {
+      if (typeof html2canvas !== 'undefined') return;
+      await panoScriptYukle('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+    }
+
+    function pngRoundRect(ctx, x, y, w, h, r) {
+      const rr = Math.min(r, w / 2, h / 2);
+      ctx.beginPath();
+      ctx.moveTo(x + rr, y);
+      ctx.arcTo(x + w, y, x + w, y + h, rr);
+      ctx.arcTo(x + w, y + h, x, y + h, rr);
+      ctx.arcTo(x, y + h, x, y, rr);
+      ctx.arcTo(x, y, x + w, y, rr);
+      ctx.closePath();
+    }
+
+    let MARKA_LOGO_DATAURL = null;
+
+    async function markaLogoYukle() {
+      if (MARKA_LOGO_DATAURL !== null) return MARKA_LOGO_DATAURL;
+      try {
+        const url = new URL('assets/alpertan_logo.png', window.location.href).href;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error('logo fetch');
+        const blob = await r.blob();
+        MARKA_LOGO_DATAURL = await new Promise((resolve, reject) => {
+          const fr = new FileReader();
+          fr.onload = () => resolve(fr.result);
+          fr.onerror = reject;
+          fr.readAsDataURL(blob);
+        });
+      } catch (_) {
+        MARKA_LOGO_DATAURL = '';
+      }
+      return MARKA_LOGO_DATAURL;
+    }
+
+    async function pngLogoImage() {
+      const data = await markaLogoYukle();
+      if (!data) return null;
+      return new Promise((resolve, reject) => {
+        const i = new Image();
+        i.onload = () => resolve(i);
+        i.onerror = reject;
+        i.src = data;
+      });
+    }
+
+    async function pngMarkaSagUst(canvas) {
+      const ctx = canvas.getContext('2d');
+      let img = null;
+      try {
+        img = await pngLogoImage();
+      } catch (_) { /* metin filigranı yine uygulanır */ }
+
+      const pad = Math.max(10, Math.round(canvas.width * 0.022));
+      const logoS = img ? Math.max(20, Math.round(canvas.width * 0.048)) : 0;
+      const fSite = Math.max(9, Math.round(canvas.width * 0.021));
+      const fMarka = Math.max(10, Math.round(canvas.width * 0.024));
+      const fUrl = Math.max(8, Math.round(canvas.width * 0.019));
+      const tSite = 'Paranın Değeri';
+      const tMarka = 'AlperTan™';
+      const tUrl = 'paranindegeri.com';
+      ctx.font = `600 ${fSite}px Inter, sans-serif`;
+      const wSite = ctx.measureText(tSite).width;
+      ctx.font = `600 ${fMarka}px Inter, sans-serif`;
+      const wMarka = ctx.measureText(tMarka).width;
+      ctx.font = `400 ${fUrl}px Inter, sans-serif`;
+      const wUrl = ctx.measureText(tUrl).width;
+      const textW = Math.max(wSite, wMarka, wUrl);
+      const textH = fSite + fMarka + fUrl + 6;
+      const inner = pad;
+      const logoGap = img ? logoS + 8 : 0;
+      const blockW = inner + logoGap + textW + inner;
+      const blockH = inner + Math.max(logoS, textH) + inner;
+      const x0 = canvas.width - blockW - pad;
+      const y0 = pad;
+
+      pngRoundRect(ctx, x0, y0, blockW, blockH, 7);
+      ctx.fillStyle = 'rgba(245, 241, 232, 0.92)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(200, 191, 168, 0.6)';
+      ctx.lineWidth = Math.max(1, canvas.width / 800);
+      ctx.stroke();
+
+      const tx = x0 + inner + logoGap;
+      const ty = y0 + inner + (img ? 0 : Math.max(0, (textH - logoS) / 2));
+      if (img) ctx.drawImage(img, x0 + inner, y0 + inner, logoS, logoS);
+      ctx.textBaseline = 'top';
+      ctx.fillStyle = 'rgba(160, 120, 32, 0.95)';
+      ctx.font = `600 ${fSite}px Inter, sans-serif`;
+      ctx.fillText(tSite, tx, ty);
+      ctx.fillStyle = 'rgba(26, 24, 20, 0.9)';
+      ctx.font = `600 ${fMarka}px Inter, sans-serif`;
+      ctx.fillText(tMarka, tx, ty + fSite + 2);
+      ctx.fillStyle = 'rgba(107, 98, 83, 0.9)';
+      ctx.font = `400 ${fUrl}px Inter, sans-serif`;
+      ctx.fillText(tUrl, tx, ty + fSite + fMarka + 4);
+      return canvas;
+    }
+
+    async function pngIndir(el, dosyaAdi) {
+      await html2canvasHazir();
+      const marks = el.querySelectorAll('.paylas-filigran');
+      marks.forEach(m => { m.style.visibility = 'hidden'; });
+      let canvas;
+      try {
+        canvas = await html2canvas(el, {
+          backgroundColor: '#fdfaf2',
+          scale: 2,
+          useCORS: true
+        });
+      } finally {
+        marks.forEach(m => { m.style.visibility = ''; });
+      }
+      canvas = await pngMarkaSagUst(canvas);
+      const link = document.createElement('a');
+      link.download = dosyaAdi;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    async function kartPngIndir(modul) {
       const id = modul === 'enflasyon' ? 'sonuc-karti-enflasyon' : 'sonuc-karti-yasam';
       const el = document.getElementById(id);
-      if (!el.classList.contains('goster')) { toast('Önce hesaplama yapın'); return; }
-      if (typeof html2canvas === 'undefined') { toast('Paylaşım kütüphanesi yükleniyor, tekrar deneyin'); return; }
+      if (!el.classList.contains('goster')) {
+        toast('Önce hesaplama yapın');
+        return;
+      }
       try {
-        const canvas = await html2canvas(el, { backgroundColor: '#fdfaf2', scale: 2 });
-        const link = document.createElement('a');
-        link.download = `paranindegeri-${modul}-${Date.now()}.png`;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-        toast('Kart indirildi! 📤');
+        await pngIndir(el, `paranindegeri-${modul}-${Date.now()}.png`);
+        toast('PNG indirildi 📥');
+      } catch (e) {
+        toast('PNG oluşturulamadı');
+      }
+    }
+
+    async function panoPngIndir(tip) {
+      const id = tip === 'grafik' ? 'pano-grafik-export' : 'pano-harita-export';
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (tip === 'grafik' && !panoMakroChart) {
+        toast('Önce grafik yüklensin (Veri Panosu sekmesinde bekleyin)');
+        return;
+      }
+      if (tip === 'harita' && !panoGeojson) {
+        toast('Harita henüz yüklenmedi');
+        return;
+      }
+      try {
+        await pngIndir(el, `paranindegeri-pano-${tip}-${Date.now()}.png`);
+        toast('PNG indirildi 📥');
       } catch (e) {
         toast('PNG oluşturulamadı');
       }
@@ -3125,6 +3388,7 @@
     }
 
     window.addEventListener('load', async () => {
+      markaLogoYukle();
       await veriYukle();
       yenileYilDropdown();
       yenileSehirGrid();

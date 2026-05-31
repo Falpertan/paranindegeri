@@ -36,14 +36,6 @@ if not exist "%DEST%\.git" (
   )
 )
 
-echo  Dosyalar kopyalaniyor...
-powershell -NoProfile -ExecutionPolicy Bypass -File "%SRC%\tools\deploy_sync.ps1" -Source "%SRC%" -Dest "%DEST%"
-if errorlevel 1 (
-  echo  HATA: kopyalama basarisiz.
-  pause
-  exit /b 1
-)
-
 cd /d "%DEST%"
 if not exist ".git" (
   echo  HATA: %DEST% git reposu degil. Klasoru silip tekrar deneyin:
@@ -63,6 +55,14 @@ git checkout main 2>nul
 git reset --hard origin/main
 if errorlevel 1 (
   echo  HATA: origin/main alinamadi.
+  pause
+  exit /b 1
+)
+
+echo  Dosyalar kopyalaniyor...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%SRC%\tools\deploy_sync.ps1" -Source "%SRC%" -Dest "%DEST%"
+if errorlevel 1 (
+  echo  HATA: kopyalama basarisiz.
   pause
   exit /b 1
 )
