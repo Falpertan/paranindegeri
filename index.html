@@ -1182,76 +1182,76 @@
 
     .paylas-filigran {
       position: absolute;
-      top: 12px;
-      right: 12px;
       z-index: 3;
       display: flex;
       align-items: center;
-      gap: 5px;
-      padding: 4px 8px;
-      background: rgba(245, 241, 232, 0.9);
+      gap: 4px;
+      padding: 3px 6px;
+      background: rgba(245, 241, 232, 0.92);
       border: 1px solid rgba(200, 191, 168, 0.55);
-      border-radius: 5px;
+      border-radius: 4px;
       box-shadow: 0 1px 3px rgba(26, 24, 20, 0.06);
       pointer-events: none;
-      opacity: 0.88;
-    }
-
-    /* Veri Panosu: ekranda filigran yok (çizgilerle çakışmasın); PNG indirmede eklenir */
-    .pano-export-kutu .paylas-filigran {
-      display: none !important;
+      opacity: 0.9;
+      top: auto;
+      right: auto;
+      bottom: 10px;
+      left: 10px;
     }
 
     .paylas-filigran img {
-      width: 18px;
-      height: 18px;
-      border-radius: 3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
       flex-shrink: 0;
-    }
-
-    .pano-export-kutu .paylas-filigran img {
-      width: 13px;
-      height: 13px;
     }
 
     .paylas-filigran-metin {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      line-height: 1.15;
-      font-size: 0.58rem;
+      line-height: 1.1;
+      font-size: 0.5rem;
       color: var(--ink-3);
     }
 
-    .pano-export-kutu .paylas-filigran-metin {
-      font-size: 0.5rem;
-      line-height: 1.1;
-    }
-
     .paylas-filigran-site {
-      font-size: 0.54rem;
+      font-size: 0.48rem;
       color: var(--brand-gold);
       font-weight: 600;
       letter-spacing: 0.02em;
     }
 
-    .pano-export-kutu .paylas-filigran-site {
-      display: none;
-    }
-
     .paylas-filigran-metin strong {
-      font-size: 0.62rem;
+      font-size: 0.54rem;
       color: var(--ink-2);
       font-weight: 600;
     }
 
-    .pano-export-kutu .paylas-filigran-metin strong {
-      font-size: 0.52rem;
+    .paylas-filigran-metin span:last-child {
+      font-size: 0.46rem;
+      color: var(--muted);
     }
 
-    .pano-export-kutu .paylas-filigran-metin span:last-child {
-      font-size: 0.48rem;
-      color: var(--muted);
+    /* Veri Panosu: sol alt boş alan (deniz / erken yıllar) */
+    #pano-grafik-export .paylas-filigran {
+      bottom: 38px;
+      left: 8px;
+    }
+
+    #pano-harita-export .paylas-filigran {
+      bottom: 8px;
+      left: 8px;
+    }
+
+    #pano-grafik-export .paylas-filigran-site,
+    #pano-harita-export .paylas-filigran-site {
+      display: none;
+    }
+
+    .sonuc-karti .paylas-filigran {
+      bottom: 12px;
+      left: 12px;
     }
 
     .pano-baslik-satir {
@@ -1565,7 +1565,7 @@
               <p class="veri-kaynak-tarih" id="enf-veri-tarih-sonuc"></p>
             </div>
             <div class="paylas-filigran" aria-hidden="true">
-              <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+              <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
               <div class="paylas-filigran-metin">
                 <span class="paylas-filigran-site">Paranın Değeri</span>
                 <strong>AlperTan™</strong>
@@ -1647,7 +1647,7 @@
               <p class="veri-kaynak-tarih" id="yasam-veri-tarih-sonuc"></p>
             </div>
             <div class="paylas-filigran" aria-hidden="true">
-              <img src="assets/alpertan_logo.png" alt="" width="20" height="20">
+              <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
               <div class="paylas-filigran-metin">
                 <span class="paylas-filigran-site">Paranın Değeri</span>
                 <strong>AlperTan™</strong>
@@ -1692,6 +1692,14 @@
               <div class="pano-grafik-kutu">
                 <canvas id="pano-makro-chart" aria-label="Makro ekonomi grafiği"></canvas>
               </div>
+              <div class="paylas-filigran" aria-hidden="true">
+                <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
+                <div class="paylas-filigran-metin">
+                  <span class="paylas-filigran-site">Paranın Değeri</span>
+                  <strong>AlperTan™</strong>
+                  <span>paranindegeri.com</span>
+                </div>
+              </div>
             </div>
             <div class="pano-indir-satir">
               <button type="button" class="btn" onclick="panoPngIndir('grafik')">📥 Grafiği PNG indir</button>
@@ -1716,6 +1724,14 @@
               <div class="pano-harita-wrap" id="pano-harita-panel">
                 <div class="pano-harita-svg" id="pano-harita-svg"></div>
                 <div class="pano-harita-tooltip" id="pano-harita-tooltip" hidden></div>
+              </div>
+              <div class="paylas-filigran" aria-hidden="true">
+                <img src="assets/alpertan_logo.png" alt="" width="14" height="14" crossorigin="anonymous">
+                <div class="paylas-filigran-metin">
+                  <span class="paylas-filigran-site">Paranın Değeri</span>
+                  <strong>AlperTan™</strong>
+                  <span>paranindegeri.com</span>
+                </div>
               </div>
             </div>
             <div class="pano-indir-satir">
@@ -3237,6 +3253,7 @@
 
     async function pngIndir(el, dosyaAdi) {
       await html2canvasHazir();
+      await markaLogoYukle();
       const marks = el.querySelectorAll('.paylas-filigran');
       marks.forEach(m => { m.style.visibility = 'hidden'; });
       let canvas;
@@ -3244,15 +3261,16 @@
         canvas = await html2canvas(el, {
           backgroundColor: '#fdfaf2',
           scale: 2,
-          useCORS: true
+          useCORS: true,
+          logging: false
         });
       } finally {
         marks.forEach(m => { m.style.visibility = ''; });
       }
-      const panoExport = el.classList.contains('pano-export-kutu');
+      const sonucKarti = el.classList.contains('sonuc-karti');
       canvas = await pngMarkaSagUst(canvas, {
-        compact: panoExport,
-        corner: panoExport ? 'tl' : 'tr'
+        compact: !sonucKarti,
+        corner: 'bl'
       });
       const link = document.createElement('a');
       link.download = dosyaAdi;
