@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paranın Değeri — Enflasyon Hesaplama & 81 İl Yaşam Maliyeti</title>
+  <meta name="description" content="Paranın değeri ve satın alma gücü: TÜFE, dolar, altın. 81 ilde tahmini yaşam maliyeti. TCMB verileriyle enflasyon hesaplama — paranindegeri.com">
+  <link rel="canonical" href="https://paranindegeri.com/">
+  <meta property="og:site_name" content="Paranın Değeri">
+  <meta property="og:title" content="Paranın Değeri — Enflasyon ve Yaşam Maliyeti">
+  <meta property="og:description" content="2018'de 1000 TL olan şey bugün kaç TL etmeli? 81 il yaşam maliyeti hesaplayıcı.">
+  <meta property="og:image" content="https://paranindegeri.com/og-image.png">
+  <meta property="og:url" content="https://paranindegeri.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/alpertan_logo.png">
+  <meta name="theme-color" content="#f5f1e8">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <style>
+    /* AlperTan™ · Seçim Arşivi ile uyumlu editorial palet */
+    :root {
+      --paper:       #f5f1e8;
+      --paper-2:     #ebe5d6;
+      --paper-3:     #ddd5c0;
+      --ink:         #1a1814;
+      --ink-2:       #3a342b;
+      --ink-3:       #6b6253;
+      --ink-4:       #9b9180;
+      --line:        #c8bfa8;
+      --line-soft:   #d8cfb8;
+      --signal-red:    #b8311a;
+      --signal-amber:  #c8861a;
+      --signal-green:  #2d6b3f;
+      --signal-blue:   #1f4d6e;
+      --signal-plum:   #6b2d52;
+      --brand-mark:    #1a1814;
+      --brand-gold:    #a07820;
+      --font-display:  'Fraunces', Georgia, serif;
+      --font-body:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono:     'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      --radius-sm: 3px;
+      --radius:    6px;
+      --radius-lg: 10px;
+      --shadow-sm: 0 1px 2px rgba(26, 24, 20, 0.06);
+      --shadow:    0 2px 8px rgba(26, 24, 20, 0.08);
+      --shadow-md: 0 4px 16px rgba(26, 24, 20, 0.1);
+      --accent-line: var(--brand-gold);
+      /* Paranın Değeri bileşen takma adları */
+      --bg: var(--paper);
+      --surface: #fdfaf2;
+      --border: var(--line);
+      --accent1: var(--brand-gold);
+      --accent2: var(--signal-blue);
+      --accent3: var(--signal-amber);
+      --text: var(--ink);
+      --muted: var(--ink-3);
+      --danger: var(--signal-red);
+      --good: var(--signal-green);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      line-height: 1.55;
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(160, 120, 32, 0.025) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(31, 77, 110, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap { position: relative; z-index: 1; }
+
+    a { color: var(--signal-blue); }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    button:focus-visible,
+    nav a:focus-visible,
+    .logo:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--brand-gold);
+      outline-offset: 2px;
+    }
+
+    /* Header — yapı aynı, görünüm editorial */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245, 241, 232, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 20px;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.35rem;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo:hover { text-decoration: none; }
+
+    .logo .mark-gold { color: var(--brand-gold); }
+
+    nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--ink-2);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+      transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+    }
+
+    nav a:hover {
+      background: var(--paper-3);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav a.aktif {
+      background: rgba(160, 120, 32, 0.08);
+      color: var(--ink);
+      font-weight: 600;
+      border-left-color: var(--accent-line);
+      box-shadow: inset 0 0 0 1px rgba(160, 120, 32, 0.12);
+    }
+
+    /* Ad placeholders — sabit boyut */
+    .ad-container {
+      max-width: 728px;
+      width: 100%;
+      margin: 16px auto;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--paper-2);
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--ink-4);
+      font-size: 0.75rem;
+      overflow: hidden;
+      box-sizing: content-box;
+    }
+
+    .ad-header,
+    .ad-footer {
+      height: 90px;
+      min-height: 90px;
+      max-height: 90px;
+    }
+
+    .ad-result {
+      height: 280px;
+      min-height: 280px;
+      max-height: 280px;
+      margin-top: 24px;
+      max-width: 336px;
+    }
+
+    /* Sections */
+    .page-section, .legal-section { display: none; }
+    .page-section.aktif, .legal-section.aktif { display: block; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /* Hero — giriş (CTA) */
+    .hero-landing {
+      text-align: center;
+      padding: 48px 0 32px;
+    }
+
+    .hero-landing h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .hero-landing p {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--ink-2);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+
+    /* Hero — modül görünümü (tabların üstü) */
+    .modul-ust { display: none; }
+
+    .modul-ust.goster { display: block; }
+
+    .modul-hero {
+      text-align: center;
+      padding: 36px 0 28px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--line-soft);
+      position: relative;
+    }
+
+    .modul-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 2px;
+      background: var(--accent-line);
+    }
+
+    .modul-hero .eyebrow {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--ink-3);
+      margin-bottom: 12px;
+    }
+
+    .modul-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.6rem, 4.5vw, 2.35rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 12px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .modul-hero .modul-hero-lede {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--ink-2);
+      font-size: 1rem;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-kart {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+      border-left: 3px solid var(--line);
+    }
+
+    .cta-kart:hover {
+      transform: translateY(-1px);
+      border-color: var(--brand-gold);
+      border-left-color: var(--brand-gold);
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-kart .emoji { font-size: 1.75rem; margin-bottom: 8px; }
+    .cta-kart h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .cta-kart p { color: var(--ink-3); font-size: 0.9rem; }
+
+    /* Module tabs */
+    .modul-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .modul-tab {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+      padding: 8px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 120ms ease;
+    }
+
+    .modul-tab:hover {
+      border-color: var(--brand-gold);
+      color: var(--ink);
+    }
+
+    .modul-tab.aktif {
+      background: rgba(160, 120, 32, 0.1);
+      border-color: var(--brand-gold);
+      color: var(--ink);
+      font-weight: 600;
+      box-shadow: inset 0 0 0 1px rgba(160, 120, 32, 0.15);
+    }
+
+    .modul-panel { display: none; }
+    .modul-panel.aktif { display: block; }
+
+    /* Cards */
+    .kart {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .kart:hover {
+      border-color: rgba(160, 120, 32, 0.35);
+      box-shadow: var(--shadow);
+    }
+
+    .kart h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--ink);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line-soft);
+      position: relative;
+    }
+
+    .kart h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 48px;
+      height: 2px;
+      background: var(--accent-line);
+    }
+
+    /* Forms */
+    .form-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .form-grup { flex: 1; min-width: 140px; }
+
+    .form-grup label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--brand-gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 120ms ease, transform 120ms ease;
+    }
+
+    .btn:hover { background: var(--ink-2); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-outline {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--brand-gold);
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .btn-grup { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+
+    .adim-etiket {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink-3);
+      margin: 20px 0 10px;
+    }
+
+    .adim-etiket:first-of-type { margin-top: 0; }
+
+    /* Option chips */
+    .chip-grup {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .chip-grup label { color: var(--muted); font-size: 0.85rem; width: 100%; margin-bottom: 4px; }
+
+    .chip {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      transition: all 120ms ease;
+    }
+
+    .chip:hover {
+      border-color: var(--brand-gold);
+      color: var(--ink);
+      background: var(--paper-2);
+    }
+
+    .chip.secili {
+      border-color: var(--brand-gold);
+      background: rgba(160, 120, 32, 0.1);
+      color: var(--ink);
+      font-weight: 600;
+      box-shadow: inset 0 0 0 1px rgba(160, 120, 32, 0.12);
+    }
+
+    /* City grid */
+    .sehir-ara-wrap {
+      margin-bottom: 14px;
+    }
+
+    .sehir-ara-wrap input {
+      width: 100%;
+      max-width: 360px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: var(--paper);
+    }
+
+    .sehir-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .sehir-grid-bos {
+      grid-column: 1 / -1;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 12px 0;
+    }
+
+    .sehir-kart {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 120ms ease;
+    }
+
+    .sehir-kart:hover, .sehir-kart.secili {
+      border-color: var(--brand-gold);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      background: #fffdf8;
+    }
+
+    .sehir-kart.secili {
+      border-left: 3px solid var(--brand-gold);
+    }
+
+    .sehir-kart .emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+    .sehir-kart span { font-size: 0.85rem; font-weight: 500; }
+
+    /* Result cards */
+    .sonuc-karti {
+      display: none;
+    }
+
+    .sonuc-karti.goster {
+      display: block;
+      animation: slideUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .sonuc-aksiyon {
+      display: none;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .sonuc-aksiyon.goster {
+      display: flex;
+      animation: fadeIn 0.4s ease 0.35s both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .bar-item {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .bar-item.bar-anim {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sonuc-baslik {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--ink-2);
+      margin-bottom: 20px;
+    }
+
+    .sonuc-buyuk {
+      font-family: var(--font-mono);
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      font-weight: 600;
+      font-feature-settings: 'tnum' 1, 'zero' 1;
+      color: var(--signal-red);
+      line-height: 1;
+      margin: 12px 0 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .sonuc-buyuk.yesil { color: var(--signal-green); }
+
+    .bar-list { list-style: none; margin: 20px 0; }
+
+    .bar-list .bar-item {
+      margin-bottom: 14px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      gap: 12px;
+    }
+
+    .bar-label span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 8px;
+      background: var(--paper-2);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      width: 0;
+      transition: width 1.1s cubic-bezier(0.34, 1.2, 0.64, 1);
+    }
+
+    .detay-list { list-style: none; margin: 16px 0; }
+
+    .detay-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      gap: 12px;
+    }
+
+    .detay-list li span:last-child {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .detay-list .detay-satir {
+      opacity: 0;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tetikleyici {
+      background: rgba(200, 134, 26, 0.08);
+      border-left: 3px solid var(--signal-amber);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 16px 0;
+      font-size: 0.92rem;
+      color: var(--ink-2);
+      font-family: var(--font-display);
+      font-style: italic;
+    }
+
+    .kayip-badge {
+      display: inline-block;
+      background: rgba(184, 49, 26, 0.12);
+      color: var(--signal-red);
+      border: 1px solid rgba(184, 49, 26, 0.25);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 12px;
+      margin-top: 8px;
+    }
+
+    .asgari-kars {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .asgari-kars .fark { font-size: 1.3rem; font-weight: 600; color: var(--danger); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--paper-2);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: var(--shadow-md);
+      z-index: 10001;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+
+    .toast.goster { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Legal */
+    .legal-section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .legal-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 72px;
+      height: 2px;
+      background: var(--accent-line);
+    }
+
+    .legal-section h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 8px;
+    }
+
+    .legal-section p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .legal-section a { color: var(--signal-blue); }
+
+    #iletisim-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+      max-width: 400px;
+    }
+
+    #iletisim-form textarea { min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 32px 20px 40px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-3);
+      font-size: 12px;
+      background: var(--paper-2);
+    }
+
+    footer a {
+      color: var(--ink-3);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover { color: var(--ink); text-decoration: underline; }
+
+    /* AlperTan™ — sol alt (diğer projelerle aynı) */
+    .site-brand {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 90;
+      pointer-events: none;
+    }
+
+    body.cerez-goster .site-brand {
+      bottom: 96px;
+    }
+
+    .site-brand-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--ink-3);
+      line-height: 1.4;
+    }
+
+    .site-brand-logo {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+
+    .site-brand .tm {
+      font-size: 9px;
+      vertical-align: super;
+      color: var(--ink-4);
+      margin-left: 1px;
+    }
+
+    /* Cookie banner */
+    .cerez-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fdfaf2;
+      border-top: 1px solid var(--line);
+      padding: 16px 24px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 9999;
+      flex-wrap: wrap;
+    }
+
+    .cerez-banner p { color: var(--muted); font-size: 0.9rem; flex: 1; min-width: 200px; }
+    .cerez-banner a { color: var(--accent2); }
+
+    .cerez-butonlar { display: flex; gap: 8px; flex-shrink: 0; }
+
+    .btn-kabul {
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    .btn-reddet {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .ad-gizli { display: none !important; }
+
+    /* Admin panel (#admin-guncelle) */
+    .admin-panel { max-width: 720px; }
+
+    .admin-panel .admin-not {
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+    }
+
+    .admin-panel code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: var(--paper-2);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+    }
+
+    .admin-giris-form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 360px;
+      margin-top: 16px;
+    }
+
+    .admin-giris-form input { flex: 1; min-width: 160px; }
+
+    .admin-hata {
+      color: var(--signal-red);
+      font-size: 13px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .admin-hata.goster { display: block; }
+
+    .admin-icerik { display: none; margin-top: 24px; }
+
+    .admin-icerik.goster { display: block; }
+
+    .admin-durum {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.7;
+    }
+
+    .admin-durum .ok { color: var(--signal-green); font-weight: 600; }
+
+    .admin-mesaj {
+      margin: 12px 0;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      display: none;
+    }
+
+    .admin-mesaj.basarili {
+      display: block;
+      background: rgba(45, 107, 63, 0.1);
+      border: 1px solid rgba(45, 107, 63, 0.25);
+      color: var(--signal-green);
+    }
+
+    .admin-mesaj.hata {
+      display: block;
+      background: rgba(184, 49, 26, 0.08);
+      border: 1px solid rgba(184, 49, 26, 0.2);
+      color: var(--signal-red);
+    }
+
+    .admin-spinner {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-3);
+      margin: 12px 0;
+    }
+
+    .admin-spinner.goster { display: flex; }
+
+    .admin-spinner::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--line);
+      border-top-color: var(--brand-gold);
+      border-radius: 50%;
+      animation: adminSpin 0.7s linear infinite;
+    }
+
+    @keyframes adminSpin { to { transform: rotate(360deg); } }
+
+    .admin-sehir-form {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .admin-sehir-form h3 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      color: var(--ink);
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .admin-grid .form-grup label { font-size: 12px; }
+
+    .admin-rehber {
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.65;
+    }
+
+    .admin-rehber h4 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--ink);
+      margin: 0 0 10px;
+    }
+
+    .admin-rehber ol {
+      margin: 8px 0 12px 18px;
+      padding: 0;
+    }
+
+    .admin-rehber li { margin-bottom: 6px; }
+
+    .admin-rehber .ipucu {
+      font-size: 12px;
+      color: var(--ink-3);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .ipucu-inline {
+      font-weight: 400;
+      font-size: 0.85em;
+      color: var(--ink-3);
+    }
+
+    .proje-teaser {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--brand-gold);
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s;
+      max-width: 640px;
+    }
+
+    .proje-teaser:hover { border-color: var(--brand-gold); }
+
+    .proje-teaser-etiket {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--brand-gold);
+      white-space: nowrap;
+    }
+
+    .proje-teaser-metin {
+      flex: 1;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-2);
+    }
+
+    .proje-teaser-ok {
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      color: var(--brand-gold);
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .proje-teaser { flex-wrap: wrap; }
+      .proje-teaser-ok { display: none; }
+    }
+
+    nav .nav-dis-proje {
+      color: var(--brand-gold);
+      font-weight: 600;
+    }
+
+    .proje-band {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .modul-ust.goster .proje-band {
+      display: flex;
+    }
+
+    .proje-band .proje-teaser {
+      margin-top: 0;
+      max-width: none;
+      width: 100%;
+    }
+
+    .veri-kaynak-notu {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background: rgba(160, 120, 32, 0.06);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    .veri-kaynak-notu .veri-kaynak-baslik {
+      font-weight: 600;
+      color: var(--ink-2);
+      margin: 0 0 8px;
+      font-size: 0.82rem;
+    }
+
+    .veri-kaynak-notu ul {
+      margin: 0;
+      padding-left: 1.15em;
+    }
+
+    .veri-kaynak-notu li { margin-bottom: 5px; }
+
+    .veri-kaynak-notu .veri-kaynak-tarih {
+      margin: 10px 0 0;
+      padding-top: 8px;
+      border-top: 1px solid var(--line-soft);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .sonuc-karti .veri-kaynak-notu {
+      margin-top: 20px;
+      font-size: 0.78rem;
+    }
+
+    footer .footer-kaynak {
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 42rem;
+    }
+
+    .admin-sehir-listesi {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 8px 0 12px;
+    }
+
+    .admin-sehir-etiket {
+      font-size: 11px;
+      padding: 3px 8px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--ink-2);
+    }
+
+    @media (max-width: 600px) {
+      nav { width: 100%; justify-content: center; }
+      .header-inner { justify-content: center; }
+      .form-row { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .site-brand { left: 16px; bottom: 16px; }
+      body.cerez-goster .site-brand { bottom: 120px; }
+      footer { padding-bottom: 56px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="header-inner">
+        <a href="#" class="logo" onclick="anasayfaGoster(); return false;">
+          <span class="logo-text">Paranın <span class="mark-gold">Değeri</span></span>
+        </a>
+        <nav>
+          <a href="#" data-nav="anasayfa" onclick="modulAc('enflasyon'); return false;">Enflasyon Makinesi</a>
+          <a href="#" data-nav="anasayfa" onclick="modulAc('yasam'); return false;">Yaşam Maliyeti</a>
+          <a href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer" class="nav-dis-proje">Seçim Arşivi ↗</a>
+          <a href="#hakkinda" data-nav="hakkinda">Hakkında</a>
+          <a href="#iletisim" data-nav="iletisim">İletişim</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- AdSense placeholder 1 -->
+    <div class="ad-container ad-header" id="ad-header">
+      <span>Reklam alanı (728×90) — AdSense onayı sonrası aktif</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="horizontal"></ins>
+    </div>
+
+    <!-- ANA SAYFA -->
+    <section id="anasayfa" class="page-section aktif">
+      <div class="container">
+        <div class="hero-landing" id="hero-alan">
+          <h1>Türkiye ekonomisini anlamanın en eğlenceli yolu.</h1>
+              <p>Paranın gerçek değerini keşfet, 81 ilde tahmini yaşam maliyetini gör. Sonuçlar bilgilendirme amaçlıdır; kaynaklar modül sayfalarında açıklanır.</p>
+          <div class="cta-grid">
+            <div class="cta-kart" onclick="modulAc('enflasyon')">
+              <div class="emoji">🔥</div>
+              <h3>Enflasyon Makinesi</h3>
+              <p>2018'de 1.000 TL bugün ne kadar etmeli?</p>
+            </div>
+            <div class="cta-kart" onclick="modulAc('yasam')">
+              <div class="emoji">🏙️</div>
+              <h3>Yaşam Maliyeti</h3>
+              <p>Bu şehirde yaşamak için aylık ne lazım?</p>
+            </div>
+          </div>
+          <a class="proje-teaser" href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer">
+            <span class="proje-teaser-etiket">AlperTan™ · Diğer proje</span>
+            <span class="proje-teaser-metin"><strong>Türkiye Seçim Arşivi</strong> — 2018–2024, 13 seçim, il ve ilçe bazında YSK verisi. Bağımsız, tarafsız, reklamsız.</span>
+            <span class="proje-teaser-ok">↗</span>
+          </a>
+        </div>
+
+        <div class="modul-ust" id="modul-ust">
+          <div class="modul-hero">
+            <span class="eyebrow" id="modul-hero-eyebrow">Paranın Değeri</span>
+            <h1 id="modul-hero-baslik"></h1>
+            <p class="modul-hero-lede" id="modul-hero-aciklama"></p>
+          </div>
+          <div class="modul-tabs" id="modul-tabs">
+            <button class="modul-tab aktif" data-modul="enflasyon" onclick="modulAc('enflasyon')">🔥 Enflasyon Makinesi</button>
+            <button class="modul-tab" data-modul="yasam" onclick="modulAc('yasam')">🏙️ Yaşam Maliyeti</button>
+          </div>
+          <div class="proje-band" id="proje-band-secim">
+            <a class="proje-teaser" href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer">
+              <span class="proje-teaser-etiket">AlperTan™ · Seçim Arşivi</span>
+              <span class="proje-teaser-metin"><strong>secimarsivi.com</strong> — 2018–2024, 13 seçim, il ve ilçe bazında YSK verisi. Tarafsız, reklamsız.</span>
+              <span class="proje-teaser-ok">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- MODÜL 1 -->
+        <div id="panel-enflasyon" class="modul-panel aktif">
+          <div class="kart">
+            <h2>Enflasyon Makinesi</h2>
+            <div class="form-row">
+              <div class="form-grup">
+                <label for="enf-yil">Yıl</label>
+                <select id="enf-yil"></select>
+              </div>
+              <div class="form-grup">
+                <label for="enf-tutar">Tutar (TL)</label>
+                <input type="number" id="enf-tutar" value="1000" min="1" step="1">
+              </div>
+              <button class="btn" onclick="enflasyonHesapla()">HESAPLA →</button>
+            </div>
+            <div class="veri-kaynak-notu" id="enf-kaynak-form">
+              <p class="veri-kaynak-baslik">Kaynaklar ve uyarı</p>
+              <ul>
+                <li><strong>TÜFE:</strong> TÜİK yıllık enflasyon — TCMB EVDS (<code>TP.FE.OKTG01</code>).</li>
+                <li><strong>Dolar / altın:</strong> TCMB EVDS resmi kur ve külçe altın (TL/gr).</li>
+                <li><strong>Et, kira, market:</strong> Paranın Değeri tahmini endeks serileri (TÜFE’ye yakın eğilim; resmi TÜİK alt kalemi değildir).</li>
+              </ul>
+              <p>Sonuçlar <strong>bilgilendirme ve karşılaştırma</strong> içindir; resmi enflasyon veya yatırım tavsiyesi değildir.</p>
+              <p class="veri-kaynak-tarih" id="enf-veri-tarih"></p>
+            </div>
+          </div>
+
+          <div id="sonuc-karti-enflasyon" class="kart sonuc-karti">
+            <p class="sonuc-baslik" id="enf-baslik"></p>
+            <ul class="bar-list" id="enf-barlar"></ul>
+            <p id="enf-kayip-metin"></p>
+            <span class="kayip-badge" id="enf-kayip-badge"></span>
+            <p class="tetikleyici" id="enf-tetikleyici"></p>
+            <div class="veri-kaynak-notu">
+              <p class="veri-kaynak-baslik">Bu sonuç ne anlama geliyor?</p>
+              <p>Çubuklar, seçtiğiniz yıldaki tutarın bugünkü <strong>tahmini karşılığını</strong> farklı göstergelere göre gösterir. TÜFE ve kur verileri TCMB EVDS’ten; et / kira / market çubukları model tahminidir.</p>
+              <p class="veri-kaynak-tarih" id="enf-veri-tarih-sonuc"></p>
+            </div>
+          </div>
+          <div class="sonuc-aksiyon btn-grup" id="enf-aksiyon">
+            <button class="btn" onclick="kartPaylas('enflasyon')">📤 Paylaş</button>
+            <button class="btn btn-outline" onclick="linkKopyala('enflasyon')">🔗 Link Kopyala</button>
+          </div>
+
+          <div class="ad-container ad-result" id="ad-result-enf">
+            <span>Reklam alanı (336×280)</span>
+            <ins class="adsbygoogle" style="display:block" data-ad-format="rectangle"></ins>
+          </div>
+        </div>
+
+        <!-- MODÜL 2 -->
+        <div id="panel-yasam" class="modul-panel">
+          <div class="kart">
+            <h2>Yaşam Maliyeti Hesaplayıcısı</h2>
+            <p class="adim-etiket">Adım 1 — İl seç</p>
+            <div class="sehir-ara-wrap">
+              <input type="search" id="sehir-ara" placeholder="İl ara… (ör. Ankara, Muğla)" autocomplete="off" oninput="sehirAra()">
+            </div>
+            <div class="sehir-grid" id="sehir-grid"></div>
+
+            <p class="adim-etiket">Adım 2 — Profilini belirle</p>
+            <div class="chip-grup">
+              <label>Kaç kişisiniz?</label>
+              <button class="chip secili" data-grup="kisi" data-val="tek" onclick="chipSec(this)">Tek</button>
+              <button class="chip" data-grup="kisi" data-val="cift" onclick="chipSec(this)">Çift</button>
+              <button class="chip" data-grup="kisi" data-val="aile" onclick="chipSec(this)">Aile (3-4)</button>
+            </div>
+            <div class="chip-grup">
+              <label>Konut durumu?</label>
+              <button class="chip secili" data-grup="konut" data-val="kiraci" onclick="chipSec(this)">Kiracı</button>
+              <button class="chip" data-grup="konut" data-val="evsahibi" onclick="chipSec(this)">Ev sahibi</button>
+            </div>
+            <div class="chip-grup">
+              <label>Araç?</label>
+              <button class="chip secili" data-grup="arac" data-val="yok" onclick="chipSec(this)">Yok</button>
+              <button class="chip" data-grup="arac" data-val="var" onclick="chipSec(this)">Var</button>
+            </div>
+            <div class="chip-grup">
+              <label>Yaşam tarzı?</label>
+              <button class="chip" data-grup="tarz" data-val="mutevazi" onclick="chipSec(this)">Mütevazı</button>
+              <button class="chip secili" data-grup="tarz" data-val="orta" onclick="chipSec(this)">Orta</button>
+              <button class="chip" data-grup="tarz" data-val="rahat" onclick="chipSec(this)">Rahat</button>
+            </div>
+            <button class="btn" onclick="yasamHesapla()">HESAPLA →</button>
+            <div class="veri-kaynak-notu" id="yasam-kaynak-form">
+              <p class="veri-kaynak-baslik">Kaynaklar ve uyarı</p>
+              <ul>
+                <li><strong>Kira (81 il):</strong> TCMB «Değerlemesi Yapılan Konutların Birim Kiraları» (TL/m², çeyreklik; 1+1 / 2+1 tahmini daire alanından türetilir).</li>
+                <li><strong>Market, ulaşım, fatura, dışarıda yeme, sağlık, eğlence:</strong> 8 ankraj şehir (İstanbul, Ankara, İzmir, Bursa, Antalya, Adana, Konya, Gaziantep) verisinden il bazında <strong>ölçeklenmiş tahmin</strong>.</li>
+                <li>TCMB’nin tüm dönemleri yayınlamadığı birkaç ilde m² kira <strong>komşu illerden tahmin</strong> edilir.</li>
+              </ul>
+              <p>Aylık toplam <strong>minimum geçim tahmini</strong>dir; gerçek harcamanız değişebilir. Resmi kira sözleşmesi veya maaş hesabı yerine geçmez.</p>
+              <p class="veri-kaynak-tarih" id="yasam-veri-tarih"></p>
+            </div>
+          </div>
+
+          <div id="sonuc-karti-yasam" class="kart sonuc-karti">
+            <p class="sonuc-baslik" id="yasam-baslik"></p>
+            <p style="color:var(--muted)">aylık minimum</p>
+            <div class="sonuc-buyuk" id="yasam-toplam">₺ 0</div>
+            <ul class="detay-list" id="yasam-detay"></ul>
+            <div class="asgari-kars">
+              <p>Asgari ücret (2025): <strong>22.104 TL</strong></p>
+              <p class="fark" id="yasam-fark"></p>
+            </div>
+            <p class="tetikleyici" id="yasam-tetikleyici"></p>
+            <div class="veri-kaynak-notu" id="yasam-kaynak-sonuc">
+              <p class="veri-kaynak-baslik">Bu il için kaynak özeti</p>
+              <p id="yasam-kaynak-detay"></p>
+              <p>Profil çarpanları (kişi sayısı, tarz vb.) Paranın Değeri modelidir. Asgari ücret karşılaştırması bilgilendirme amaçlıdır.</p>
+              <p class="veri-kaynak-tarih" id="yasam-veri-tarih-sonuc"></p>
+            </div>
+          </div>
+          <div class="sonuc-aksiyon btn-grup" id="yasam-aksiyon">
+            <button class="btn" onclick="kartPaylas('yasam')">📤 Paylaş</button>
+            <button class="btn btn-outline" onclick="linkKopyala('yasam')">🔗 Link Kopyala</button>
+          </div>
+
+          <div class="ad-container ad-result" id="ad-result-yasam">
+            <span>Reklam alanı (336×280)</span>
+            <ins class="adsbygoogle" style="display:block" data-ad-format="rectangle"></ins>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGAL -->
+    <section id="hakkinda" class="legal-section">
+      <h2>Paranın Değeri Hakkında</h2>
+      <p><strong>paranindegeri.com</strong>, Türkiye'nin ekonomik gerçekliğini herkesin anlayabileceği, eğlenceli ve görsel bir şekilde sunan bağımsız bir veri platformudur.</p>
+      <p>Platform iki araç sunar: Enflasyon Makinesi ile geçmiş yıllardaki paranızın bugünkü satın alma gücünü farklı göstergelerle hesaplayabilir; Yaşam Maliyeti Hesaplayıcısı ile <strong>81 ilde</strong> aylık geçim maliyetini profilinize göre öğrenebilirsiniz.</p>
+
+      <h3>Veri kaynakları</h3>
+      <ul>
+        <li><strong>TÜFE, dolar, altın:</strong> Türkiye Cumhuriyet Merkez Bankası (TCMB) Elektronik Veri Dağıtım Sistemi (EVDS). Site açılışında <code>data/paranindegeri-data.json</code> dosyasından okunur; GitHub Actions ile periyodik güncellenir.</li>
+        <li><strong>Et, kira ve market endeksleri (enflasyon modülü):</strong> Paranın Değeri tarafından TÜFE eğilimine yakın üretilmiş <em>tahmini</em> seriler — resmi TÜİK alt kalemi değildir.</li>
+        <li><strong>Yaşam maliyeti — kira:</strong> TCMB «Değerlemesi Yapılan Konutların Birim Kiraları» (banka değerleme raporları, TL/m²).</li>
+        <li><strong>Yaşam maliyeti — diğer kalemler:</strong> Sekiz ankraj şehirdeki referans tutarlardan il bazında ölçeklenmiş <em>tahmin</em>.</li>
+      </ul>
+
+      <h3>Kardeş proje: Türkiye Seçim Arşivi</h3>
+      <p>
+        Aynı AlperTan™ çatısı altında
+        <a href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer"><strong>secimarsivi.com</strong></a>:
+        2018–2024 arası 13 seçim, 81 il ve 973 ilçe — YSK ve TÜİK kaynaklı, bağımsız seçim arşivi.
+      </p>
+      <p><a class="proje-teaser" href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer" style="max-width:100%;margin-top:12px">
+        <span class="proje-teaser-etiket">Ziyaret et</span>
+        <span class="proje-teaser-metin"><strong>Türkiye Seçim Arşivi</strong> — harita, trend, anket karşılaştırma</span>
+        <span class="proje-teaser-ok">↗</span>
+      </a></p>
+
+      <h3>Uyarı</h3>
+      <p>Paranın Değeri hesaplamaları yalnızca bilgilendirme ve karşılaştırma amaçlıdır. Resmi enflasyon bildirimi, kira sözleşmesi, maaş veya yatırım kararı için kullanılmamalıdır. Veriler gecikmeli veya eksik olabilir; hata bildirimi için iletişim sayfasını kullanabilirsiniz.</p>
+      <p>Paranın Değeri herhangi bir siyasi görüşü desteklemez; yalnızca veriyi görselleştirir.</p>
+      <p>İletişim: <a href="mailto:iletisim.secimarsivi@gmail.com">iletisim.secimarsivi@gmail.com</a> (Seçim Arşivi · Gmail)</p>
+    </section>
+
+    <section id="iletisim" class="legal-section">
+      <h2>İletişim</h2>
+      <p>Her türlü öneri, hata bildirimi veya işbirliği talebi için bize ulaşabilirsiniz.</p>
+      <p>📧 E-posta: <a href="mailto:iletisim.secimarsivi@gmail.com">iletisim.secimarsivi@gmail.com</a></p>
+      <p class="ipucu-inline" style="margin-top:8px">Seçim Arşivi ile ortak iletişim kutusu (Gmail). Yanıt süresi genellikle 1–3 iş günüdür.</p>
+      <form id="iletisim-form" onsubmit="formGonder(event)">
+        <input type="text" id="form-ad" placeholder="Adınız" required>
+        <input type="email" id="form-email" placeholder="E-posta" required>
+        <textarea id="form-mesaj" placeholder="Mesajınız..." required></textarea>
+        <button type="submit" class="btn">Gönder</button>
+      </form>
+    </section>
+
+    <section id="gizlilik" class="legal-section">
+      <h2>Gizlilik Politikası</h2>
+      <p><em>Son güncelleme: Haziran 2025</em></p>
+      <h3>Toplanan Veriler</h3>
+      <p>Paranın Değeri herhangi bir kişisel veri toplamaz, saklamaz veya üçüncü taraflarla paylaşmaz. Siteye girdiğiniz tutar ve yıl bilgileri yalnızca tarayıcınızda işlenir, hiçbir sunucuya iletilmez.</p>
+      <h3>Çerezler (Cookies)</h3>
+      <p>Site, Google AdSense reklamlarını göstermek amacıyla çerez kullanmaktadır. Google'ın çerez kullanımı hakkında daha fazla bilgi için: <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Reklam Politikası</a></p>
+      <h3>Google Analytics</h3>
+      <p>Site ziyaret istatistiklerini iyileştirmek amacıyla Google Analytics kullanılabilir. Bu hizmet anonim kullanım verisi toplar.</p>
+      <h3>KVKK</h3>
+      <p>6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel veri işleme faaliyeti yürütülmemektedir.</p>
+      <h3>İletişim</h3>
+      <p>Gizlilik ile ilgili sorularınız için: <a href="mailto:iletisim.secimarsivi@gmail.com">iletisim.secimarsivi@gmail.com</a></p>
+    </section>
+
+    <section id="admin-guncelle" class="legal-section admin-panel">
+      <h2>Veri güncelleme</h2>
+      <p class="admin-not">Bu sayfa yalnızca yönetici erişimi içindir. URL: <code>#admin-guncelle</code></p>
+
+      <div id="admin-giris-wrap">
+        <div class="admin-giris-form">
+          <input type="password" id="admin-sifre" placeholder="Şifre" autocomplete="current-password" onkeydown="if(event.key==='Enter')adminGiris()">
+          <button type="button" class="btn" onclick="adminGiris()">Giriş</button>
+        </div>
+        <p class="admin-hata" id="admin-giris-hata">Şifre hatalı.</p>
+      </div>
+
+      <div class="admin-icerik" id="admin-icerik">
+        <div class="admin-durum" id="admin-durum">
+          <div>✅ Son güncelleme: <span id="admin-son-tarih">—</span></div>
+          <div>✅ Mevcut veri yılı: <span id="admin-son-yil">—</span></div>
+        </div>
+
+        <p class="admin-not" style="margin-top:12px">
+          <strong>Otomatik:</strong> GitHub Actions her ay <code>data/paranindegeri-data.json</code> günceller (deploy sonrası herkes görür).<br>
+          <strong>Manuel:</strong> Aşağıdan çek → JSON indir → repoya kaydet → push.
+        </p>
+        <button type="button" class="btn" id="admin-evds-btn" onclick="adminEvdsGuncelle()">🔄 Şimdi Güncelle</button>
+        <button type="button" class="btn btn-outline" onclick="adminVeriIndir()">📥 data.json İndir</button>
+        <div class="admin-spinner" id="admin-spinner">TCMB EVDS verisi çekiliyor…</div>
+        <p class="admin-mesaj" id="admin-evds-mesaj"></p>
+
+        <div class="admin-sehir-form">
+          <h3>Yaşam maliyeti — kira ve şehir verileri</h3>
+
+          <div class="admin-rehber">
+            <h4>81 il — otomatik</h4>
+            <p>GitHub Actions / <code>fetch-evds.mjs</code> her çalıştığında <strong>81 il</strong> TCMB m² kira tablosundan ve bölgesel ölçeklemeden üretilir. Normalde <strong>elle güncelleme gerekmez</strong>.</p>
+            <p>Sitede şu an <strong id="admin-sehir-sayisi">81</strong> il var:</p>
+            <div class="admin-sehir-listesi" id="admin-sehir-listesi"></div>
+            <div class="veri-kaynak-notu">
+              <p class="veri-kaynak-baslik">Kaynak özeti (otomatik üretim)</p>
+              <ul>
+                <li><strong>Kira:</strong> TCMB «Değerlemesi Yapılan Konutların Birim Kiraları» (TL/m²).</li>
+                <li><strong>Diğer kalemler:</strong> 8 ankraj şehirden il bazında ölçeklenmiş tahmin.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="admin-rehber">
+            <h4>İsteğe bağlı: tek il düzelt</h4>
+            <p>Bir ili elle değiştirirsen kayıt <code>otomatik: false</code> sayılır; sonraki otomatik güncelleme o ili ezmez (data.json’a yazınca kalıcı olur).</p>
+          </div>
+
+          <p class="adim-etiket">İl düzenle (isteğe bağlı)</p>
+          <div class="form-grup" style="max-width:280px;margin-bottom:14px">
+            <label for="admin-sehir-sec">Şehir seç</label>
+            <select id="admin-sehir-sec" onchange="adminSehirFormDoldur()"></select>
+          </div>
+          <div class="admin-grid">
+            <div class="form-grup"><label>Kira 1+1 (TL/ay)</label><input type="number" id="adm-kira11" min="0" step="100" title="Tek veya çift için 1+1 ortalama kira"></div>
+            <div class="form-grup"><label>Kira 2+1 (TL/ay)</label><input type="number" id="adm-kira21" min="0" step="100" title="Aile profili için 2+1 ortalama kira"></div>
+            <div class="form-grup"><label>Market mütevazı</label><input type="number" id="adm-market-m" min="0" step="50"></div>
+            <div class="form-grup"><label>Market orta</label><input type="number" id="adm-market-o" min="0" step="50"></div>
+            <div class="form-grup"><label>Market rahat</label><input type="number" id="adm-market-r" min="0" step="50"></div>
+            <div class="form-grup"><label>Ulaşım toplu (TL/ay)</label><input type="number" id="adm-ulasim-t" min="0" step="50"></div>
+            <div class="form-grup"><label>Ulaşım araç (TL/ay)</label><input type="number" id="adm-ulasim-a" min="0" step="50"></div>
+          </div>
+          <div class="btn-grup">
+            <button type="button" class="btn" onclick="adminSehirKaydet()">Şehir verisini kaydet</button>
+            <button type="button" class="btn btn-outline" onclick="adminVeriIndir()">📥 Tüm veriyi indir (data.json)</button>
+          </div>
+          <p class="admin-mesaj" id="admin-sehir-mesaj"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kullanim-sartlari" class="legal-section">
+      <h2>Kullanım Şartları</h2>
+      <p><em>Son güncelleme: Haziran 2025</em></p>
+      <h3>Kabul</h3>
+      <p>Paranın Değeri'i kullanarak bu şartları kabul etmiş sayılırsınız.</p>
+      <h3>Hizmetin Kapsamı</h3>
+      <p>Paranın Değeri yalnızca bilgilendirme amaçlıdır. Sunulan hesaplamalar resmi finansal tavsiye niteliği taşımaz. Veriler kamuya açık kaynaklardan derlenmekte olup hata içerebilir.</p>
+      <h3>Veri kaynakları ve tahminler</h3>
+      <ul>
+        <li><strong>Resmi kaynak:</strong> TCMB EVDS (TÜFE, döviz kuru, altın); TCMB konut birim kira istatistikleri (yaşam maliyeti modülü).</li>
+        <li><strong>Tahmini / model:</strong> Enflasyon modülündeki kırmızı et, kira ve market sepeti endeksleri; yaşam maliyetindeki market, ulaşım, fatura ve sosyal harcama kalemleri; profil çarpanları ve «minimum geçim» toplamı.</li>
+        <li><strong>Güncelleme:</strong> Canlı sitede veri paketi <code>data/paranindegeri-data.json</code> üzerinden sunulur. Dosya yüklenemezse gömülü varsayılan değerler kullanılır (bu durumda tarih bilgisi «varsayılan» olarak gösterilir).</li>
+      </ul>
+      <p>Kullanıcı, sonuçların tahmin ve karşılaştırma niteliğinde olduğunu kabul eder.</p>
+      <h3>Fikri Mülkiyet</h3>
+      <p>Site içeriği, tasarımı ve kodu AlperTan™ tarafından geliştirilmiştir. İzinsiz kopyalanamaz veya dağıtılamaz.</p>
+      <h3>Sorumluluk Reddi</h3>
+      <p>Platformdaki hesaplamalar referans amaçlıdır. Paranın Değeri, hesaplama sonuçlarına dayanılarak alınan kararlardan sorumlu tutulamaz.</p>
+      <h3>Değişiklikler</h3>
+      <p>Bu şartlar önceden bildirim yapılmaksızın güncellenebilir.</p>
+    </section>
+
+    <div class="ad-container ad-footer" id="ad-footer">
+      <span>Reklam alanı (728×90)</span>
+      <ins class="adsbygoogle" style="display:block" data-ad-format="horizontal"></ins>
+    </div>
+
+    <footer>
+      <div>
+        <a href="#hakkinda" onclick="sayfaGoster('hakkinda'); return false;">Hakkında</a>
+        <a href="#iletisim" onclick="sayfaGoster('iletisim'); return false;">İletişim</a>
+        <a href="#gizlilik" onclick="sayfaGoster('gizlilik'); return false;">Gizlilik Politikası</a>
+        <a href="#kullanim-sartlari" onclick="sayfaGoster('kullanim-sartlari'); return false;">Kullanım Şartları</a>
+        <a href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer">Seçim Arşivi ↗</a>
+      </div>
+      <p class="footer-kaynak">
+        paranindegeri.com: TCMB EVDS (TÜFE, kur, altın) ve TCMB birim kira verisi; et / market / yaşam maliyeti kalemleri tahmini modeldir.
+        <a href="#kullanim-sartlari" onclick="sayfaGoster('kullanim-sartlari'); return false;">Kaynaklar ve uyarılar</a> —
+        <span id="footer-veri-tarih"></span>
+      </p>
+    </footer>
+  </div>
+
+  <div class="site-brand" aria-hidden="true">
+    <div class="site-brand-inner">
+      <img src="assets/alpertan_logo.png" alt="" class="site-brand-logo" width="24" height="24">
+      <span>AlperTan<span class="tm">™</span></span>
+    </div>
+  </div>
+
+  <div id="cerez-banner" class="cerez-banner">
+    <p>🍪 Bu site Google AdSense reklamları için çerez kullanır. <a href="#gizlilik" onclick="sayfaGoster('gizlilik')">Gizlilik Politikası</a></p>
+    <div class="cerez-butonlar">
+      <button class="btn-kabul" onclick="cerezKabul()">Kabul Et</button>
+      <button class="btn-reddet" onclick="cerezReddet()">Reddet</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const SITE_URL = 'https://paranindegeri.com';
+    const ADMIN_SIFRE = 'liradex2025'; /* eski şifre geçerli; değiştirmek için burayı güncelle */
+    /* Canlıda Cloudflare EVDS_API_KEY kullanılır; yerelde opsiyonel */
+    const TCMB_API_KEY = 'TCMB_API_KEY_BURAYA';
+    const EVDS_BASE = 'https://evds3.tcmb.gov.tr/igmevdsms-dis/';
+    const EVDS_ALTIN_SERI = 'TP.MK.KUL.YTL'; /* TP.ALTIN01 evds3'te yok; külçe altın TL */
+
+    const LS = {
+      TUFE: 'paranindegeri_tufe',
+      DOLAR: 'paranindegeri_dolar',
+      ALTIN: 'paranindegeri_altin',
+      SEHIRLER: 'paranindegeri_sehirler',
+      TARIH: 'paranindegeri_guncelleme_tarihi',
+      ADMIN: 'paranindegeri_admin_oturum'
+    };
+
+    (function lsEskiAnahtarTasi() {
+      const eskiYeni = Object.entries(LS).map(([, yeni]) => {
+        const eski = yeni.replace('paranindegeri_', 'liradex_');
+        return [eski, yeni];
+      });
+      eskiYeni.forEach(([eski, yeni]) => {
+        if (localStorage.getItem(eski) != null && localStorage.getItem(yeni) == null) {
+          localStorage.setItem(yeni, localStorage.getItem(eski));
+        }
+      });
+    })();
+
+    const ASGARI_UCRET = 22104;
+    let BUGUN_YIL = 2025;
+
+    const DEFAULT_TUFE = {
+      2003: 18.4, 2004: 9.3, 2005: 7.7, 2006: 9.6, 2007: 8.4, 2008: 10.1,
+      2009: 6.5, 2010: 6.4, 2011: 10.4, 2012: 6.2, 2013: 7.4, 2014: 8.2,
+      2015: 8.8, 2016: 8.5, 2017: 11.9, 2018: 20.3, 2019: 11.8, 2020: 14.6,
+      2021: 19.6, 2022: 72.3, 2023: 64.8, 2024: 44.4, 2025: 32.0
+    };
+
+    let tufeYillik = { ...DEFAULT_TUFE };
+
+    const kiraEndeksi = {
+      2003: 12, 2004: 10, 2005: 9, 2006: 11, 2007: 10, 2008: 12, 2009: 8,
+      2010: 7, 2011: 9, 2012: 8, 2013: 9, 2014: 10, 2015: 11, 2016: 10,
+      2017: 12, 2018: 18, 2019: 14, 2020: 16, 2021: 22, 2022: 85, 2023: 75,
+      2024: 55, 2025: 40
+    };
+
+    const etFiyati = {
+      2003: 15, 2004: 12, 2005: 10, 2006: 11, 2007: 10, 2008: 13, 2009: 8,
+      2010: 9, 2011: 12, 2012: 9, 2013: 10, 2014: 11, 2015: 12, 2016: 11,
+      2017: 14, 2018: 22, 2019: 15, 2020: 18, 2021: 25, 2022: 80, 2023: 70,
+      2024: 50, 2025: 35
+    };
+
+    const marketSepeti = {
+      2003: 14, 2004: 9, 2005: 8, 2006: 9, 2007: 8, 2008: 11, 2009: 7,
+      2010: 7, 2011: 10, 2012: 7, 2013: 8, 2014: 9, 2015: 9, 2016: 8,
+      2017: 11, 2018: 19, 2019: 12, 2020: 15, 2021: 20, 2022: 75, 2023: 65,
+      2024: 45, 2025: 30
+    };
+
+    const DEFAULT_DOLAR = {
+      2003: 1.49, 2004: 1.83, 2005: 1.43, 2006: 1.56, 2007: 1.31, 2008: 1.26,
+      2009: 1.55, 2010: 1.56, 2011: 1.67, 2012: 1.80, 2013: 1.90, 2014: 2.19,
+      2015: 2.72, 2016: 3.02, 2017: 3.65, 2018: 4.84, 2019: 5.95, 2020: 7.02,
+      2021: 8.90, 2022: 16.57, 2023: 23.77, 2024: 32.50, 2025: 38.20
+    };
+
+    let dolarKuru = { ...DEFAULT_DOLAR };
+
+    const DEFAULT_ALTIN = {
+      2003: 42, 2004: 52, 2005: 58, 2006: 72, 2007: 85, 2008: 95, 2009: 110,
+      2010: 125, 2011: 145, 2012: 165, 2013: 185, 2014: 210, 2015: 250,
+      2016: 290, 2017: 340, 2018: 420, 2019: 520, 2020: 680, 2021: 950,
+      2022: 1450, 2023: 2100, 2024: 2850, 2025: 3200
+    };
+
+    let altinGram = { ...DEFAULT_ALTIN };
+
+    const DEFAULT_SEHIR = {
+      istanbul: { ad: 'İstanbul', emoji: '🌉', kira: { '1+1': { ort: 18500 }, '2+1': { ort: 28000 } }, market: { mutevazi: 4500, orta: 6200, rahat: 9000 }, ulasim: { toplutas: 2800, arac: 6500 }, fatura: { ort: 3100 }, disarida: { tabak: 250 }, saglik: 1200, eglence: { mutevazi: 1200, orta: 2400, rahat: 4500 }, iletisim: 500 },
+      ankara: { ad: 'Ankara', emoji: '🏛️', kira: { '1+1': { ort: 13000 }, '2+1': { ort: 19000 } }, market: { mutevazi: 4000, orta: 5500, rahat: 8000 }, ulasim: { toplutas: 2200, arac: 5800 }, fatura: { ort: 2800 }, disarida: { tabak: 200 }, saglik: 1000, eglence: { mutevazi: 1000, orta: 2000, rahat: 3800 }, iletisim: 500 },
+      izmir: { ad: 'İzmir', emoji: '🌊', kira: { '1+1': { ort: 15000 }, '2+1': { ort: 22000 } }, market: { mutevazi: 4200, orta: 5800, rahat: 8500 }, ulasim: { toplutas: 2400, arac: 6000 }, fatura: { ort: 2900 }, disarida: { tabak: 220 }, saglik: 1100, eglence: { mutevazi: 1100, orta: 2200, rahat: 4000 }, iletisim: 500 },
+      bursa: { ad: 'Bursa', emoji: '⛰️', kira: { '1+1': { ort: 12000 }, '2+1': { ort: 17000 } }, market: { mutevazi: 3800, orta: 5200, rahat: 7500 }, ulasim: { toplutas: 2000, arac: 5500 }, fatura: { ort: 2600 }, disarida: { tabak: 180 }, saglik: 950, eglence: { mutevazi: 900, orta: 1800, rahat: 3200 }, iletisim: 500 },
+      antalya: { ad: 'Antalya', emoji: '☀️', kira: { '1+1': { ort: 14000 }, '2+1': { ort: 21000 } }, market: { mutevazi: 4000, orta: 5600, rahat: 8200 }, ulasim: { toplutas: 2100, arac: 5600 }, fatura: { ort: 2700 }, disarida: { tabak: 210 }, saglik: 1000, eglence: { mutevazi: 1000, orta: 2100, rahat: 3900 }, iletisim: 500 },
+      adana: { ad: 'Adana', emoji: '🌶️', kira: { '1+1': { ort: 9500 }, '2+1': { ort: 14000 } }, market: { mutevazi: 3500, orta: 4800, rahat: 7000 }, ulasim: { toplutas: 1800, arac: 5000 }, fatura: { ort: 2400 }, disarida: { tabak: 150 }, saglik: 850, eglence: { mutevazi: 800, orta: 1600, rahat: 2800 }, iletisim: 450 },
+      konya: { ad: 'Konya', emoji: '🕌', kira: { '1+1': { ort: 8500 }, '2+1': { ort: 12500 } }, market: { mutevazi: 3200, orta: 4500, rahat: 6500 }, ulasim: { toplutas: 1600, arac: 4800 }, fatura: { ort: 2300 }, disarida: { tabak: 140 }, saglik: 800, eglence: { mutevazi: 700, orta: 1400, rahat: 2500 }, iletisim: 450 },
+      gaziantep: { ad: 'Gaziantep', emoji: '🥙', kira: { '1+1': { ort: 9000 }, '2+1': { ort: 13500 } }, market: { mutevazi: 3400, orta: 4700, rahat: 6800 }, ulasim: { toplutas: 1700, arac: 4900 }, fatura: { ort: 2350 }, disarida: { tabak: 145 }, saglik: 820, eglence: { mutevazi: 750, orta: 1500, rahat: 2700 }, iletisim: 450 }
+    };
+
+    let sehirVeri = JSON.parse(JSON.stringify(DEFAULT_SEHIR));
+
+    function getEnfGostergeler() {
+      return [
+        { id: 'tufe', emoji: '📊', ad: 'TÜİK Enflasyonuna göre', veri: tufeYillik, tip: 'bilesik', kaynak: 'TCMB EVDS' },
+        { id: 'dolar', emoji: '💵', ad: 'Dolara göre', veri: dolarKuru, tip: 'kur', kaynak: 'TCMB EVDS' },
+        { id: 'et', emoji: '🥩', ad: 'Kırmızı ete göre (tahmin)', veri: etFiyati, tip: 'bilesik', kaynak: 'Paranın Değeri tahmini' },
+        { id: 'kira', emoji: '🏠', ad: 'Kiraya göre (tahmin)', veri: kiraEndeksi, tip: 'bilesik', kaynak: 'Paranın Değeri tahmini' },
+        { id: 'market', emoji: '🥗', ad: 'Market sepetine göre (tahmin)', veri: marketSepeti, tip: 'bilesik', kaynak: 'Paranın Değeri tahmini' },
+        { id: 'altin', emoji: '📈', ad: 'Altına göre', veri: altinGram, tip: 'kur', kaynak: 'TCMB EVDS' }
+      ];
+    }
+
+    function sonVeriYili(obj) {
+      const yillar = Object.keys(obj).map(Number).filter(y => !isNaN(y));
+      return yillar.length ? Math.max(...yillar) : BUGUN_YIL;
+    }
+
+    function bugunYilGuncelle() {
+      BUGUN_YIL = Math.max(sonVeriYili(tufeYillik), sonVeriYili(dolarKuru), sonVeriYili(altinGram), 2025);
+    }
+
+    function veriLsOku(anahtar) {
+      try {
+        const ham = localStorage.getItem(anahtar);
+        return ham ? JSON.parse(ham) : null;
+      } catch (e) { return null; }
+    }
+
+    function veriLsYaz(anahtar, veri) {
+      localStorage.setItem(anahtar, JSON.stringify(veri));
+    }
+
+    function yillikBirlestir(varsayilan, kaynak) {
+      const c = { ...varsayilan };
+      if (kaynak && typeof kaynak === 'object') Object.assign(c, kaynak);
+      return c;
+    }
+
+    let veriMeta = { kaynak: 'varsayılan (gömülü)', guncelleme_tarihi: null };
+
+    function veriGuncellemeMetni() {
+      if (veriMeta.guncelleme_tarihi) {
+        const t = new Date(veriMeta.guncelleme_tarihi).toLocaleString('tr-TR');
+        return 'Veri güncellemesi: ' + t + (veriMeta.kaynak ? ' — ' + veriMeta.kaynak : '');
+      }
+      return 'Veri: gömülü varsayılan (canlı data/paranindegeri-data.json yüklenemedi).';
+    }
+
+    function kaynakNotlariGuncelle() {
+      const metin = veriGuncellemeMetni();
+      document.querySelectorAll('.veri-kaynak-tarih').forEach(el => { el.textContent = metin; });
+    }
+
+    function yasamKaynakDetayGuncelle(s) {
+      const el = document.getElementById('yasam-kaynak-detay');
+      if (!el || !s) return;
+      const m2 = s.m2_kira != null ? s.m2_kira + ' TL/m²' : '—';
+      const kaynak = s.kira_kaynak || 'TCMB birim kira';
+      const otomatik = s.otomatik !== false ? 'otomatik üretim' : 'elle düzenlenmiş';
+      el.textContent =
+        s.ad + ': kira ' + kaynak + ' (' + m2 + ', ' + otomatik + '). ' +
+        'Diğer gider kalemleri ankraj şehir ölçeklemesiyle tahmin edilmiştir.';
+    }
+
+    function sehirVeriUygula(lsSehir) {
+      const keys = lsSehir ? Object.keys(lsSehir) : [];
+      if (keys.length === 0) {
+        sehirVeri = JSON.parse(JSON.stringify(DEFAULT_SEHIR));
+        return;
+      }
+      sehirVeri = {};
+      keys.forEach(k => {
+        const kaynak = lsSehir[k];
+        if (!kaynak || !kaynak.ad || !kaynak.kira) return;
+        const taban = DEFAULT_SEHIR[k];
+        sehirVeri[k] = taban
+          ? {
+              ...taban,
+              ...kaynak,
+              kira: { ...taban.kira, ...kaynak.kira },
+              market: kaynak.market ? { ...taban.market, ...kaynak.market } : taban.market,
+              ulasim: kaynak.ulasim ? { ...taban.ulasim, ...kaynak.ulasim } : taban.ulasim
+            }
+          : { ...kaynak };
+      });
+    }
+
+    function veriPaketiUygula(paket) {
+      if (!paket) {
+        tufeYillik = { ...DEFAULT_TUFE };
+        dolarKuru = { ...DEFAULT_DOLAR };
+        altinGram = { ...DEFAULT_ALTIN };
+        sehirVeriUygula(null);
+        bugunYilGuncelle();
+        kaynakNotlariGuncelle();
+        return;
+      }
+      if (paket.tufe) tufeYillik = yillikBirlestir(DEFAULT_TUFE, paket.tufe);
+      if (paket.dolar) dolarKuru = yillikBirlestir(DEFAULT_DOLAR, paket.dolar);
+      if (paket.altin) altinGram = yillikBirlestir(DEFAULT_ALTIN, paket.altin);
+      sehirVeriUygula(paket.sehirler || null);
+      if (paket.bugun_yil) BUGUN_YIL = paket.bugun_yil;
+      else bugunYilGuncelle();
+      veriMeta = {
+        kaynak: paket.kaynak || 'data/paranindegeri-data.json',
+        guncelleme_tarihi: paket.guncelleme_tarihi || null
+      };
+      kaynakNotlariGuncelle();
+      if (sehirVeri[seciliSehir]) yasamKaynakDetayGuncelle(sehirVeri[seciliSehir]);
+    }
+
+    function veriPaketiOlustur() {
+      const sehirler = {};
+      Object.keys(sehirVeri).forEach(k => {
+        const s = sehirVeri[k];
+        sehirler[k] = {
+          ad: s.ad,
+          emoji: s.emoji,
+          kira: s.kira,
+          market: s.market,
+          ulasim: s.ulasim,
+          fatura: s.fatura,
+          disarida: s.disarida,
+          saglik: s.saglik,
+          eglence: s.eglence,
+          iletisim: s.iletisim
+        };
+      });
+      return {
+        guncelleme_tarihi: new Date().toISOString(),
+        kaynak: 'Paranın Değeri admin',
+        bugun_yil: BUGUN_YIL,
+        tufe: tufeYillik,
+        dolar: dolarKuru,
+        altin: altinGram,
+        sehirler
+      };
+    }
+
+    async function veriYukle() {
+      const dosyalar = ['data/paranindegeri-data.json', 'data/liradex-data.json'];
+      for (const dosya of dosyalar) {
+        try {
+          const res = await fetch(dosya + '?v=' + Date.now());
+          if (res.ok) {
+            veriPaketiUygula(await res.json());
+            return;
+          }
+        } catch (e) { /* offline veya file:// */ }
+      }
+      veriPaketiUygula(null);
+    }
+
+    function parseEvdsSayi(v) {
+      if (v == null || v === '') return NaN;
+      const s = String(v).trim();
+      if (s.includes(',') && s.includes('.')) {
+        return parseFloat(s.replace(/\./g, '').replace(',', '.'));
+      }
+      return parseFloat(s.replace(',', '.'));
+    }
+
+    function tarihYil(tarih) {
+      const m = String(tarih || '').match(/(\d{4})/);
+      return m ? parseInt(m[1], 10) : null;
+    }
+
+    function evdsDegerAnahtari(items, kod) {
+      if (!items || !items.length) return null;
+      const row = items[0];
+      const alt = kod.replace(/\./g, '_');
+      if (row[kod] !== undefined) return kod;
+      if (row[alt] !== undefined) return alt;
+      const keys = Object.keys(row).filter(k => k !== 'Tarih' && k !== 'UNIXTIME');
+      return keys[0] || null;
+    }
+
+    function evdsProxyAdresleri(params) {
+      const q = params.toString();
+      const list = ['/evds-proxy?' + q];
+      if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.protocol === 'file:') {
+        list.push('http://127.0.0.1:8799/?' + q);
+      }
+      return list;
+    }
+
+    async function evdsSeriCek(seriKodu, opts = {}) {
+      if (TCMB_API_KEY === 'TCMB_API_KEY_BURAYA') {
+        throw new Error('TCMB API anahtarı tanımlı değil (TCMB_API_KEY)');
+      }
+      const params = new URLSearchParams({
+        series: seriKodu,
+        startDate: '01-01-2003',
+        endDate: '31-12-2025',
+        type: 'json',
+        frequency: opts.frequency || '5',
+        ...(opts.aggregationTypes ? { aggregationTypes: opts.aggregationTypes } : {}),
+        ...(opts.formulas ? { formulas: opts.formulas } : {})
+      });
+
+      const urls = evdsProxyAdresleri(params);
+      let sonHata = null;
+
+      for (const proxyUrl of urls) {
+        try {
+          const hdr = {};
+          if (TCMB_API_KEY && TCMB_API_KEY !== 'TCMB_API_KEY_BURAYA') {
+            hdr['X-EVDS-Key'] = TCMB_API_KEY;
+          }
+          const res = await fetch(proxyUrl, { headers: hdr });
+          const metin = await res.text();
+          if (!res.ok) throw new Error('HTTP ' + res.status + (metin ? ': ' + metin.slice(0, 80) : ''));
+          if (metin.trim().startsWith('<')) {
+            throw new Error('EVDS HTML yanıt döndü (API adresi veya anahtar hatalı)');
+          }
+          const json = JSON.parse(metin);
+          if (json.error) throw new Error(json.error);
+          return json.items || [];
+        } catch (e) {
+          sonHata = e;
+        }
+      }
+
+      throw sonHata || new Error(
+        'EVDS proxy erişilemedi. Yerelde EVDS-PROXY.bat çalıştırın veya Netlify\'a deploy edin.'
+      );
+    }
+
+    function yillikSonDeger(items, seriKodu) {
+      const key = evdsDegerAnahtari(items, seriKodu);
+      const son = {};
+      items.forEach(row => {
+        const y = tarihYil(row.Tarih);
+        const v = parseEvdsSayi(row[key]);
+        if (y && !isNaN(v)) son[y] = v;
+      });
+      return son;
+    }
+
+    function yillikOrtalama(items, seriKodu) {
+      const key = evdsDegerAnahtari(items, seriKodu);
+      const gruplar = {};
+      items.forEach(row => {
+        const y = tarihYil(row.Tarih);
+        const v = parseEvdsSayi(row[key]);
+        if (!y || isNaN(v)) return;
+        if (!gruplar[y]) gruplar[y] = { t: 0, n: 0 };
+        gruplar[y].t += v;
+        gruplar[y].n++;
+      });
+      const son = {};
+      Object.keys(gruplar).forEach(y => {
+        son[y] = Math.round((gruplar[y].t / gruplar[y].n) * 100) / 100;
+      });
+      return son;
+    }
+
+    function yillikTufeOran(items, seriKodu) {
+      const key = evdsDegerAnahtari(items, seriKodu);
+      const degerler = items.map(r => parseEvdsSayi(r[key])).filter(v => !isNaN(v));
+      const oranMi = degerler.length && degerler.every(v => v > -50 && v < 200);
+      if (oranMi) return yillikSonDeger(items, seriKodu);
+
+      const yillikEndeks = yillikSonDeger(items, seriKodu);
+      const yillar = Object.keys(yillikEndeks).map(Number).sort((a, b) => a - b);
+      const oranlar = {};
+      for (let i = 1; i < yillar.length; i++) {
+        const once = yillikEndeks[yillar[i - 1]], simdi = yillikEndeks[yillar[i]];
+        if (once > 0 && simdi > 0) {
+          oranlar[yillar[i]] = Math.round((simdi / once - 1) * 1000) / 10;
+        }
+      }
+      return oranlar;
+    }
+
+    async function adminEvdsGuncelle() {
+      const mesaj = document.getElementById('admin-evds-mesaj');
+      const spinner = document.getElementById('admin-spinner');
+      const btn = document.getElementById('admin-evds-btn');
+      mesaj.className = 'admin-mesaj';
+      mesaj.textContent = '';
+      spinner.classList.add('goster');
+      btn.disabled = true;
+
+      try {
+        const [tufeItems, dolarItems, altinItems] = await Promise.all([
+          evdsSeriCek('TP.FE.OKTG01', { frequency: '5' }),
+          evdsSeriCek('TP.DK.USD.A', { frequency: '5', aggregationTypes: 'avg' }),
+          evdsSeriCek(EVDS_ALTIN_SERI, { frequency: '5', aggregationTypes: 'avg' })
+        ]);
+
+        const yeniTufe = yillikTufeOran(tufeItems, 'TP.FE.OKTG01');
+        const yeniDolar = yillikOrtalama(dolarItems, 'TP.DK.USD.A');
+        const yeniAltin = yillikOrtalama(altinItems, EVDS_ALTIN_SERI);
+
+        tufeYillik = yillikBirlestir(DEFAULT_TUFE, yeniTufe);
+        dolarKuru = yillikBirlestir(DEFAULT_DOLAR, yeniDolar);
+        altinGram = yillikBirlestir(DEFAULT_ALTIN, yeniAltin);
+
+        const paket = veriPaketiOlustur();
+        veriMeta.guncelleme_tarihi = paket.guncelleme_tarihi;
+        veriMeta.kaynak = 'admin (önizleme — yayın için JSON indir + push)';
+
+        bugunYilGuncelle();
+        yenileYilDropdown();
+        adminDurumGuncelle();
+
+        mesaj.className = 'admin-mesaj basarili';
+        mesaj.textContent = 'Güncellendi! ' + BUGUN_YIL + ' — 📥 data.json indirip repoya kaydedin, herkes görsün.';
+      } catch (err) {
+        tufeYillik = yillikBirlestir(DEFAULT_TUFE, veriLsOku(LS.TUFE));
+        dolarKuru = yillikBirlestir(DEFAULT_DOLAR, veriLsOku(LS.DOLAR));
+        altinGram = yillikBirlestir(DEFAULT_ALTIN, veriLsOku(LS.ALTIN));
+        bugunYilGuncelle();
+        mesaj.className = 'admin-mesaj hata';
+        const corsIpucu = String(err.message || '').includes('fetch')
+          ? ' — Çözüm: EVDS-PROXY.bat dosyasını çalıştırıp tekrar deneyin.'
+          : '';
+        mesaj.textContent = 'API hatası, hardcode veri kullanılıyor' +
+          (err.message ? ' (' + err.message + ')' : '') + corsIpucu;
+      } finally {
+        spinner.classList.remove('goster');
+        btn.disabled = false;
+      }
+    }
+
+    function adminDurumGuncelle() {
+      const tarihEl = document.getElementById('admin-son-tarih');
+      const yilEl = document.getElementById('admin-son-yil');
+      if (tarihEl) {
+        tarihEl.textContent = veriMeta.guncelleme_tarihi
+          ? new Date(veriMeta.guncelleme_tarihi).toLocaleString('tr-TR') + ' (' + veriMeta.kaynak + ')'
+          : 'Varsayılan veri (data/paranindegeri-data.json yok)';
+      }
+      if (yilEl) yilEl.textContent = String(BUGUN_YIL);
+    }
+
+    function adminVeriIndir() {
+      const paket = veriPaketiOlustur();
+      const blob = new Blob([JSON.stringify(paket, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'paranindegeri-data.json';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('paranindegeri-data.json indirildi — data/ klasörüne koyup push edin');
+    }
+
+    function adminGiris() {
+      const sifre = document.getElementById('admin-sifre').value;
+      const hata = document.getElementById('admin-giris-hata');
+      if (sifre !== ADMIN_SIFRE) {
+        hata.classList.add('goster');
+        document.getElementById('admin-icerik').classList.remove('goster');
+        sessionStorage.removeItem(LS.ADMIN);
+        return;
+      }
+      hata.classList.remove('goster');
+      sessionStorage.setItem(LS.ADMIN, '1');
+      document.getElementById('admin-icerik').classList.add('goster');
+      adminDurumGuncelle();
+      adminSehirSelectDoldur();
+      adminSehirFormDoldur();
+    }
+
+    function adminOturumKontrol() {
+      if (sessionStorage.getItem(LS.ADMIN) === '1') {
+        document.getElementById('admin-icerik').classList.add('goster');
+        document.getElementById('admin-giris-hata').classList.remove('goster');
+        adminDurumGuncelle();
+        adminSehirSelectDoldur();
+        adminSehirFormDoldur();
+      }
+    }
+
+    function adminSehirListeGuncelle() {
+      const sayi = document.getElementById('admin-sehir-sayisi');
+      const liste = document.getElementById('admin-sehir-listesi');
+      const keys = Object.keys(sehirVeri);
+      if (sayi) sayi.textContent = String(keys.length);
+      if (liste) {
+        liste.innerHTML = keys
+          .map(k => sehirVeri[k])
+          .sort((a, b) => a.ad.localeCompare(b.ad, 'tr'))
+          .map(s => `<span class="admin-sehir-etiket">${s.emoji} ${s.ad}</span>`)
+          .join('');
+      }
+    }
+
+    function adminSehirSelectDoldur() {
+      const sel = document.getElementById('admin-sehir-sec');
+      if (!sel) return;
+      const onceki = sel.value;
+      sel.innerHTML = '';
+      Object.entries(sehirVeri)
+        .sort((a, b) => a[1].ad.localeCompare(b[1].ad, 'tr'))
+        .forEach(([key, v]) => {
+          const opt = document.createElement('option');
+          opt.value = key;
+          opt.textContent = v.ad;
+          sel.appendChild(opt);
+        });
+      if (onceki && sehirVeri[onceki]) sel.value = onceki;
+      adminSehirListeGuncelle();
+    }
+
+    function adminSehirFormDoldur() {
+      const key = document.getElementById('admin-sehir-sec')?.value || 'istanbul';
+      const s = sehirVeri[key];
+      if (!s) return;
+      document.getElementById('adm-kira11').value = s.kira['1+1'].ort;
+      document.getElementById('adm-kira21').value = s.kira['2+1'].ort;
+      document.getElementById('adm-market-m').value = s.market.mutevazi;
+      document.getElementById('adm-market-o').value = s.market.orta;
+      document.getElementById('adm-market-r').value = s.market.rahat;
+      document.getElementById('adm-ulasim-t').value = s.ulasim.toplutas;
+      document.getElementById('adm-ulasim-a').value = s.ulasim.arac;
+    }
+
+    function adminSehirKaydet() {
+      const key = document.getElementById('admin-sehir-sec').value;
+      const mesaj = document.getElementById('admin-sehir-mesaj');
+      const n = (id) => parseInt(document.getElementById(id).value, 10) || 0;
+
+      sehirVeri[key].kira['1+1'].ort = n('adm-kira11');
+      sehirVeri[key].kira['2+1'].ort = n('adm-kira21');
+      sehirVeri[key].market.mutevazi = n('adm-market-m');
+      sehirVeri[key].market.orta = n('adm-market-o');
+      sehirVeri[key].market.rahat = n('adm-market-r');
+      sehirVeri[key].ulasim.toplutas = n('adm-ulasim-t');
+      sehirVeri[key].ulasim.arac = n('adm-ulasim-a');
+      sehirVeri[key].otomatik = false;
+
+      const lsSehir = veriLsOku(LS.SEHIRLER) || {};
+      lsSehir[key] = { ...sehirVeri[key], otomatik: false };
+      veriLsYaz(LS.SEHIRLER, lsSehir);
+      veriMeta.kaynak = 'admin şehir (önizleme — JSON indir + push)';
+
+      yenileSehirGrid();
+      adminSehirSelectDoldur();
+      mesaj.className = 'admin-mesaj basarili';
+      mesaj.textContent = sehirVeri[key].ad + ' kaydedildi. Bitince 📥 data.json indirip push edin.';
+      setTimeout(() => { mesaj.className = 'admin-mesaj'; }, 5000);
+    }
+
+    function adminSayfaAc() {
+      document.querySelectorAll('.page-section, .legal-section').forEach(s => s.classList.remove('aktif'));
+      document.getElementById('admin-guncelle').classList.add('aktif');
+      document.getElementById('anasayfa').classList.remove('aktif');
+      document.getElementById('hero-alan').style.display = 'none';
+      document.getElementById('modul-ust').classList.remove('goster');
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('aktif'));
+      adminOturumKontrol();
+      window.scrollTo(0, 0);
+    }
+
+    const barRenkler = ['#2d6b3f', '#1f4d6e', '#6b2d52', '#a07820', '#c8861a', '#b8311a'];
+    const enfTetikleyiciler = [
+      'Emekli maaşı bu farka dayanıyor 😔',
+      'Gerçek enflasyon resmi rakamın üzerinde olabilir.',
+      'Tasarrufların satın alma gücü eridi.',
+      'Maaşın aynı kaldıysa, fiilen zam alamadın demektir.',
+      'Bu rakam "etiket fiyatı" — cebindeki his farklı.'
+    ];
+
+    let seciliSehir = 'istanbul';
+    let yasamProfil = { kisi: 'tek', konut: 'kiraci', arac: 'yok', tarz: 'orta' };
+
+    function bilesikHesap(baslangicYil, tutar, veri, bitisYil) {
+      let carpan = 1;
+      for (let y = baslangicYil; y < bitisYil; y++) {
+        if (veri[y] != null) carpan *= (1 + veri[y] / 100);
+      }
+      return tutar * carpan;
+    }
+
+    function kurHesap(baslangicYil, tutar, veri, bitisYil) {
+      const b = veri[baslangicYil], s = veri[bitisYil];
+      if (!b || !s) return tutar;
+      return (tutar / b) * s;
+    }
+
+    function formatTL(n) {
+      return Math.round(n).toLocaleString('tr-TR') + ' TL';
+    }
+
+    const MODUL_HERO = {
+      enflasyon: {
+        eyebrow: 'Enflasyon Makinesi',
+        baslik: 'Paranın gerçek değerini gör',
+        aciklama: 'TÜFE ve kur: TCMB EVDS. Et / kira / market çubukları: tahmini endeks — karşılaştırma içindir.'
+      },
+      yasam: {
+        eyebrow: 'Yaşam Maliyeti',
+        baslik: 'Bu şehirde yaşamak ne kadar?',
+        aciklama: '81 il — kira TCMB birim kira verisi; diğer kalemler ölçeklenmiş tahmin. Asgari ücretle kıyaslama bilgilendirme amaçlıdır.'
+      }
+    };
+
+    function modulHeroGuncelle(modul) {
+      const m = MODUL_HERO[modul];
+      if (!m) return;
+      document.getElementById('modul-hero-eyebrow').textContent = m.eyebrow;
+      document.getElementById('modul-hero-baslik').textContent = m.baslik;
+      document.getElementById('modul-hero-aciklama').textContent = m.aciklama;
+    }
+
+    function animeSayi(element, hedef, prefix = '', suffix = ' TL', sure = 1200) {
+      const baslangic = performance.now();
+      function kare(t) { return 1 - Math.pow(1 - t, 3); }
+      function frame(now) {
+        const t = Math.min((now - baslangic) / sure, 1);
+        const guncel = Math.round(hedef * kare(t));
+        element.textContent = prefix + guncel.toLocaleString('tr-TR') + suffix;
+        if (t < 1) requestAnimationFrame(frame);
+        else element.textContent = prefix + Math.round(hedef).toLocaleString('tr-TR') + suffix;
+      }
+      requestAnimationFrame(frame);
+    }
+
+    function sonucGoster(kartId, aksiyonId) {
+      const kart = document.getElementById(kartId);
+      const aksiyon = document.getElementById(aksiyonId);
+      kart.classList.remove('goster');
+      aksiyon.classList.remove('goster');
+      void kart.offsetWidth;
+      kart.classList.add('goster');
+      aksiyon.classList.add('goster');
+      kart.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('goster');
+      setTimeout(() => t.classList.remove('goster'), 2800);
+    }
+
+    function sayfaGoster(hedef) {
+      const id = hedef.replace('#', '');
+      document.querySelectorAll('.page-section, .legal-section').forEach(s => s.classList.remove('aktif'));
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('aktif'));
+
+      if (id === 'admin-guncelle') {
+        history.replaceState(null, '', '#admin-guncelle');
+        adminSayfaAc();
+        return;
+      }
+
+      if (['hakkinda', 'iletisim', 'gizlilik', 'kullanim-sartlari'].includes(id)) {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('aktif');
+        document.querySelector(`nav a[data-nav="${id}"]`)?.classList.add('aktif');
+        history.replaceState(null, '', '#' + id);
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      document.getElementById('anasayfa').classList.add('aktif');
+      history.replaceState(null, '', id === 'anasayfa' ? window.location.pathname : '#' + id);
+
+      if (id === 'enflasyon' || id === 'yasam') modulAc(id);
+      else anasayfaGoster();
+    }
+
+    function anasayfaGoster() {
+      document.querySelectorAll('.page-section, .legal-section').forEach(s => s.classList.remove('aktif'));
+      document.getElementById('anasayfa').classList.add('aktif');
+      document.getElementById('hero-alan').style.display = 'block';
+      document.getElementById('modul-ust').classList.remove('goster');
+      document.querySelectorAll('.modul-panel').forEach(p => p.classList.remove('aktif'));
+      history.replaceState(null, '', window.location.pathname);
+      window.scrollTo(0, 0);
+    }
+
+    function modulAc(modul) {
+      document.getElementById('anasayfa').classList.add('aktif');
+      document.querySelectorAll('.legal-section').forEach(s => s.classList.remove('aktif'));
+      document.getElementById('hero-alan').style.display = 'none';
+      document.getElementById('modul-ust').classList.add('goster');
+      modulHeroGuncelle(modul);
+      document.querySelectorAll('.modul-tab').forEach(t => {
+        t.classList.toggle('aktif', t.dataset.modul === modul);
+      });
+      document.querySelectorAll('.modul-panel').forEach(p => p.classList.remove('aktif'));
+      document.getElementById('panel-' + modul).classList.add('aktif');
+      history.replaceState(null, '', '#' + modul);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function chipSec(el) {
+      const grup = el.dataset.grup;
+      el.parentElement.querySelectorAll('.chip').forEach(c => c.classList.remove('secili'));
+      el.classList.add('secili');
+      yasamProfil[grup] = el.dataset.val;
+    }
+
+    function enflasyonHesapla() {
+      const yil = parseInt(document.getElementById('enf-yil').value, 10);
+      const tutar = parseFloat(document.getElementById('enf-tutar').value) || 0;
+      if (tutar <= 0) { toast('Geçerli bir tutar girin'); return; }
+
+      const sonuclar = getEnfGostergeler().map(g => {
+        const deger = g.tip === 'kur'
+          ? kurHesap(yil, tutar, g.veri, BUGUN_YIL)
+          : bilesikHesap(yil, tutar, g.veri, BUGUN_YIL);
+        return { ...g, deger };
+      }).sort((a, b) => a.deger - b.deger);
+
+      const tufeDeger = sonuclar.find(s => s.id === 'tufe').deger;
+      const kayipYuzde = Math.round((1 - tutar / tufeDeger) * 100);
+
+      document.getElementById('enf-baslik').textContent =
+        `${yil}'de ${tutar.toLocaleString('tr-TR')} TL olan şey bugün...`;
+
+      const maxDeger = sonuclar[sonuclar.length - 1].deger;
+      const barlar = document.getElementById('enf-barlar');
+      barlar.innerHTML = '';
+
+      sonuclar.forEach((s, i) => {
+        const li = document.createElement('li');
+        li.className = 'bar-item';
+        const pct = Math.max(8, Math.round((s.deger / maxDeger) * 100));
+        const renk = barRenkler[Math.min(i, barRenkler.length - 1)];
+        const kaynakTitle = s.kaynak ? 'Kaynak: ' + s.kaynak : '';
+        li.innerHTML = `
+          <div class="bar-label" title="${kaynakTitle}"><span>${s.emoji} ${s.ad}</span><span class="bar-deger">0 TL</span></div>
+          <div class="bar-track"><div class="bar-fill" style="background:${renk};width:0"></div></div>`;
+        barlar.appendChild(li);
+        const fill = li.querySelector('.bar-fill');
+        const valEl = li.querySelector('.bar-deger');
+        setTimeout(() => {
+          li.classList.add('bar-anim');
+          fill.style.width = pct + '%';
+          animeSayi(valEl, s.deger, '', ' TL', 1000 + i * 80);
+        }, 120 + i * 100);
+      });
+
+      document.getElementById('enf-kayip-metin').textContent =
+        `Satın alma gücü kaybı (TÜFE / TCMB EVDS referansı):`;
+      document.getElementById('enf-kayip-badge').textContent =
+        kayipYuzde > 0 ? `%${kayipYuzde} satın alma gücü kaybı` : 'Şanslısın, değer korunmuş';
+      document.getElementById('enf-tetikleyici').textContent =
+        enfTetikleyiciler[Math.floor(Math.random() * enfTetikleyiciler.length)];
+
+      sonucGoster('sonuc-karti-enflasyon', 'enf-aksiyon');
+    }
+
+    function yasamHesapla() {
+      const s = sehirVeri[seciliSehir];
+      if (!s) { toast('Şehir seçin'); return; }
+
+      const { kisi, konut, arac, tarz } = yasamProfil;
+      const odaTipi = kisi === 'aile' ? '2+1' : '1+1';
+      let kira = s.kira[odaTipi].ort;
+      if (konut === 'evsahibi') kira = Math.round(kira * 0.25);
+
+      const kisiCarpan = { tek: 1, cift: 1.75, aile: 2.6 }[kisi];
+      const market = Math.round(s.market[tarz] * kisiCarpan);
+      const ulasim = arac === 'var' ? s.ulasim.arac : s.ulasim.toplutas;
+      const fatura = Math.round(s.fatura.ort * (kisi === 'aile' ? 1.3 : kisi === 'cift' ? 1.15 : 1));
+      const iletisim = s.iletisim;
+      const disarida = Math.round(s.disarida.tabak * 4 * (kisi === 'tek' ? 1 : kisi === 'cift' ? 2 : 3.5));
+      const saglik = Math.round(s.saglik * (kisi === 'aile' ? 2.2 : kisi === 'cift' ? 1.6 : 1));
+      const eglence = Math.round(s.eglence[tarz] * (kisi === 'aile' ? 1.4 : 1));
+
+      const altToplam = kira + market + ulasim + fatura + iletisim + disarida + saglik + eglence;
+      const tasarruf = Math.round(altToplam * 0.15);
+      const toplam = altToplam + tasarruf;
+
+      const kisiMetin = { tek: 'tek kişi', cift: 'çift', aile: 'aile (3-4 kişi)' }[kisi];
+      const konutMetin = konut === 'kiraci' ? 'kiracı' : 'ev sahibi';
+
+      document.getElementById('yasam-baslik').textContent =
+        `${s.ad}'da ${kisiMetin} (${konutMetin}) yaşamak için`;
+
+      const detay = [
+        ['🏠 Kira (' + odaTipi + ' ortalama)', kira],
+        ['🛒 Market / gıda', market],
+        ['🚌 Ulaşım', ulasim],
+        ['💡 Faturalar', fatura],
+        ['📱 İletişim', iletisim],
+        ['🍽️ Dışarıda yeme (aylık)', disarida],
+        ['🏥 Sağlık / ilaç', saglik],
+        ['🎭 Eğlence / sosyal', eglence],
+        ['💰 Küçük tasarruf (%15)', tasarruf]
+      ];
+
+      document.getElementById('yasam-detay').innerHTML = detay
+        .map(([l, v], idx) => `<li class="detay-satir" style="animation-delay:${idx * 50}ms"><span>${l}</span><span class="detay-tutar" data-tutar="${v}">0 TL</span></li>`).join('');
+
+      const topEl = document.getElementById('yasam-toplam');
+      topEl.className = 'sonuc-buyuk' + (toplam <= ASGARI_UCRET ? ' yesil' : '');
+      topEl.textContent = '₺ 0';
+      animeSayi(topEl, toplam, '₺ ', '', 1400);
+      document.querySelectorAll('#yasam-detay .detay-tutar').forEach((el, idx) => {
+        const v = parseFloat(el.dataset.tutar, 10);
+        setTimeout(() => animeSayi(el, v, '', ' TL', 700), 200 + idx * 60);
+      });
+
+      const fark = ASGARI_UCRET - toplam;
+      const farkEl = document.getElementById('yasam-fark');
+      if (fark >= 0) {
+        farkEl.textContent = `Fark: +${fark.toLocaleString('tr-TR')} TL (asgari ücretin üzerinde) 🙂`;
+        farkEl.style.color = 'var(--good)';
+      } else {
+        farkEl.textContent = `Fark: ${fark.toLocaleString('tr-TR')} TL 😬`;
+        farkEl.style.color = 'var(--danger)';
+      }
+
+      document.getElementById('yasam-tetikleyici').textContent =
+        fark < 0 ? 'Asgari ücretle bu şehirde yaşamak zor.' : 'Asgari ücretle idare edilebilir — ama tasarruf sınırlı.';
+
+      yasamKaynakDetayGuncelle(s);
+      kaynakNotlariGuncelle();
+
+      sonucGoster('sonuc-karti-yasam', 'yasam-aksiyon');
+    }
+
+    async function kartPaylas(modul) {
+      const id = modul === 'enflasyon' ? 'sonuc-karti-enflasyon' : 'sonuc-karti-yasam';
+      const el = document.getElementById(id);
+      if (!el.classList.contains('goster')) { toast('Önce hesaplama yapın'); return; }
+      if (typeof html2canvas === 'undefined') { toast('Paylaşım kütüphanesi yükleniyor, tekrar deneyin'); return; }
+      try {
+        const canvas = await html2canvas(el, { backgroundColor: '#fdfaf2', scale: 2 });
+        const link = document.createElement('a');
+        link.download = `paranindegeri-${modul}-${Date.now()}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+        toast('Kart indirildi! 📤');
+      } catch (e) {
+        toast('PNG oluşturulamadı');
+      }
+    }
+
+    function linkKopyala(modul) {
+      const url = new URL(window.location.href.split('#')[0]);
+      if (modul === 'enflasyon') {
+        url.searchParams.set('m', 'enflasyon');
+        url.searchParams.set('y', document.getElementById('enf-yil').value);
+        url.searchParams.set('t', document.getElementById('enf-tutar').value);
+      } else {
+        url.searchParams.set('m', 'yasam');
+        url.searchParams.set('sehir', seciliSehir);
+        url.searchParams.set('kisi', yasamProfil.kisi);
+        url.searchParams.set('konut', yasamProfil.konut);
+        url.searchParams.set('arac', yasamProfil.arac);
+        url.searchParams.set('tarz', yasamProfil.tarz);
+      }
+      navigator.clipboard.writeText(url.toString()).then(() => toast('Link kopyalandı! 📋'));
+    }
+
+    function urlParametreleriOku() {
+      const p = new URLSearchParams(window.location.search);
+      const m = p.get('m');
+      if (m === 'enflasyon') {
+        modulAc('enflasyon');
+        if (p.get('y')) document.getElementById('enf-yil').value = p.get('y');
+        if (p.get('t')) document.getElementById('enf-tutar').value = p.get('t');
+        if (p.get('y') && p.get('t')) setTimeout(enflasyonHesapla, 300);
+      } else if (m === 'yasam') {
+        modulAc('yasam');
+        if (p.get('sehir') && sehirVeri[p.get('sehir')]) {
+          seciliSehir = p.get('sehir');
+          document.querySelectorAll('.sehir-kart').forEach(k => {
+            k.classList.toggle('secili', k.dataset.sehir === seciliSehir);
+          });
+        }
+        ['kisi', 'konut', 'arac', 'tarz'].forEach(key => {
+          const val = p.get(key);
+          if (val) {
+            yasamProfil[key] = val;
+            document.querySelectorAll(`.chip[data-grup="${key}"]`).forEach(c => {
+              c.classList.toggle('secili', c.dataset.val === val);
+            });
+          }
+        });
+        setTimeout(yasamHesapla, 400);
+      }
+    }
+
+    function formGonder(e) {
+      e.preventDefault();
+      toast('Mesajınız alındı, teşekkürler!');
+      e.target.reset();
+    }
+
+    function cerezBannerGizle() {
+      document.body.classList.remove('cerez-goster');
+    }
+
+    function cerezBannerKontrol() {
+      if (!localStorage.getItem('cerez_tercihi')) {
+        document.getElementById('cerez-banner').style.display = 'flex';
+        document.body.classList.add('cerez-goster');
+      } else {
+        cerezBannerGizle();
+      }
+      if (localStorage.getItem('cerez_tercihi') === 'reddet') {
+        document.querySelectorAll('.ad-container').forEach(a => a.classList.add('ad-gizli'));
+      }
+    }
+
+    function cerezKabul() {
+      localStorage.setItem('cerez_tercihi', 'kabul');
+      document.getElementById('cerez-banner').style.display = 'none';
+      cerezBannerGizle();
+    }
+
+    function cerezReddet() {
+      localStorage.setItem('cerez_tercihi', 'reddet');
+      document.getElementById('cerez-banner').style.display = 'none';
+      cerezBannerGizle();
+      document.querySelectorAll('.ad-container').forEach(a => a.classList.add('ad-gizli'));
+    }
+
+    function yenileYilDropdown() {
+      const sel = document.getElementById('enf-yil');
+      if (!sel) return;
+      const secili = sel.value || '2018';
+      sel.innerHTML = '';
+      for (let y = 2003; y <= BUGUN_YIL - 1; y++) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        sel.appendChild(opt);
+      }
+      if (sel.querySelector(`option[value="${secili}"]`)) sel.value = secili;
+      else sel.value = '2018';
+    }
+
+    let sehirAraMetin = '';
+
+    function sehirAra() {
+      const inp = document.getElementById('sehir-ara');
+      sehirAraMetin = (inp?.value || '').trim().toLocaleLowerCase('tr');
+      yenileSehirGrid();
+    }
+
+    function yenileSehirGrid() {
+      const grid = document.getElementById('sehir-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      const q = sehirAraMetin;
+      const liste = Object.entries(sehirVeri)
+        .filter(([, v]) => !q || v.ad.toLocaleLowerCase('tr').includes(q))
+        .sort((a, b) => a[1].ad.localeCompare(b[1].ad, 'tr'));
+
+      if (!liste.length) {
+        grid.innerHTML = '<p class="sehir-grid-bos">Eşleşen il yok.</p>';
+        return;
+      }
+      if (!sehirVeri[seciliSehir] && liste.length) seciliSehir = liste[0][0];
+
+      liste.forEach(([key, v]) => {
+        const div = document.createElement('div');
+        div.className = 'sehir-kart' + (key === seciliSehir ? ' secili' : '');
+        div.dataset.sehir = key;
+        div.innerHTML = `<span class="emoji">${v.emoji}</span><span>${v.ad}</span>`;
+        div.onclick = () => {
+          seciliSehir = key;
+          document.querySelectorAll('.sehir-kart').forEach(k => k.classList.remove('secili'));
+          div.classList.add('secili');
+          yasamKaynakDetayGuncelle(sehirVeri[key]);
+        };
+        grid.appendChild(div);
+      });
+    }
+
+    function rotaUygula() {
+      const hash = (window.location.hash || '').replace('#', '');
+      const hasQuery = window.location.search.length > 1;
+
+      if (hash === 'admin-guncelle') {
+        adminSayfaAc();
+      } else if (['hakkinda', 'iletisim', 'gizlilik', 'kullanim-sartlari'].includes(hash)) {
+        sayfaGoster(hash);
+      } else if (hasQuery) {
+        urlParametreleriOku();
+      } else if (hash === 'yasam') {
+        modulAc('yasam');
+      } else if (hash === 'anasayfa') {
+        anasayfaGoster();
+      } else if (hash === 'enflasyon' || hash === '') {
+        modulAc('enflasyon');
+      } else {
+        modulAc('enflasyon');
+      }
+    }
+
+    window.addEventListener('load', async () => {
+      await veriYukle();
+      yenileYilDropdown();
+      yenileSehirGrid();
+      adminSehirListeGuncelle();
+      if (sehirVeri[seciliSehir]) yasamKaynakDetayGuncelle(sehirVeri[seciliSehir]);
+      cerezBannerKontrol();
+      rotaUygula();
+    });
+
+    window.addEventListener('hashchange', () => rotaUygula());
+  </script>
+</body>
+</html>

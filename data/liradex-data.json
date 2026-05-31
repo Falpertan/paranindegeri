@@ -1,0 +1,3079 @@
+{
+  "guncelleme_tarihi": "2026-05-31T15:48:55.793Z",
+  "kaynak": "TCMB EVDS + 81 il kira (otomatik)",
+  "bugun_yil": 2025,
+  "tufe": {
+    "2003": 18.4,
+    "2004": 9.4,
+    "2005": 7.7,
+    "2006": 9.7,
+    "2007": 8.4,
+    "2008": 10.1,
+    "2009": 6.5,
+    "2010": 6.4,
+    "2011": 10.4,
+    "2012": 6.2,
+    "2013": 7.4,
+    "2014": 8.2,
+    "2015": 8.8,
+    "2016": 8.5,
+    "2017": 11.9,
+    "2018": 20.3,
+    "2019": 11.8,
+    "2020": 14.6,
+    "2021": 36.1,
+    "2022": 64.3,
+    "2023": 64.8,
+    "2024": 44.4,
+    "2025": 30.9
+  },
+  "dolar": {
+    "2003": 1496710.36,
+    "2004": 1421837.82,
+    "2005": 1.34,
+    "2006": 1.43,
+    "2007": 1.3,
+    "2008": 1.3,
+    "2009": 1.55,
+    "2010": 1.5,
+    "2011": 1.67,
+    "2012": 1.79,
+    "2013": 1.9,
+    "2014": 2.19,
+    "2015": 2.72,
+    "2016": 3.02,
+    "2017": 3.64,
+    "2018": 4.82,
+    "2019": 5.67,
+    "2020": 7.01,
+    "2021": 8.83,
+    "2022": 16.54,
+    "2023": 23.69,
+    "2024": 32.78,
+    "2025": 39.43
+  },
+  "altin": {
+    "2003": 17.57,
+    "2004": 18.97,
+    "2005": 19.43,
+    "2006": 28.18,
+    "2007": 29.13,
+    "2008": 36.33,
+    "2009": 48.58,
+    "2010": 59.49,
+    "2011": 85.31,
+    "2012": 96.77,
+    "2013": 86.41,
+    "2014": 89.23,
+    "2015": 101.38,
+    "2016": 121.66,
+    "2017": 148.16,
+    "2018": 197.62,
+    "2019": 255.84,
+    "2020": 405.83,
+    "2021": 516.5,
+    "2022": 969.07,
+    "2023": 1547.69,
+    "2024": 2620.11,
+    "2025": 4507.38
+  },
+  "sehirler": {
+    "adana": {
+      "ad": "Adana",
+      "emoji": "🌶️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 182.48,
+      "kira": {
+        "1+1": {
+          "ort": 9179
+        },
+        "2+1": {
+          "ort": 13887
+        }
+      },
+      "market": {
+        "mutevazi": 3500,
+        "orta": 4800,
+        "rahat": 7000
+      },
+      "ulasim": {
+        "toplutas": 1800,
+        "arac": 5000
+      },
+      "fatura": {
+        "ort": 2400
+      },
+      "disarida": {
+        "tabak": 150
+      },
+      "saglik": 850,
+      "eglence": {
+        "mutevazi": 800,
+        "orta": 1600,
+        "rahat": 2800
+      },
+      "iletisim": 450
+    },
+    "adiyaman": {
+      "ad": "Adıyaman",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 108.11,
+      "kira": {
+        "1+1": {
+          "ort": 5438
+        },
+        "2+1": {
+          "ort": 8227
+        }
+      },
+      "market": {
+        "mutevazi": 2628,
+        "orta": 3633,
+        "rahat": 5256
+      },
+      "ulasim": {
+        "toplutas": 1314,
+        "arac": 3787
+      },
+      "fatura": {
+        "ort": 1816
+      },
+      "disarida": {
+        "tabak": 112
+      },
+      "saglik": 634,
+      "eglence": {
+        "mutevazi": 580,
+        "orta": 1159,
+        "rahat": 2087
+      },
+      "iletisim": 450
+    },
+    "afyonkarahisar": {
+      "ad": "Afyonkarahisar",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 153.6,
+      "kira": {
+        "1+1": {
+          "ort": 7726
+        },
+        "2+1": {
+          "ort": 11689
+        }
+      },
+      "market": {
+        "mutevazi": 2992,
+        "orta": 4207,
+        "rahat": 6077
+      },
+      "ulasim": {
+        "toplutas": 1496,
+        "arac": 4487
+      },
+      "fatura": {
+        "ort": 2150
+      },
+      "disarida": {
+        "tabak": 131
+      },
+      "saglik": 748,
+      "eglence": {
+        "mutevazi": 654,
+        "orta": 1309,
+        "rahat": 2337
+      },
+      "iletisim": 450
+    },
+    "agri": {
+      "ad": "Ağrı",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 100,
+      "kira": {
+        "1+1": {
+          "ort": 5030
+        },
+        "2+1": {
+          "ort": 7610
+        }
+      },
+      "market": {
+        "mutevazi": 2141,
+        "orta": 3010,
+        "rahat": 4348
+      },
+      "ulasim": {
+        "toplutas": 1070,
+        "arac": 3211
+      },
+      "fatura": {
+        "ort": 1538
+      },
+      "disarida": {
+        "tabak": 94
+      },
+      "saglik": 535,
+      "eglence": {
+        "mutevazi": 468,
+        "orta": 936,
+        "rahat": 1672
+      },
+      "iletisim": 450
+    },
+    "aksaray": {
+      "ad": "Aksaray",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 124,
+      "kira": {
+        "1+1": {
+          "ort": 6237
+        },
+        "2+1": {
+          "ort": 9436
+        }
+      },
+      "market": {
+        "mutevazi": 2532,
+        "orta": 3560,
+        "rahat": 5142
+      },
+      "ulasim": {
+        "toplutas": 1266,
+        "arac": 3797
+      },
+      "fatura": {
+        "ort": 1820
+      },
+      "disarida": {
+        "tabak": 111
+      },
+      "saglik": 633,
+      "eglence": {
+        "mutevazi": 554,
+        "orta": 1108,
+        "rahat": 1978
+      },
+      "iletisim": 450
+    },
+    "amasya": {
+      "ad": "Amasya",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 158.29,
+      "kira": {
+        "1+1": {
+          "ort": 7962
+        },
+        "2+1": {
+          "ort": 12046
+        }
+      },
+      "market": {
+        "mutevazi": 3208,
+        "orta": 4411,
+        "rahat": 6415
+      },
+      "ulasim": {
+        "toplutas": 1764,
+        "arac": 4651
+      },
+      "fatura": {
+        "ort": 2245
+      },
+      "disarida": {
+        "tabak": 160
+      },
+      "saglik": 802,
+      "eglence": {
+        "mutevazi": 802,
+        "orta": 1604,
+        "rahat": 3047
+      },
+      "iletisim": 500
+    },
+    "ankara": {
+      "ad": "Ankara",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 210.07,
+      "kira": {
+        "1+1": {
+          "ort": 10567
+        },
+        "2+1": {
+          "ort": 15986
+        }
+      },
+      "market": {
+        "mutevazi": 4000,
+        "orta": 5500,
+        "rahat": 8000
+      },
+      "ulasim": {
+        "toplutas": 2200,
+        "arac": 5800
+      },
+      "fatura": {
+        "ort": 2800
+      },
+      "disarida": {
+        "tabak": 200
+      },
+      "saglik": 1000,
+      "eglence": {
+        "mutevazi": 1000,
+        "orta": 2000,
+        "rahat": 3800
+      },
+      "iletisim": 500
+    },
+    "antalya": {
+      "ad": "Antalya",
+      "emoji": "☀️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 230.9,
+      "kira": {
+        "1+1": {
+          "ort": 11614
+        },
+        "2+1": {
+          "ort": 17571
+        }
+      },
+      "market": {
+        "mutevazi": 4000,
+        "orta": 5600,
+        "rahat": 8200
+      },
+      "ulasim": {
+        "toplutas": 2100,
+        "arac": 5600
+      },
+      "fatura": {
+        "ort": 2700
+      },
+      "disarida": {
+        "tabak": 210
+      },
+      "saglik": 1000,
+      "eglence": {
+        "mutevazi": 1000,
+        "orta": 2100,
+        "rahat": 3900
+      },
+      "iletisim": 500
+    },
+    "ardahan": {
+      "ad": "Ardahan",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 119,
+      "kira": {
+        "1+1": {
+          "ort": 5986
+        },
+        "2+1": {
+          "ort": 9056
+        }
+      },
+      "market": {
+        "mutevazi": 2452,
+        "orta": 3448,
+        "rahat": 4980
+      },
+      "ulasim": {
+        "toplutas": 1226,
+        "arac": 3677
+      },
+      "fatura": {
+        "ort": 1762
+      },
+      "disarida": {
+        "tabak": 107
+      },
+      "saglik": 613,
+      "eglence": {
+        "mutevazi": 536,
+        "orta": 1073,
+        "rahat": 1915
+      },
+      "iletisim": 450
+    },
+    "artvin": {
+      "ad": "Artvin",
+      "emoji": "🌲",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 143.5,
+      "kira": {
+        "1+1": {
+          "ort": 7218
+        },
+        "2+1": {
+          "ort": 10920
+        }
+      },
+      "market": {
+        "mutevazi": 2971,
+        "orta": 4086,
+        "rahat": 5943
+      },
+      "ulasim": {
+        "toplutas": 1634,
+        "arac": 4309
+      },
+      "fatura": {
+        "ort": 2080
+      },
+      "disarida": {
+        "tabak": 149
+      },
+      "saglik": 743,
+      "eglence": {
+        "mutevazi": 743,
+        "orta": 1486,
+        "rahat": 2823
+      },
+      "iletisim": 500
+    },
+    "aydin": {
+      "ad": "Aydın",
+      "emoji": "🌊",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 216.18,
+      "kira": {
+        "1+1": {
+          "ort": 10874
+        },
+        "2+1": {
+          "ort": 16451
+        }
+      },
+      "market": {
+        "mutevazi": 3725,
+        "orta": 5143,
+        "rahat": 7538
+      },
+      "ulasim": {
+        "toplutas": 2128,
+        "arac": 5321
+      },
+      "fatura": {
+        "ort": 2572
+      },
+      "disarida": {
+        "tabak": 195
+      },
+      "saglik": 975,
+      "eglence": {
+        "mutevazi": 975,
+        "orta": 1951,
+        "rahat": 3547
+      },
+      "iletisim": 500
+    },
+    "balikesir": {
+      "ad": "Balıkesir",
+      "emoji": "🌊",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 206.5,
+      "kira": {
+        "1+1": {
+          "ort": 10387
+        },
+        "2+1": {
+          "ort": 15715
+        }
+      },
+      "market": {
+        "mutevazi": 3594,
+        "orta": 4963,
+        "rahat": 7273
+      },
+      "ulasim": {
+        "toplutas": 2054,
+        "arac": 5134
+      },
+      "fatura": {
+        "ort": 2481
+      },
+      "disarida": {
+        "tabak": 188
+      },
+      "saglik": 941,
+      "eglence": {
+        "mutevazi": 941,
+        "orta": 1882,
+        "rahat": 3423
+      },
+      "iletisim": 500
+    },
+    "bartin": {
+      "ad": "Bartın",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 195,
+      "kira": {
+        "1+1": {
+          "ort": 9809
+        },
+        "2+1": {
+          "ort": 14839
+        }
+      },
+      "market": {
+        "mutevazi": 3774,
+        "orta": 5190,
+        "rahat": 7549
+      },
+      "ulasim": {
+        "toplutas": 2076,
+        "arac": 5473
+      },
+      "fatura": {
+        "ort": 2642
+      },
+      "disarida": {
+        "tabak": 189
+      },
+      "saglik": 944,
+      "eglence": {
+        "mutevazi": 944,
+        "orta": 1887,
+        "rahat": 3586
+      },
+      "iletisim": 500
+    },
+    "batman": {
+      "ad": "Batman",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 125.79,
+      "kira": {
+        "1+1": {
+          "ort": 6327
+        },
+        "2+1": {
+          "ort": 9573
+        }
+      },
+      "market": {
+        "mutevazi": 2958,
+        "orta": 4088,
+        "rahat": 5915
+      },
+      "ulasim": {
+        "toplutas": 1479,
+        "arac": 4262
+      },
+      "fatura": {
+        "ort": 2044
+      },
+      "disarida": {
+        "tabak": 126
+      },
+      "saglik": 713,
+      "eglence": {
+        "mutevazi": 652,
+        "orta": 1305,
+        "rahat": 2349
+      },
+      "iletisim": 450
+    },
+    "bayburt": {
+      "ad": "Bayburt",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 140,
+      "kira": {
+        "1+1": {
+          "ort": 7042
+        },
+        "2+1": {
+          "ort": 10654
+        }
+      },
+      "market": {
+        "mutevazi": 2915,
+        "orta": 4008,
+        "rahat": 5829
+      },
+      "ulasim": {
+        "toplutas": 1603,
+        "arac": 4226
+      },
+      "fatura": {
+        "ort": 2040
+      },
+      "disarida": {
+        "tabak": 146
+      },
+      "saglik": 729,
+      "eglence": {
+        "mutevazi": 729,
+        "orta": 1457,
+        "rahat": 2769
+      },
+      "iletisim": 500
+    },
+    "bilecik": {
+      "ad": "Bilecik",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 164.71,
+      "kira": {
+        "1+1": {
+          "ort": 8285
+        },
+        "2+1": {
+          "ort": 12534
+        }
+      },
+      "market": {
+        "mutevazi": 3465,
+        "orta": 4742,
+        "rahat": 6839
+      },
+      "ulasim": {
+        "toplutas": 1824,
+        "arac": 5015
+      },
+      "fatura": {
+        "ort": 2371
+      },
+      "disarida": {
+        "tabak": 164
+      },
+      "saglik": 866,
+      "eglence": {
+        "mutevazi": 821,
+        "orta": 1641,
+        "rahat": 2918
+      },
+      "iletisim": 500
+    },
+    "bingol": {
+      "ad": "Bingöl",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 118,
+      "kira": {
+        "1+1": {
+          "ort": 5935
+        },
+        "2+1": {
+          "ort": 8980
+        }
+      },
+      "market": {
+        "mutevazi": 2814,
+        "orta": 3889,
+        "rahat": 5627
+      },
+      "ulasim": {
+        "toplutas": 1407,
+        "arac": 4055
+      },
+      "fatura": {
+        "ort": 1945
+      },
+      "disarida": {
+        "tabak": 120
+      },
+      "saglik": 679,
+      "eglence": {
+        "mutevazi": 621,
+        "orta": 1241,
+        "rahat": 2234
+      },
+      "iletisim": 450
+    },
+    "bitlis": {
+      "ad": "Bitlis",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 112.78,
+      "kira": {
+        "1+1": {
+          "ort": 5673
+        },
+        "2+1": {
+          "ort": 8583
+        }
+      },
+      "market": {
+        "mutevazi": 2716,
+        "orta": 3755,
+        "rahat": 5432
+      },
+      "ulasim": {
+        "toplutas": 1358,
+        "arac": 3914
+      },
+      "fatura": {
+        "ort": 1877
+      },
+      "disarida": {
+        "tabak": 116
+      },
+      "saglik": 655,
+      "eglence": {
+        "mutevazi": 599,
+        "orta": 1198,
+        "rahat": 2157
+      },
+      "iletisim": 450
+    },
+    "bolu": {
+      "ad": "Bolu",
+      "emoji": "⛰️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 190.84,
+      "kira": {
+        "1+1": {
+          "ort": 9599
+        },
+        "2+1": {
+          "ort": 14523
+        }
+      },
+      "market": {
+        "mutevazi": 2697,
+        "orta": 3716,
+        "rahat": 5394
+      },
+      "ulasim": {
+        "toplutas": 1678,
+        "arac": 3896
+      },
+      "fatura": {
+        "ort": 1858
+      },
+      "disarida": {
+        "tabak": 150
+      },
+      "saglik": 719,
+      "eglence": {
+        "mutevazi": 719,
+        "orta": 1438,
+        "rahat": 2697
+      },
+      "iletisim": 500
+    },
+    "burdur": {
+      "ad": "Burdur",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 136.36,
+      "kira": {
+        "1+1": {
+          "ort": 6859
+        },
+        "2+1": {
+          "ort": 10377
+        }
+      },
+      "market": {
+        "mutevazi": 2652,
+        "orta": 3713,
+        "rahat": 5437
+      },
+      "ulasim": {
+        "toplutas": 1393,
+        "arac": 3713
+      },
+      "fatura": {
+        "ort": 1790
+      },
+      "disarida": {
+        "tabak": 139
+      },
+      "saglik": 663,
+      "eglence": {
+        "mutevazi": 663,
+        "orta": 1393,
+        "rahat": 2586
+      },
+      "iletisim": 500
+    },
+    "bursa": {
+      "ad": "Bursa",
+      "emoji": "⛰️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 185.4,
+      "kira": {
+        "1+1": {
+          "ort": 9326
+        },
+        "2+1": {
+          "ort": 14109
+        }
+      },
+      "market": {
+        "mutevazi": 3800,
+        "orta": 5200,
+        "rahat": 7500
+      },
+      "ulasim": {
+        "toplutas": 2000,
+        "arac": 5500
+      },
+      "fatura": {
+        "ort": 2600
+      },
+      "disarida": {
+        "tabak": 180
+      },
+      "saglik": 950,
+      "eglence": {
+        "mutevazi": 900,
+        "orta": 1800,
+        "rahat": 3200
+      },
+      "iletisim": 500
+    },
+    "canakkale": {
+      "ad": "Çanakkale",
+      "emoji": "⚓",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 235.5,
+      "kira": {
+        "1+1": {
+          "ort": 11846
+        },
+        "2+1": {
+          "ort": 17922
+        }
+      },
+      "market": {
+        "mutevazi": 3982,
+        "orta": 5499,
+        "rahat": 8058
+      },
+      "ulasim": {
+        "toplutas": 2275,
+        "arac": 5688
+      },
+      "fatura": {
+        "ort": 2749
+      },
+      "disarida": {
+        "tabak": 209
+      },
+      "saglik": 1043,
+      "eglence": {
+        "mutevazi": 1043,
+        "orta": 2086,
+        "rahat": 3792
+      },
+      "iletisim": 500
+    },
+    "cankiri": {
+      "ad": "Çankırı",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 136,
+      "kira": {
+        "1+1": {
+          "ort": 6841
+        },
+        "2+1": {
+          "ort": 10350
+        }
+      },
+      "market": {
+        "mutevazi": 2850,
+        "orta": 3918,
+        "rahat": 5699
+      },
+      "ulasim": {
+        "toplutas": 1567,
+        "arac": 4132
+      },
+      "fatura": {
+        "ort": 1995
+      },
+      "disarida": {
+        "tabak": 142
+      },
+      "saglik": 712,
+      "eglence": {
+        "mutevazi": 712,
+        "orta": 1425,
+        "rahat": 2707
+      },
+      "iletisim": 500
+    },
+    "corum": {
+      "ad": "Çorum",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 136,
+      "kira": {
+        "1+1": {
+          "ort": 6841
+        },
+        "2+1": {
+          "ort": 10350
+        }
+      },
+      "market": {
+        "mutevazi": 2850,
+        "orta": 3918,
+        "rahat": 5699
+      },
+      "ulasim": {
+        "toplutas": 1567,
+        "arac": 4132
+      },
+      "fatura": {
+        "ort": 1995
+      },
+      "disarida": {
+        "tabak": 142
+      },
+      "saglik": 712,
+      "eglence": {
+        "mutevazi": 712,
+        "orta": 1425,
+        "rahat": 2707
+      },
+      "iletisim": 500
+    },
+    "denizli": {
+      "ad": "Denizli",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 183.17,
+      "kira": {
+        "1+1": {
+          "ort": 9213
+        },
+        "2+1": {
+          "ort": 13939
+        }
+      },
+      "market": {
+        "mutevazi": 3273,
+        "orta": 4520,
+        "rahat": 6624
+      },
+      "ulasim": {
+        "toplutas": 1870,
+        "arac": 4676
+      },
+      "fatura": {
+        "ort": 2260
+      },
+      "disarida": {
+        "tabak": 171
+      },
+      "saglik": 857,
+      "eglence": {
+        "mutevazi": 857,
+        "orta": 1714,
+        "rahat": 3117
+      },
+      "iletisim": 500
+    },
+    "diyarbakir": {
+      "ad": "Diyarbakır",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 168.52,
+      "kira": {
+        "1+1": {
+          "ort": 8477
+        },
+        "2+1": {
+          "ort": 12824
+        }
+      },
+      "market": {
+        "mutevazi": 3715,
+        "orta": 5136,
+        "rahat": 7431
+      },
+      "ulasim": {
+        "toplutas": 1858,
+        "arac": 5354
+      },
+      "fatura": {
+        "ort": 2568
+      },
+      "disarida": {
+        "tabak": 158
+      },
+      "saglik": 896,
+      "eglence": {
+        "mutevazi": 820,
+        "orta": 1639,
+        "rahat": 2950
+      },
+      "iletisim": 450
+    },
+    "duzce": {
+      "ad": "Düzce",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 148.15,
+      "kira": {
+        "1+1": {
+          "ort": 7452
+        },
+        "2+1": {
+          "ort": 11274
+        }
+      },
+      "market": {
+        "mutevazi": 2214,
+        "orta": 3050,
+        "rahat": 4427
+      },
+      "ulasim": {
+        "toplutas": 1377,
+        "arac": 3198
+      },
+      "fatura": {
+        "ort": 1525
+      },
+      "disarida": {
+        "tabak": 123
+      },
+      "saglik": 590,
+      "eglence": {
+        "mutevazi": 590,
+        "orta": 1181,
+        "rahat": 2214
+      },
+      "iletisim": 500
+    },
+    "edirne": {
+      "ad": "Edirne",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 209.37,
+      "kira": {
+        "1+1": {
+          "ort": 10531
+        },
+        "2+1": {
+          "ort": 15933
+        }
+      },
+      "market": {
+        "mutevazi": 2899,
+        "orta": 3995,
+        "rahat": 5799
+      },
+      "ulasim": {
+        "toplutas": 1804,
+        "arac": 4188
+      },
+      "fatura": {
+        "ort": 1997
+      },
+      "disarida": {
+        "tabak": 161
+      },
+      "saglik": 773,
+      "eglence": {
+        "mutevazi": 773,
+        "orta": 1546,
+        "rahat": 2899
+      },
+      "iletisim": 500
+    },
+    "elazig": {
+      "ad": "Elazığ",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 124.38,
+      "kira": {
+        "1+1": {
+          "ort": 6256
+        },
+        "2+1": {
+          "ort": 9465
+        }
+      },
+      "market": {
+        "mutevazi": 2932,
+        "orta": 4053,
+        "rahat": 5863
+      },
+      "ulasim": {
+        "toplutas": 1466,
+        "arac": 4225
+      },
+      "fatura": {
+        "ort": 2026
+      },
+      "disarida": {
+        "tabak": 125
+      },
+      "saglik": 707,
+      "eglence": {
+        "mutevazi": 647,
+        "orta": 1293,
+        "rahat": 2328
+      },
+      "iletisim": 450
+    },
+    "erzincan": {
+      "ad": "Erzincan",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 145,
+      "kira": {
+        "1+1": {
+          "ort": 7294
+        },
+        "2+1": {
+          "ort": 11035
+        }
+      },
+      "market": {
+        "mutevazi": 3304,
+        "orta": 4568,
+        "rahat": 6608
+      },
+      "ulasim": {
+        "toplutas": 1652,
+        "arac": 4762
+      },
+      "fatura": {
+        "ort": 2284
+      },
+      "disarida": {
+        "tabak": 141
+      },
+      "saglik": 797,
+      "eglence": {
+        "mutevazi": 729,
+        "orta": 1458,
+        "rahat": 2624
+      },
+      "iletisim": 450
+    },
+    "erzurum": {
+      "ad": "Erzurum",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 125,
+      "kira": {
+        "1+1": {
+          "ort": 6288
+        },
+        "2+1": {
+          "ort": 9513
+        }
+      },
+      "market": {
+        "mutevazi": 2943,
+        "orta": 4068,
+        "rahat": 5886
+      },
+      "ulasim": {
+        "toplutas": 1472,
+        "arac": 4241
+      },
+      "fatura": {
+        "ort": 2034
+      },
+      "disarida": {
+        "tabak": 126
+      },
+      "saglik": 710,
+      "eglence": {
+        "mutevazi": 649,
+        "orta": 1298,
+        "rahat": 2337
+      },
+      "iletisim": 450
+    },
+    "eskisehir": {
+      "ad": "Eskişehir",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 185.71,
+      "kira": {
+        "1+1": {
+          "ort": 9341
+        },
+        "2+1": {
+          "ort": 14133
+        }
+      },
+      "market": {
+        "mutevazi": 3633,
+        "orta": 4996,
+        "rahat": 7267
+      },
+      "ulasim": {
+        "toplutas": 1998,
+        "arac": 5268
+      },
+      "fatura": {
+        "ort": 2543
+      },
+      "disarida": {
+        "tabak": 182
+      },
+      "saglik": 908,
+      "eglence": {
+        "mutevazi": 908,
+        "orta": 1817,
+        "rahat": 3452
+      },
+      "iletisim": 500
+    },
+    "gaziantep": {
+      "ad": "Gaziantep",
+      "emoji": "🥙",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 150.41,
+      "kira": {
+        "1+1": {
+          "ort": 7566
+        },
+        "2+1": {
+          "ort": 11446
+        }
+      },
+      "market": {
+        "mutevazi": 3400,
+        "orta": 4700,
+        "rahat": 6800
+      },
+      "ulasim": {
+        "toplutas": 1700,
+        "arac": 4900
+      },
+      "fatura": {
+        "ort": 2350
+      },
+      "disarida": {
+        "tabak": 145
+      },
+      "saglik": 820,
+      "eglence": {
+        "mutevazi": 750,
+        "orta": 1500,
+        "rahat": 2700
+      },
+      "iletisim": 450
+    },
+    "giresun": {
+      "ad": "Giresun",
+      "emoji": "🌲",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 135.64,
+      "kira": {
+        "1+1": {
+          "ort": 6823
+        },
+        "2+1": {
+          "ort": 10322
+        }
+      },
+      "market": {
+        "mutevazi": 2844,
+        "orta": 3910,
+        "rahat": 5687
+      },
+      "ulasim": {
+        "toplutas": 1564,
+        "arac": 4123
+      },
+      "fatura": {
+        "ort": 1991
+      },
+      "disarida": {
+        "tabak": 142
+      },
+      "saglik": 711,
+      "eglence": {
+        "mutevazi": 711,
+        "orta": 1422,
+        "rahat": 2701
+      },
+      "iletisim": 500
+    },
+    "gumushane": {
+      "ad": "Gümüşhane",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 140,
+      "kira": {
+        "1+1": {
+          "ort": 7042
+        },
+        "2+1": {
+          "ort": 10654
+        }
+      },
+      "market": {
+        "mutevazi": 2915,
+        "orta": 4008,
+        "rahat": 5829
+      },
+      "ulasim": {
+        "toplutas": 1603,
+        "arac": 4226
+      },
+      "fatura": {
+        "ort": 2040
+      },
+      "disarida": {
+        "tabak": 146
+      },
+      "saglik": 729,
+      "eglence": {
+        "mutevazi": 729,
+        "orta": 1457,
+        "rahat": 2769
+      },
+      "iletisim": 500
+    },
+    "hakkari": {
+      "ad": "Hakkari",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 128,
+      "kira": {
+        "1+1": {
+          "ort": 6438
+        },
+        "2+1": {
+          "ort": 9741
+        }
+      },
+      "market": {
+        "mutevazi": 2998,
+        "orta": 4144,
+        "rahat": 5996
+      },
+      "ulasim": {
+        "toplutas": 1499,
+        "arac": 4321
+      },
+      "fatura": {
+        "ort": 2072
+      },
+      "disarida": {
+        "tabak": 128
+      },
+      "saglik": 723,
+      "eglence": {
+        "mutevazi": 661,
+        "orta": 1323,
+        "rahat": 2381
+      },
+      "iletisim": 450
+    },
+    "hatay": {
+      "ad": "Hatay",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 133,
+      "kira": {
+        "1+1": {
+          "ort": 6690
+        },
+        "2+1": {
+          "ort": 10121
+        }
+      },
+      "market": {
+        "mutevazi": 2735,
+        "orta": 3751,
+        "rahat": 5470
+      },
+      "ulasim": {
+        "toplutas": 1406,
+        "arac": 3907
+      },
+      "fatura": {
+        "ort": 1875
+      },
+      "disarida": {
+        "tabak": 117
+      },
+      "saglik": 664,
+      "eglence": {
+        "mutevazi": 625,
+        "orta": 1250,
+        "rahat": 2188
+      },
+      "iletisim": 450
+    },
+    "igdir": {
+      "ad": "Iğdır",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 124.23,
+      "kira": {
+        "1+1": {
+          "ort": 6249
+        },
+        "2+1": {
+          "ort": 9454
+        }
+      },
+      "market": {
+        "mutevazi": 2929,
+        "orta": 4049,
+        "rahat": 5858
+      },
+      "ulasim": {
+        "toplutas": 1464,
+        "arac": 4221
+      },
+      "fatura": {
+        "ort": 2024
+      },
+      "disarida": {
+        "tabak": 125
+      },
+      "saglik": 706,
+      "eglence": {
+        "mutevazi": 646,
+        "orta": 1292,
+        "rahat": 2326
+      },
+      "iletisim": 450
+    },
+    "isparta": {
+      "ad": "Isparta",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 154,
+      "kira": {
+        "1+1": {
+          "ort": 7746
+        },
+        "2+1": {
+          "ort": 11719
+        }
+      },
+      "market": {
+        "mutevazi": 2916,
+        "orta": 4083,
+        "rahat": 5979
+      },
+      "ulasim": {
+        "toplutas": 1531,
+        "arac": 4083
+      },
+      "fatura": {
+        "ort": 1969
+      },
+      "disarida": {
+        "tabak": 153
+      },
+      "saglik": 729,
+      "eglence": {
+        "mutevazi": 729,
+        "orta": 1531,
+        "rahat": 2844
+      },
+      "iletisim": 500
+    },
+    "istanbul": {
+      "ad": "İstanbul",
+      "emoji": "🌉",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 367.86,
+      "kira": {
+        "1+1": {
+          "ort": 18503
+        },
+        "2+1": {
+          "ort": 27994
+        }
+      },
+      "market": {
+        "mutevazi": 4500,
+        "orta": 6200,
+        "rahat": 9000
+      },
+      "ulasim": {
+        "toplutas": 2800,
+        "arac": 6500
+      },
+      "fatura": {
+        "ort": 3100
+      },
+      "disarida": {
+        "tabak": 250
+      },
+      "saglik": 1200,
+      "eglence": {
+        "mutevazi": 1200,
+        "orta": 2400,
+        "rahat": 4500
+      },
+      "iletisim": 500
+    },
+    "izmir": {
+      "ad": "İzmir",
+      "emoji": "🌊",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 252.18,
+      "kira": {
+        "1+1": {
+          "ort": 12685
+        },
+        "2+1": {
+          "ort": 19191
+        }
+      },
+      "market": {
+        "mutevazi": 4200,
+        "orta": 5800,
+        "rahat": 8500
+      },
+      "ulasim": {
+        "toplutas": 2400,
+        "arac": 6000
+      },
+      "fatura": {
+        "ort": 2900
+      },
+      "disarida": {
+        "tabak": 220
+      },
+      "saglik": 1100,
+      "eglence": {
+        "mutevazi": 1100,
+        "orta": 2200,
+        "rahat": 4000
+      },
+      "iletisim": 500
+    },
+    "kahramanmaras": {
+      "ad": "Kahramanmaraş",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 131.38,
+      "kira": {
+        "1+1": {
+          "ort": 6608
+        },
+        "2+1": {
+          "ort": 9998
+        }
+      },
+      "market": {
+        "mutevazi": 3060,
+        "orta": 4229,
+        "rahat": 6119
+      },
+      "ulasim": {
+        "toplutas": 1530,
+        "arac": 4409
+      },
+      "fatura": {
+        "ort": 2115
+      },
+      "disarida": {
+        "tabak": 130
+      },
+      "saglik": 738,
+      "eglence": {
+        "mutevazi": 675,
+        "orta": 1350,
+        "rahat": 2430
+      },
+      "iletisim": 450
+    },
+    "karabuk": {
+      "ad": "Karabük",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 165.29,
+      "kira": {
+        "1+1": {
+          "ort": 8314
+        },
+        "2+1": {
+          "ort": 12579
+        }
+      },
+      "market": {
+        "mutevazi": 3318,
+        "orta": 4562,
+        "rahat": 6636
+      },
+      "ulasim": {
+        "toplutas": 1825,
+        "arac": 4811
+      },
+      "fatura": {
+        "ort": 2322
+      },
+      "disarida": {
+        "tabak": 166
+      },
+      "saglik": 829,
+      "eglence": {
+        "mutevazi": 829,
+        "orta": 1659,
+        "rahat": 3152
+      },
+      "iletisim": 500
+    },
+    "karaman": {
+      "ad": "Karaman",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 133.33,
+      "kira": {
+        "1+1": {
+          "ort": 6706
+        },
+        "2+1": {
+          "ort": 10146
+        }
+      },
+      "market": {
+        "mutevazi": 2679,
+        "orta": 3767,
+        "rahat": 5442
+      },
+      "ulasim": {
+        "toplutas": 1339,
+        "arac": 4018
+      },
+      "fatura": {
+        "ort": 1925
+      },
+      "disarida": {
+        "tabak": 117
+      },
+      "saglik": 670,
+      "eglence": {
+        "mutevazi": 586,
+        "orta": 1172,
+        "rahat": 2093
+      },
+      "iletisim": 450
+    },
+    "kars": {
+      "ad": "Kars",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 114,
+      "kira": {
+        "1+1": {
+          "ort": 5734
+        },
+        "2+1": {
+          "ort": 8675
+        }
+      },
+      "market": {
+        "mutevazi": 2739,
+        "orta": 3786,
+        "rahat": 5478
+      },
+      "ulasim": {
+        "toplutas": 1369,
+        "arac": 3947
+      },
+      "fatura": {
+        "ort": 1893
+      },
+      "disarida": {
+        "tabak": 117
+      },
+      "saglik": 661,
+      "eglence": {
+        "mutevazi": 604,
+        "orta": 1208,
+        "rahat": 2175
+      },
+      "iletisim": 450
+    },
+    "kastamonu": {
+      "ad": "Kastamonu",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 150,
+      "kira": {
+        "1+1": {
+          "ort": 7545
+        },
+        "2+1": {
+          "ort": 11415
+        }
+      },
+      "market": {
+        "mutevazi": 3076,
+        "orta": 4229,
+        "rahat": 6152
+      },
+      "ulasim": {
+        "toplutas": 1692,
+        "arac": 4460
+      },
+      "fatura": {
+        "ort": 2153
+      },
+      "disarida": {
+        "tabak": 154
+      },
+      "saglik": 769,
+      "eglence": {
+        "mutevazi": 769,
+        "orta": 1538,
+        "rahat": 2922
+      },
+      "iletisim": 500
+    },
+    "kayseri": {
+      "ad": "Kayseri",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 123.02,
+      "kira": {
+        "1+1": {
+          "ort": 6188
+        },
+        "2+1": {
+          "ort": 9362
+        }
+      },
+      "market": {
+        "mutevazi": 2516,
+        "orta": 3538,
+        "rahat": 5111
+      },
+      "ulasim": {
+        "toplutas": 1258,
+        "arac": 3774
+      },
+      "fatura": {
+        "ort": 1808
+      },
+      "disarida": {
+        "tabak": 110
+      },
+      "saglik": 629,
+      "eglence": {
+        "mutevazi": 550,
+        "orta": 1101,
+        "rahat": 1966
+      },
+      "iletisim": 450
+    },
+    "kilis": {
+      "ad": "Kilis",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 121.84,
+      "kira": {
+        "1+1": {
+          "ort": 6129
+        },
+        "2+1": {
+          "ort": 9272
+        }
+      },
+      "market": {
+        "mutevazi": 2885,
+        "orta": 3988,
+        "rahat": 5770
+      },
+      "ulasim": {
+        "toplutas": 1442,
+        "arac": 4158
+      },
+      "fatura": {
+        "ort": 1994
+      },
+      "disarida": {
+        "tabak": 123
+      },
+      "saglik": 696,
+      "eglence": {
+        "mutevazi": 636,
+        "orta": 1273,
+        "rahat": 2291
+      },
+      "iletisim": 450
+    },
+    "kirikkale": {
+      "ad": "Kırıkkale",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 136,
+      "kira": {
+        "1+1": {
+          "ort": 6841
+        },
+        "2+1": {
+          "ort": 10350
+        }
+      },
+      "market": {
+        "mutevazi": 2850,
+        "orta": 3918,
+        "rahat": 5699
+      },
+      "ulasim": {
+        "toplutas": 1567,
+        "arac": 4132
+      },
+      "fatura": {
+        "ort": 1995
+      },
+      "disarida": {
+        "tabak": 142
+      },
+      "saglik": 712,
+      "eglence": {
+        "mutevazi": 712,
+        "orta": 1425,
+        "rahat": 2707
+      },
+      "iletisim": 500
+    },
+    "kirklareli": {
+      "ad": "Kırklareli",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 199.26,
+      "kira": {
+        "1+1": {
+          "ort": 10023
+        },
+        "2+1": {
+          "ort": 15164
+        }
+      },
+      "market": {
+        "mutevazi": 2790,
+        "orta": 3843,
+        "rahat": 5579
+      },
+      "ulasim": {
+        "toplutas": 1736,
+        "arac": 4029
+      },
+      "fatura": {
+        "ort": 1922
+      },
+      "disarida": {
+        "tabak": 155
+      },
+      "saglik": 744,
+      "eglence": {
+        "mutevazi": 744,
+        "orta": 1488,
+        "rahat": 2790
+      },
+      "iletisim": 500
+    },
+    "kirsehir": {
+      "ad": "Kırşehir",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 115.19,
+      "kira": {
+        "1+1": {
+          "ort": 5794
+        },
+        "2+1": {
+          "ort": 8766
+        }
+      },
+      "market": {
+        "mutevazi": 2390,
+        "orta": 3361,
+        "rahat": 4855
+      },
+      "ulasim": {
+        "toplutas": 1195,
+        "arac": 3585
+      },
+      "fatura": {
+        "ort": 1718
+      },
+      "disarida": {
+        "tabak": 105
+      },
+      "saglik": 598,
+      "eglence": {
+        "mutevazi": 523,
+        "orta": 1046,
+        "rahat": 1867
+      },
+      "iletisim": 450
+    },
+    "kocaeli": {
+      "ad": "Kocaeli",
+      "emoji": "🏭",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 209.1,
+      "kira": {
+        "1+1": {
+          "ort": 10518
+        },
+        "2+1": {
+          "ort": 15913
+        }
+      },
+      "market": {
+        "mutevazi": 2896,
+        "orta": 3991,
+        "rahat": 5793
+      },
+      "ulasim": {
+        "toplutas": 1802,
+        "arac": 4184
+      },
+      "fatura": {
+        "ort": 1995
+      },
+      "disarida": {
+        "tabak": 161
+      },
+      "saglik": 772,
+      "eglence": {
+        "mutevazi": 772,
+        "orta": 1545,
+        "rahat": 2896
+      },
+      "iletisim": 500
+    },
+    "konya": {
+      "ad": "Konya",
+      "emoji": "🕌",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 167.45,
+      "kira": {
+        "1+1": {
+          "ort": 8423
+        },
+        "2+1": {
+          "ort": 12743
+        }
+      },
+      "market": {
+        "mutevazi": 3200,
+        "orta": 4500,
+        "rahat": 6500
+      },
+      "ulasim": {
+        "toplutas": 1600,
+        "arac": 4800
+      },
+      "fatura": {
+        "ort": 2300
+      },
+      "disarida": {
+        "tabak": 140
+      },
+      "saglik": 800,
+      "eglence": {
+        "mutevazi": 700,
+        "orta": 1400,
+        "rahat": 2500
+      },
+      "iletisim": 450
+    },
+    "kutahya": {
+      "ad": "Kütahya",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 147.88,
+      "kira": {
+        "1+1": {
+          "ort": 7438
+        },
+        "2+1": {
+          "ort": 11254
+        }
+      },
+      "market": {
+        "mutevazi": 3186,
+        "orta": 4359,
+        "rahat": 6287
+      },
+      "ulasim": {
+        "toplutas": 1677,
+        "arac": 4611
+      },
+      "fatura": {
+        "ort": 2180
+      },
+      "disarida": {
+        "tabak": 151
+      },
+      "saglik": 796,
+      "eglence": {
+        "mutevazi": 754,
+        "orta": 1509,
+        "rahat": 2683
+      },
+      "iletisim": 500
+    },
+    "malatya": {
+      "ad": "Malatya",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 123.76,
+      "kira": {
+        "1+1": {
+          "ort": 6225
+        },
+        "2+1": {
+          "ort": 9418
+        }
+      },
+      "market": {
+        "mutevazi": 2920,
+        "orta": 4037,
+        "rahat": 5840
+      },
+      "ulasim": {
+        "toplutas": 1460,
+        "arac": 4209
+      },
+      "fatura": {
+        "ort": 2018
+      },
+      "disarida": {
+        "tabak": 125
+      },
+      "saglik": 704,
+      "eglence": {
+        "mutevazi": 644,
+        "orta": 1288,
+        "rahat": 2319
+      },
+      "iletisim": 450
+    },
+    "manisa": {
+      "ad": "Manisa",
+      "emoji": "🌊",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 185.9,
+      "kira": {
+        "1+1": {
+          "ort": 9351
+        },
+        "2+1": {
+          "ort": 14147
+        }
+      },
+      "market": {
+        "mutevazi": 3311,
+        "orta": 4572,
+        "rahat": 6701
+      },
+      "ulasim": {
+        "toplutas": 1892,
+        "arac": 4730
+      },
+      "fatura": {
+        "ort": 2286
+      },
+      "disarida": {
+        "tabak": 173
+      },
+      "saglik": 867,
+      "eglence": {
+        "mutevazi": 867,
+        "orta": 1734,
+        "rahat": 3153
+      },
+      "iletisim": 500
+    },
+    "mardin": {
+      "ad": "Mardin",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 94,
+      "kira": {
+        "1+1": {
+          "ort": 4728
+        },
+        "2+1": {
+          "ort": 7153
+        }
+      },
+      "market": {
+        "mutevazi": 2356,
+        "orta": 3257,
+        "rahat": 4713
+      },
+      "ulasim": {
+        "toplutas": 1178,
+        "arac": 3396
+      },
+      "fatura": {
+        "ort": 1629
+      },
+      "disarida": {
+        "tabak": 100
+      },
+      "saglik": 568,
+      "eglence": {
+        "mutevazi": 520,
+        "orta": 1040,
+        "rahat": 1871
+      },
+      "iletisim": 450
+    },
+    "mersin": {
+      "ad": "Mersin",
+      "emoji": "🌊",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 174.89,
+      "kira": {
+        "1+1": {
+          "ort": 8797
+        },
+        "2+1": {
+          "ort": 13309
+        }
+      },
+      "market": {
+        "mutevazi": 3386,
+        "orta": 4644,
+        "rahat": 6772
+      },
+      "ulasim": {
+        "toplutas": 1741,
+        "arac": 4837
+      },
+      "fatura": {
+        "ort": 2322
+      },
+      "disarida": {
+        "tabak": 145
+      },
+      "saglik": 822,
+      "eglence": {
+        "mutevazi": 774,
+        "orta": 1548,
+        "rahat": 2709
+      },
+      "iletisim": 450
+    },
+    "mugla": {
+      "ad": "Muğla",
+      "emoji": "☀️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 325.82,
+      "kira": {
+        "1+1": {
+          "ort": 16389
+        },
+        "2+1": {
+          "ort": 24795
+        }
+      },
+      "market": {
+        "mutevazi": 5233,
+        "orta": 7326,
+        "rahat": 10727
+      },
+      "ulasim": {
+        "toplutas": 2747,
+        "arac": 7326
+      },
+      "fatura": {
+        "ort": 3532
+      },
+      "disarida": {
+        "tabak": 275
+      },
+      "saglik": 1308,
+      "eglence": {
+        "mutevazi": 1308,
+        "orta": 2747,
+        "rahat": 5102
+      },
+      "iletisim": 500
+    },
+    "mus": {
+      "ad": "Muş",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 100,
+      "kira": {
+        "1+1": {
+          "ort": 5030
+        },
+        "2+1": {
+          "ort": 7610
+        }
+      },
+      "market": {
+        "mutevazi": 2473,
+        "orta": 3418,
+        "rahat": 4946
+      },
+      "ulasim": {
+        "toplutas": 1236,
+        "arac": 3564
+      },
+      "fatura": {
+        "ort": 1709
+      },
+      "disarida": {
+        "tabak": 105
+      },
+      "saglik": 596,
+      "eglence": {
+        "mutevazi": 545,
+        "orta": 1091,
+        "rahat": 1964
+      },
+      "iletisim": 450
+    },
+    "nevsehir": {
+      "ad": "Nevşehir",
+      "emoji": "🎈",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 150,
+      "kira": {
+        "1+1": {
+          "ort": 7545
+        },
+        "2+1": {
+          "ort": 11415
+        }
+      },
+      "market": {
+        "mutevazi": 2937,
+        "orta": 4130,
+        "rahat": 5965
+      },
+      "ulasim": {
+        "toplutas": 1468,
+        "arac": 4405
+      },
+      "fatura": {
+        "ort": 2111
+      },
+      "disarida": {
+        "tabak": 128
+      },
+      "saglik": 734,
+      "eglence": {
+        "mutevazi": 642,
+        "orta": 1285,
+        "rahat": 2294
+      },
+      "iletisim": 450
+    },
+    "nigde": {
+      "ad": "Niğde",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 129,
+      "kira": {
+        "1+1": {
+          "ort": 6489
+        },
+        "2+1": {
+          "ort": 9817
+        }
+      },
+      "market": {
+        "mutevazi": 2611,
+        "orta": 3671,
+        "rahat": 5303
+      },
+      "ulasim": {
+        "toplutas": 1305,
+        "arac": 3916
+      },
+      "fatura": {
+        "ort": 1877
+      },
+      "disarida": {
+        "tabak": 114
+      },
+      "saglik": 653,
+      "eglence": {
+        "mutevazi": 571,
+        "orta": 1142,
+        "rahat": 2040
+      },
+      "iletisim": 450
+    },
+    "ordu": {
+      "ad": "Ordu",
+      "emoji": "🌲",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 164.78,
+      "kira": {
+        "1+1": {
+          "ort": 8288
+        },
+        "2+1": {
+          "ort": 12540
+        }
+      },
+      "market": {
+        "mutevazi": 3310,
+        "orta": 4551,
+        "rahat": 6620
+      },
+      "ulasim": {
+        "toplutas": 1820,
+        "arac": 4799
+      },
+      "fatura": {
+        "ort": 2317
+      },
+      "disarida": {
+        "tabak": 165
+      },
+      "saglik": 827,
+      "eglence": {
+        "mutevazi": 827,
+        "orta": 1655,
+        "rahat": 3144
+      },
+      "iletisim": 500
+    },
+    "osmaniye": {
+      "ad": "Osmaniye",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 118.7,
+      "kira": {
+        "1+1": {
+          "ort": 5971
+        },
+        "2+1": {
+          "ort": 9033
+        }
+      },
+      "market": {
+        "mutevazi": 2503,
+        "orta": 3432,
+        "rahat": 5005
+      },
+      "ulasim": {
+        "toplutas": 1287,
+        "arac": 3575
+      },
+      "fatura": {
+        "ort": 1716
+      },
+      "disarida": {
+        "tabak": 107
+      },
+      "saglik": 608,
+      "eglence": {
+        "mutevazi": 572,
+        "orta": 1144,
+        "rahat": 2002
+      },
+      "iletisim": 450
+    },
+    "rize": {
+      "ad": "Rize",
+      "emoji": "🌧️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 166.67,
+      "kira": {
+        "1+1": {
+          "ort": 8384
+        },
+        "2+1": {
+          "ort": 12684
+        }
+      },
+      "market": {
+        "mutevazi": 3339,
+        "orta": 4592,
+        "rahat": 6679
+      },
+      "ulasim": {
+        "toplutas": 1837,
+        "arac": 4842
+      },
+      "fatura": {
+        "ort": 2338
+      },
+      "disarida": {
+        "tabak": 167
+      },
+      "saglik": 835,
+      "eglence": {
+        "mutevazi": 835,
+        "orta": 1670,
+        "rahat": 3172
+      },
+      "iletisim": 500
+    },
+    "sakarya": {
+      "ad": "Sakarya",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 188,
+      "kira": {
+        "1+1": {
+          "ort": 9456
+        },
+        "2+1": {
+          "ort": 14307
+        }
+      },
+      "market": {
+        "mutevazi": 2666,
+        "orta": 3673,
+        "rahat": 5332
+      },
+      "ulasim": {
+        "toplutas": 1659,
+        "arac": 3851
+      },
+      "fatura": {
+        "ort": 1836
+      },
+      "disarida": {
+        "tabak": 148
+      },
+      "saglik": 711,
+      "eglence": {
+        "mutevazi": 711,
+        "orta": 1422,
+        "rahat": 2666
+      },
+      "iletisim": 500
+    },
+    "samsun": {
+      "ad": "Samsun",
+      "emoji": "⚓",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 165.56,
+      "kira": {
+        "1+1": {
+          "ort": 8328
+        },
+        "2+1": {
+          "ort": 12599
+        }
+      },
+      "market": {
+        "mutevazi": 3322,
+        "orta": 4568,
+        "rahat": 6644
+      },
+      "ulasim": {
+        "toplutas": 1827,
+        "arac": 4817
+      },
+      "fatura": {
+        "ort": 2325
+      },
+      "disarida": {
+        "tabak": 166
+      },
+      "saglik": 831,
+      "eglence": {
+        "mutevazi": 831,
+        "orta": 1661,
+        "rahat": 3156
+      },
+      "iletisim": 500
+    },
+    "sanliurfa": {
+      "ad": "Şanlıurfa",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 129.76,
+      "kira": {
+        "1+1": {
+          "ort": 6527
+        },
+        "2+1": {
+          "ort": 9875
+        }
+      },
+      "market": {
+        "mutevazi": 3030,
+        "orta": 4189,
+        "rahat": 6060
+      },
+      "ulasim": {
+        "toplutas": 1515,
+        "arac": 4367
+      },
+      "fatura": {
+        "ort": 2094
+      },
+      "disarida": {
+        "tabak": 129
+      },
+      "saglik": 731,
+      "eglence": {
+        "mutevazi": 668,
+        "orta": 1337,
+        "rahat": 2406
+      },
+      "iletisim": 450
+    },
+    "siirt": {
+      "ad": "Siirt",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 112.9,
+      "kira": {
+        "1+1": {
+          "ort": 5679
+        },
+        "2+1": {
+          "ort": 8592
+        }
+      },
+      "market": {
+        "mutevazi": 2718,
+        "orta": 3758,
+        "rahat": 5437
+      },
+      "ulasim": {
+        "toplutas": 1359,
+        "arac": 3918
+      },
+      "fatura": {
+        "ort": 1879
+      },
+      "disarida": {
+        "tabak": 116
+      },
+      "saglik": 656,
+      "eglence": {
+        "mutevazi": 600,
+        "orta": 1199,
+        "rahat": 2159
+      },
+      "iletisim": 450
+    },
+    "sinop": {
+      "ad": "Sinop",
+      "emoji": "⚓",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 182.46,
+      "kira": {
+        "1+1": {
+          "ort": 9178
+        },
+        "2+1": {
+          "ort": 13885
+        }
+      },
+      "market": {
+        "mutevazi": 3584,
+        "orta": 4928,
+        "rahat": 7167
+      },
+      "ulasim": {
+        "toplutas": 1971,
+        "arac": 5196
+      },
+      "fatura": {
+        "ort": 2509
+      },
+      "disarida": {
+        "tabak": 179
+      },
+      "saglik": 896,
+      "eglence": {
+        "mutevazi": 896,
+        "orta": 1792,
+        "rahat": 3404
+      },
+      "iletisim": 500
+    },
+    "sivas": {
+      "ad": "Sivas",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 133.51,
+      "kira": {
+        "1+1": {
+          "ort": 6716
+        },
+        "2+1": {
+          "ort": 10160
+        }
+      },
+      "market": {
+        "mutevazi": 2682,
+        "orta": 3771,
+        "rahat": 5447
+      },
+      "ulasim": {
+        "toplutas": 1341,
+        "arac": 4023
+      },
+      "fatura": {
+        "ort": 1928
+      },
+      "disarida": {
+        "tabak": 117
+      },
+      "saglik": 670,
+      "eglence": {
+        "mutevazi": 587,
+        "orta": 1173,
+        "rahat": 2095
+      },
+      "iletisim": 450
+    },
+    "sirnak": {
+      "ad": "Şırnak",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 145,
+      "kira": {
+        "1+1": {
+          "ort": 7294
+        },
+        "2+1": {
+          "ort": 11035
+        }
+      },
+      "market": {
+        "mutevazi": 3304,
+        "orta": 4568,
+        "rahat": 6608
+      },
+      "ulasim": {
+        "toplutas": 1652,
+        "arac": 4762
+      },
+      "fatura": {
+        "ort": 2284
+      },
+      "disarida": {
+        "tabak": 141
+      },
+      "saglik": 797,
+      "eglence": {
+        "mutevazi": 729,
+        "orta": 1458,
+        "rahat": 2624
+      },
+      "iletisim": 450
+    },
+    "tekirdag": {
+      "ad": "Tekirdağ",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 196.21,
+      "kira": {
+        "1+1": {
+          "ort": 9869
+        },
+        "2+1": {
+          "ort": 14932
+        }
+      },
+      "market": {
+        "mutevazi": 2756,
+        "orta": 3797,
+        "rahat": 5512
+      },
+      "ulasim": {
+        "toplutas": 1715,
+        "arac": 3981
+      },
+      "fatura": {
+        "ort": 1899
+      },
+      "disarida": {
+        "tabak": 153
+      },
+      "saglik": 735,
+      "eglence": {
+        "mutevazi": 735,
+        "orta": 1470,
+        "rahat": 2756
+      },
+      "iletisim": 500
+    },
+    "tokat": {
+      "ad": "Tokat",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 150,
+      "kira": {
+        "1+1": {
+          "ort": 7545
+        },
+        "2+1": {
+          "ort": 11415
+        }
+      },
+      "market": {
+        "mutevazi": 3076,
+        "orta": 4229,
+        "rahat": 6152
+      },
+      "ulasim": {
+        "toplutas": 1692,
+        "arac": 4460
+      },
+      "fatura": {
+        "ort": 2153
+      },
+      "disarida": {
+        "tabak": 154
+      },
+      "saglik": 769,
+      "eglence": {
+        "mutevazi": 769,
+        "orta": 1538,
+        "rahat": 2922
+      },
+      "iletisim": 500
+    },
+    "trabzon": {
+      "ad": "Trabzon",
+      "emoji": "⚓",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 145,
+      "kira": {
+        "1+1": {
+          "ort": 7294
+        },
+        "2+1": {
+          "ort": 11035
+        }
+      },
+      "market": {
+        "mutevazi": 2996,
+        "orta": 4119,
+        "rahat": 5991
+      },
+      "ulasim": {
+        "toplutas": 1648,
+        "arac": 4344
+      },
+      "fatura": {
+        "ort": 2097
+      },
+      "disarida": {
+        "tabak": 150
+      },
+      "saglik": 749,
+      "eglence": {
+        "mutevazi": 749,
+        "orta": 1498,
+        "rahat": 2846
+      },
+      "iletisim": 500
+    },
+    "tunceli": {
+      "ad": "Tunceli",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 122,
+      "kira": {
+        "1+1": {
+          "ort": 6137
+        },
+        "2+1": {
+          "ort": 9284
+        }
+      },
+      "market": {
+        "mutevazi": 2888,
+        "orta": 3992,
+        "rahat": 5776
+      },
+      "ulasim": {
+        "toplutas": 1444,
+        "arac": 4162
+      },
+      "fatura": {
+        "ort": 1996
+      },
+      "disarida": {
+        "tabak": 123
+      },
+      "saglik": 696,
+      "eglence": {
+        "mutevazi": 637,
+        "orta": 1274,
+        "rahat": 2293
+      },
+      "iletisim": 450
+    },
+    "usak": {
+      "ad": "Uşak",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 127,
+      "kira": {
+        "1+1": {
+          "ort": 6388
+        },
+        "2+1": {
+          "ort": 9665
+        }
+      },
+      "market": {
+        "mutevazi": 2460,
+        "orta": 3397,
+        "rahat": 4978
+      },
+      "ulasim": {
+        "toplutas": 1406,
+        "arac": 3514
+      },
+      "fatura": {
+        "ort": 1698
+      },
+      "disarida": {
+        "tabak": 129
+      },
+      "saglik": 644,
+      "eglence": {
+        "mutevazi": 644,
+        "orta": 1288,
+        "rahat": 2343
+      },
+      "iletisim": 500
+    },
+    "van": {
+      "ad": "Van",
+      "emoji": "🏔️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 159.44,
+      "kira": {
+        "1+1": {
+          "ort": 8020
+        },
+        "2+1": {
+          "ort": 12133
+        }
+      },
+      "market": {
+        "mutevazi": 3558,
+        "orta": 4919,
+        "rahat": 7116
+      },
+      "ulasim": {
+        "toplutas": 1779,
+        "arac": 5128
+      },
+      "fatura": {
+        "ort": 2459
+      },
+      "disarida": {
+        "tabak": 152
+      },
+      "saglik": 858,
+      "eglence": {
+        "mutevazi": 785,
+        "orta": 1570,
+        "rahat": 2826
+      },
+      "iletisim": 450
+    },
+    "yalova": {
+      "ad": "Yalova",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 188.74,
+      "kira": {
+        "1+1": {
+          "ort": 9494
+        },
+        "2+1": {
+          "ort": 14363
+        }
+      },
+      "market": {
+        "mutevazi": 2674,
+        "orta": 3684,
+        "rahat": 5348
+      },
+      "ulasim": {
+        "toplutas": 1664,
+        "arac": 3862
+      },
+      "fatura": {
+        "ort": 1842
+      },
+      "disarida": {
+        "tabak": 149
+      },
+      "saglik": 713,
+      "eglence": {
+        "mutevazi": 713,
+        "orta": 1426,
+        "rahat": 2674
+      },
+      "iletisim": 500
+    },
+    "yozgat": {
+      "ad": "Yozgat",
+      "emoji": "🏛️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 110,
+      "kira": {
+        "1+1": {
+          "ort": 5533
+        },
+        "2+1": {
+          "ort": 8371
+        }
+      },
+      "market": {
+        "mutevazi": 2306,
+        "orta": 3242,
+        "rahat": 4683
+      },
+      "ulasim": {
+        "toplutas": 1153,
+        "arac": 3459
+      },
+      "fatura": {
+        "ort": 1657
+      },
+      "disarida": {
+        "tabak": 101
+      },
+      "saglik": 576,
+      "eglence": {
+        "mutevazi": 504,
+        "orta": 1009,
+        "rahat": 1801
+      },
+      "iletisim": 450
+    },
+    "zonguldak": {
+      "ad": "Zonguldak",
+      "emoji": "⛏️",
+      "otomatik": true,
+      "kira_kaynak": "TCMB birim kira (m²)",
+      "m2_kira": 188.5,
+      "kira": {
+        "1+1": {
+          "ort": 9482
+        },
+        "2+1": {
+          "ort": 14345
+        }
+      },
+      "market": {
+        "mutevazi": 2671,
+        "orta": 3680,
+        "rahat": 5343
+      },
+      "ulasim": {
+        "toplutas": 1662,
+        "arac": 3859
+      },
+      "fatura": {
+        "ort": 1840
+      },
+      "disarida": {
+        "tabak": 148
+      },
+      "saglik": 712,
+      "eglence": {
+        "mutevazi": 712,
+        "orta": 1425,
+        "rahat": 2671
+      },
+      "iletisim": 500
+    }
+  }
+}
