@@ -3079,87 +3079,75 @@
       });
     }
 
-    async function pngMarkaSagUst(canvas, opts = {}) {
-      const ctx = canvas.getContext('2d');
-      const compact = !!opts.compact;
-      const corner = opts.corner || (compact ? 'tl' : 'tr');
+    async function pngFiligranEkle(srcCanvas) {
+      const w = srcCanvas.width;
+      const h = srcCanvas.height;
+      const out = document.createElement('canvas');
+      out.width = w;
+      out.height = h;
+      const ctx = out.getContext('2d');
+      if (!ctx) return srcCanvas;
+      ctx.drawImage(srcCanvas, 0, 0);
+
+      const z = Math.max(1, w / 1500);
+      const pad = Math.round(12 * z);
+      const inner = Math.round(6 * z);
+      const logoS = Math.round(18 * z);
+      const fMarka = Math.max(11, Math.round(13 * z));
+      const fUrl = Math.max(9, Math.round(10 * z));
+      const tMarka = 'AlperTan™';
+      const tUrl = 'paranindegeri.com';
+
       let img = null;
       try {
         img = await pngLogoImage();
-      } catch (_) { /* metin filigranı yine uygulanır */ }
+      } catch (_) { /* sadece metin */ }
 
-      const s = compact ? 0.62 : 1;
-      const pad = Math.max(8, Math.round(canvas.width * 0.016 * s));
-      const logoS = img ? Math.max(12, Math.round(canvas.width * (compact ? 0.026 : 0.042))) : 0;
-      const fSite = Math.max(7, Math.round(canvas.width * 0.018 * s));
-      const fMarka = Math.max(8, Math.round(canvas.width * 0.02 * s));
-      const fUrl = Math.max(7, Math.round(canvas.width * 0.016 * s));
-      const tSite = compact ? '' : 'Paranın Değeri';
-      const tMarka = 'AlperTan™';
-      const tUrl = 'paranindegeri.com';
-      let textW = 0;
-      let textH = 0;
-      let tyLines = [];
-      if (tSite) {
-        ctx.font = `600 ${fSite}px Inter, sans-serif`;
-        textW = Math.max(textW, ctx.measureText(tSite).width);
-        tyLines.push({ text: tSite, font: `600 ${fSite}px Inter, sans-serif`, color: 'rgba(160, 120, 32, 0.95)', h: fSite });
-      }
-      ctx.font = `600 ${fMarka}px Inter, sans-serif`;
-      textW = Math.max(textW, ctx.measureText(tMarka).width);
-      tyLines.push({ text: tMarka, font: `600 ${fMarka}px Inter, sans-serif`, color: 'rgba(26, 24, 20, 0.9)', h: fMarka });
-      ctx.font = `400 ${fUrl}px Inter, sans-serif`;
-      textW = Math.max(textW, ctx.measureText(tUrl).width);
-      tyLines.push({ text: tUrl, font: `400 ${fUrl}px Inter, sans-serif`, color: 'rgba(107, 98, 83, 0.9)', h: fUrl });
-      textH = tyLines.reduce((a, l) => a + l.h + (compact ? 1 : 2), 0);
-      const inner = Math.max(4, Math.round(pad * 0.65));
-      const logoGap = img ? logoS + (compact ? 4 : 6) : 0;
+      ctx.font = `600 ${fMarka}px sans-serif`;
+      const wMarka = ctx.measureText(tMarka).width;
+      ctx.font = `400 ${fUrl}px sans-serif`;
+      const wUrl = ctx.measureText(tUrl).width;
+      const textW = Math.max(wMarka, wUrl);
+      const textH = fMarka + fUrl + 3;
+      const logoGap = img ? logoS + Math.round(5 * z) : 0;
       const blockW = inner + logoGap + textW + inner;
       const blockH = inner + Math.max(logoS, textH) + inner;
-      let x0 = pad;
-      let y0 = pad;
-      if (corner === 'tr') {
-        x0 = canvas.width - blockW - pad;
-        y0 = pad;
-      } else if (corner === 'bl') {
-        x0 = pad;
-        y0 = canvas.height - blockH - pad;
-      } else if (corner === 'br') {
-        x0 = canvas.width - blockW - pad;
-        y0 = canvas.height - blockH - pad;
-      }
+      const x0 = w - blockW - pad;
+      const y0 = pad;
 
-      pngRoundRect(ctx, x0, y0, blockW, blockH, compact ? 5 : 7);
-      ctx.fillStyle = 'rgba(245, 241, 232, 0.92)';
+      pngRoundRect(ctx, x0, y0, blockW, blockH, Math.round(6 * z));
+      ctx.fillStyle = '#f5f1e8';
       ctx.fill();
-      ctx.strokeStyle = 'rgba(200, 191, 168, 0.6)';
-      ctx.lineWidth = Math.max(1, canvas.width / 900);
+      ctx.strokeStyle = '#c8bfa8';
+      ctx.lineWidth = Math.max(1, z);
       ctx.stroke();
 
+      const ty0 = y0 + inner;
+      if (img) ctx.drawImage(img, x0 + inner, ty0, logoS, logoS);
       const tx = x0 + inner + logoGap;
-      let ty = y0 + inner + (img ? 0 : Math.max(0, (textH - logoS) / 2));
-      if (img) ctx.drawImage(img, x0 + inner, y0 + inner, logoS, logoS);
+      let ty = ty0 + (img ? 0 : Math.max(0, (textH - logoS) / 2));
       ctx.textBaseline = 'top';
-      tyLines.forEach(line => {
-        ctx.font = line.font;
-        ctx.fillStyle = line.color;
-        ctx.fillText(line.text, tx, ty);
-        ty += line.h + (compact ? 1 : 2);
-      });
-      return canvas;
+      ctx.fillStyle = '#1a1814';
+      ctx.font = `600 ${fMarka}px sans-serif`;
+      ctx.fillText(tMarka, tx, ty);
+      ty += fMarka + 2;
+      ctx.fillStyle = '#6b6253';
+      ctx.font = `400 ${fUrl}px sans-serif`;
+      ctx.fillText(tUrl, tx, ty);
+      return out;
     }
 
     async function pngIndir(el, dosyaAdi) {
       await html2canvasHazir();
       await markaLogoYukle();
-      let canvas = await html2canvas(el, {
+      const snap = await html2canvas(el, {
         backgroundColor: '#fdfaf2',
         scale: 2,
         useCORS: true,
+        allowTaint: false,
         logging: false
       });
-      /* Tüm PNG indirmeler: küçük filigran sol üst (sitede görünmez) */
-      canvas = await pngMarkaSagUst(canvas, { compact: true, corner: 'tl' });
+      const canvas = await pngFiligranEkle(snap);
       const link = document.createElement('a');
       link.download = dosyaAdi;
       link.href = canvas.toDataURL('image/png');
