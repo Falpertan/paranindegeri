@@ -812,6 +812,13 @@
       color: var(--ink-3);
       font-size: 12px;
       background: var(--paper-2);
+      width: 100%;
+    }
+
+    footer > div {
+      text-align: center;
+      max-width: 42rem;
+      margin: 0 auto;
     }
 
     footer a {
@@ -1067,7 +1074,7 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-top: 20px;
+      margin: 20px auto 0;
       padding: 14px 18px;
       background: #fffdf8;
       border: 1px solid var(--line);
@@ -1121,11 +1128,12 @@
 
     .modul-ust.goster .proje-band {
       display: flex;
+      justify-content: center;
     }
 
     .proje-band .proje-teaser {
-      margin-top: 0;
-      max-width: none;
+      margin: 0 auto;
+      max-width: 640px;
       width: 100%;
     }
 
@@ -1167,7 +1175,7 @@
       font-size: 0.78rem;
     }
 
-    /* PNG filigranı — sağ üst köşe (boş alan) */
+    /* PNG filigranı */
     .pano-export-kutu {
       position: relative;
     }
@@ -1176,47 +1184,74 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      bottom: auto;
       z-index: 3;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 9px;
-      background: rgba(245, 241, 232, 0.88);
+      gap: 5px;
+      padding: 4px 8px;
+      background: rgba(245, 241, 232, 0.9);
       border: 1px solid rgba(200, 191, 168, 0.55);
-      border-radius: 6px;
-      box-shadow: 0 1px 4px rgba(26, 24, 20, 0.06);
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(26, 24, 20, 0.06);
       pointer-events: none;
-      opacity: 0.9;
+      opacity: 0.88;
+    }
+
+    /* Veri Panosu: ekranda filigran yok (çizgilerle çakışmasın); PNG indirmede eklenir */
+    .pano-export-kutu .paylas-filigran {
+      display: none !important;
     }
 
     .paylas-filigran img {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 3px;
       flex-shrink: 0;
+    }
+
+    .pano-export-kutu .paylas-filigran img {
+      width: 13px;
+      height: 13px;
     }
 
     .paylas-filigran-metin {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      line-height: 1.2;
-      font-size: 0.62rem;
+      line-height: 1.15;
+      font-size: 0.58rem;
       color: var(--ink-3);
     }
 
+    .pano-export-kutu .paylas-filigran-metin {
+      font-size: 0.5rem;
+      line-height: 1.1;
+    }
+
     .paylas-filigran-site {
-      font-size: 0.58rem;
+      font-size: 0.54rem;
       color: var(--brand-gold);
       font-weight: 600;
       letter-spacing: 0.02em;
     }
 
+    .pano-export-kutu .paylas-filigran-site {
+      display: none;
+    }
+
     .paylas-filigran-metin strong {
-      font-size: 0.7rem;
+      font-size: 0.62rem;
       color: var(--ink-2);
       font-weight: 600;
+    }
+
+    .pano-export-kutu .paylas-filigran-metin strong {
+      font-size: 0.52rem;
+    }
+
+    .pano-export-kutu .paylas-filigran-metin span:last-child {
+      font-size: 0.48rem;
+      color: var(--muted);
     }
 
     .pano-baslik-satir {
@@ -1254,6 +1289,20 @@
       margin-top: 8px;
       padding-top: 8px;
       border-top: 1px solid var(--line-soft);
+      text-align: center;
+    }
+
+    /* Modül kartları — alt bilgi / kaynak satırları */
+    .modul-panel .veri-kaynak-notu,
+    .modul-panel .ipucu-inline,
+    .modul-panel .pano-il-ozet,
+    .modul-panel .kart > .veri-kaynak-tarih {
+      text-align: center;
+    }
+
+    .modul-panel .veri-kaynak-notu ul {
+      padding-left: 0;
+      list-style-position: inside;
     }
 
     .veri-eski-uyari {
@@ -2777,12 +2826,23 @@
           responsive: true,
           maintainAspectRatio: false,
           interaction: { mode: 'index', intersect: false },
+          layout: {
+            padding: { top: 8, left: 4, right: 8, bottom: 2 }
+          },
           plugins: {
             legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
           },
           scales: tip === 'cubuk'
-            ? { y: { beginAtZero: true, title: { display: true, text: '%' } } }
+            ? {
+                x: {
+                  ticks: { align: 'center', maxRotation: 0 }
+                },
+                y: { beginAtZero: true, title: { display: true, text: '%' } }
+              }
             : {
+                x: {
+                  ticks: { align: 'center', maxRotation: 0, autoSkip: true, maxTicksLimit: 12 }
+                },
                 y: {
                   position: 'left',
                   title: { display: showTufe, text: 'TÜFE %' },
@@ -3121,56 +3181,73 @@
       });
     }
 
-    async function pngMarkaSagUst(canvas) {
+    async function pngMarkaSagUst(canvas, opts = {}) {
       const ctx = canvas.getContext('2d');
+      const compact = !!opts.compact;
+      const corner = opts.corner || (compact ? 'tl' : 'tr');
       let img = null;
       try {
         img = await pngLogoImage();
       } catch (_) { /* metin filigranı yine uygulanır */ }
 
-      const pad = Math.max(10, Math.round(canvas.width * 0.022));
-      const logoS = img ? Math.max(20, Math.round(canvas.width * 0.048)) : 0;
-      const fSite = Math.max(9, Math.round(canvas.width * 0.021));
-      const fMarka = Math.max(10, Math.round(canvas.width * 0.024));
-      const fUrl = Math.max(8, Math.round(canvas.width * 0.019));
-      const tSite = 'Paranın Değeri';
+      const s = compact ? 0.62 : 1;
+      const pad = Math.max(8, Math.round(canvas.width * 0.016 * s));
+      const logoS = img ? Math.max(12, Math.round(canvas.width * (compact ? 0.026 : 0.042))) : 0;
+      const fSite = Math.max(7, Math.round(canvas.width * 0.018 * s));
+      const fMarka = Math.max(8, Math.round(canvas.width * 0.02 * s));
+      const fUrl = Math.max(7, Math.round(canvas.width * 0.016 * s));
+      const tSite = compact ? '' : 'Paranın Değeri';
       const tMarka = 'AlperTan™';
       const tUrl = 'paranindegeri.com';
-      ctx.font = `600 ${fSite}px Inter, sans-serif`;
-      const wSite = ctx.measureText(tSite).width;
+      let textW = 0;
+      let textH = 0;
+      let tyLines = [];
+      if (tSite) {
+        ctx.font = `600 ${fSite}px Inter, sans-serif`;
+        textW = Math.max(textW, ctx.measureText(tSite).width);
+        tyLines.push({ text: tSite, font: `600 ${fSite}px Inter, sans-serif`, color: 'rgba(160, 120, 32, 0.95)', h: fSite });
+      }
       ctx.font = `600 ${fMarka}px Inter, sans-serif`;
-      const wMarka = ctx.measureText(tMarka).width;
+      textW = Math.max(textW, ctx.measureText(tMarka).width);
+      tyLines.push({ text: tMarka, font: `600 ${fMarka}px Inter, sans-serif`, color: 'rgba(26, 24, 20, 0.9)', h: fMarka });
       ctx.font = `400 ${fUrl}px Inter, sans-serif`;
-      const wUrl = ctx.measureText(tUrl).width;
-      const textW = Math.max(wSite, wMarka, wUrl);
-      const textH = fSite + fMarka + fUrl + 6;
-      const inner = pad;
-      const logoGap = img ? logoS + 8 : 0;
+      textW = Math.max(textW, ctx.measureText(tUrl).width);
+      tyLines.push({ text: tUrl, font: `400 ${fUrl}px Inter, sans-serif`, color: 'rgba(107, 98, 83, 0.9)', h: fUrl });
+      textH = tyLines.reduce((a, l) => a + l.h + (compact ? 1 : 2), 0);
+      const inner = Math.max(4, Math.round(pad * 0.65));
+      const logoGap = img ? logoS + (compact ? 4 : 6) : 0;
       const blockW = inner + logoGap + textW + inner;
       const blockH = inner + Math.max(logoS, textH) + inner;
-      const x0 = canvas.width - blockW - pad;
-      const y0 = pad;
+      let x0 = pad;
+      let y0 = pad;
+      if (corner === 'tr') {
+        x0 = canvas.width - blockW - pad;
+        y0 = pad;
+      } else if (corner === 'bl') {
+        x0 = pad;
+        y0 = canvas.height - blockH - pad;
+      } else if (corner === 'br') {
+        x0 = canvas.width - blockW - pad;
+        y0 = canvas.height - blockH - pad;
+      }
 
-      pngRoundRect(ctx, x0, y0, blockW, blockH, 7);
+      pngRoundRect(ctx, x0, y0, blockW, blockH, compact ? 5 : 7);
       ctx.fillStyle = 'rgba(245, 241, 232, 0.92)';
       ctx.fill();
       ctx.strokeStyle = 'rgba(200, 191, 168, 0.6)';
-      ctx.lineWidth = Math.max(1, canvas.width / 800);
+      ctx.lineWidth = Math.max(1, canvas.width / 900);
       ctx.stroke();
 
       const tx = x0 + inner + logoGap;
-      const ty = y0 + inner + (img ? 0 : Math.max(0, (textH - logoS) / 2));
+      let ty = y0 + inner + (img ? 0 : Math.max(0, (textH - logoS) / 2));
       if (img) ctx.drawImage(img, x0 + inner, y0 + inner, logoS, logoS);
       ctx.textBaseline = 'top';
-      ctx.fillStyle = 'rgba(160, 120, 32, 0.95)';
-      ctx.font = `600 ${fSite}px Inter, sans-serif`;
-      ctx.fillText(tSite, tx, ty);
-      ctx.fillStyle = 'rgba(26, 24, 20, 0.9)';
-      ctx.font = `600 ${fMarka}px Inter, sans-serif`;
-      ctx.fillText(tMarka, tx, ty + fSite + 2);
-      ctx.fillStyle = 'rgba(107, 98, 83, 0.9)';
-      ctx.font = `400 ${fUrl}px Inter, sans-serif`;
-      ctx.fillText(tUrl, tx, ty + fSite + fMarka + 4);
+      tyLines.forEach(line => {
+        ctx.font = line.font;
+        ctx.fillStyle = line.color;
+        ctx.fillText(line.text, tx, ty);
+        ty += line.h + (compact ? 1 : 2);
+      });
       return canvas;
     }
 
@@ -3188,7 +3265,11 @@
       } finally {
         marks.forEach(m => { m.style.visibility = ''; });
       }
-      canvas = await pngMarkaSagUst(canvas);
+      const panoExport = el.classList.contains('pano-export-kutu');
+      canvas = await pngMarkaSagUst(canvas, {
+        compact: panoExport,
+        corner: panoExport ? 'tl' : 'tr'
+      });
       const link = document.createElement('a');
       link.download = dosyaAdi;
       link.href = canvas.toDataURL('image/png');
