@@ -296,9 +296,9 @@
 
     .cta-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
-      max-width: 640px;
+      max-width: 920px;
       margin: 0 auto;
     }
 
@@ -1168,11 +1168,26 @@
     }
 
     footer .footer-kaynak {
-      margin-top: 12px;
+      margin: 12px auto 0;
+      max-width: 42rem;
       font-size: 0.78rem;
       color: var(--muted);
       line-height: 1.5;
-      max-width: 42rem;
+      text-align: center;
+    }
+
+    .footer-veri-durum {
+      display: block;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .veri-eski-uyari {
+      display: block;
+      margin-top: 6px;
+      color: var(--warn, #9a6b00);
+      font-weight: 600;
     }
 
     .admin-sehir-listesi {
@@ -1189,6 +1204,118 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-sm);
       color: var(--ink-2);
+    }
+
+    /* Veri Panosu — grafik + harita */
+    .pano-alt-baslik {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      margin: 0 0 12px;
+      color: var(--ink);
+    }
+
+    .pano-kontroller {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .pano-kontroller label {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .pano-grafik-kutu {
+      position: relative;
+      height: min(340px, 55vw);
+      min-height: 240px;
+      margin-bottom: 8px;
+    }
+
+    .pano-harita-wrap {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 12px;
+    }
+
+    .pano-harita-svg {
+      width: 100%;
+      max-height: 420px;
+    }
+
+    .pano-harita-svg svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .harita-il-path {
+      cursor: pointer;
+      transition: opacity 0.15s, stroke-width 0.15s;
+    }
+
+    .harita-il-path:hover { opacity: 0.88; }
+
+    .harita-il-path.secili {
+      stroke: var(--ink) !important;
+      stroke-width: 2px !important;
+    }
+
+    .pano-harita-tooltip {
+      position: absolute;
+      pointer-events: none;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      line-height: 1.4;
+      z-index: 5;
+      max-width: 220px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .pano-harita-tooltip[hidden] { display: none; }
+
+    .pano-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--ink-3);
+    }
+
+    .pano-legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .pano-legend i {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      display: inline-block;
+      border: 1px solid var(--line);
+    }
+
+    .pano-il-ozet {
+      margin-top: 12px;
+      padding: 12px 14px;
+      background: var(--paper-2);
+      border-radius: var(--radius);
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      min-height: 2.5em;
     }
 
     @media (max-width: 600px) {
@@ -1212,6 +1339,7 @@
         <nav>
           <a href="#" data-nav="anasayfa" onclick="modulAc('enflasyon'); return false;">Enflasyon Makinesi</a>
           <a href="#" data-nav="anasayfa" onclick="modulAc('yasam'); return false;">Yaşam Maliyeti</a>
+          <a href="#" data-nav="anasayfa" onclick="modulAc('pano'); return false;">Veri Panosu</a>
           <a href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer" class="nav-dis-proje">Seçim Arşivi ↗</a>
           <a href="#hakkinda" data-nav="hakkinda">Hakkında</a>
           <a href="#iletisim" data-nav="iletisim">İletişim</a>
@@ -1242,6 +1370,11 @@
               <h3>Yaşam Maliyeti</h3>
               <p>Bu şehirde yaşamak için aylık ne lazım?</p>
             </div>
+            <div class="cta-kart" onclick="modulAc('pano')">
+              <div class="emoji">📊</div>
+              <h3>Veri Panosu</h3>
+              <p>2003’ten bugüne grafikler ve 81 il haritası</p>
+            </div>
           </div>
           <a class="proje-teaser" href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer">
             <span class="proje-teaser-etiket">AlperTan™ · Diğer proje</span>
@@ -1259,6 +1392,7 @@
           <div class="modul-tabs" id="modul-tabs">
             <button class="modul-tab aktif" data-modul="enflasyon" onclick="modulAc('enflasyon')">🔥 Enflasyon Makinesi</button>
             <button class="modul-tab" data-modul="yasam" onclick="modulAc('yasam')">🏙️ Yaşam Maliyeti</button>
+            <button class="modul-tab" data-modul="pano" onclick="modulAc('pano')">📊 Veri Panosu</button>
           </div>
           <div class="proje-band" id="proje-band-secim">
             <a class="proje-teaser" href="https://secimarsivi.com/" target="_blank" rel="noopener noreferrer">
@@ -1392,6 +1526,52 @@
             <ins class="adsbygoogle" style="display:block" data-ad-format="rectangle"></ins>
           </div>
         </div>
+
+        <!-- MODÜL 3 — Veri Panosu -->
+        <div id="panel-pano" class="modul-panel">
+          <div class="kart">
+            <h2>Veri Panosu</h2>
+            <p>Geçmişten bugüne <strong>tek ekranda</strong> makro trendler (TÜFE, kur, altın) ve 81 il haritası. Hesap makinesi değil — genel resim içindir.</p>
+            <p class="veri-kaynak-tarih" id="pano-veri-tarih"></p>
+          </div>
+
+          <div class="kart">
+            <h3 class="pano-alt-baslik">Makro trendler (2003 → bugün)</h3>
+            <div class="pano-kontroller">
+              <label><input type="radio" name="pano-grafik-tip" value="cizgi" checked onchange="panoGrafikGuncelle()"> Çizgi</label>
+              <label><input type="radio" name="pano-grafik-tip" value="cubuk" onchange="panoGrafikGuncelle()"> Çubuk (yıllık TÜFE)</label>
+              <span style="color:var(--line)">|</span>
+              <label><input type="checkbox" id="pano-seri-tufe" checked onchange="panoGrafikGuncelle()"> TÜFE %</label>
+              <label><input type="checkbox" id="pano-seri-dolar" checked onchange="panoGrafikGuncelle()"> Dolar (TL)</label>
+              <label><input type="checkbox" id="pano-seri-altin" onchange="panoGrafikGuncelle()"> Altın (TL/gr)</label>
+              <label><input type="checkbox" id="pano-seri-satin" onchange="panoGrafikGuncelle()"> 1.000 TL satın alma (TÜFE, 2003=1000)</label>
+            </div>
+            <div class="pano-grafik-kutu">
+              <canvas id="pano-makro-chart" aria-label="Makro ekonomi grafiği"></canvas>
+            </div>
+            <p class="ipucu-inline">Dolar serisi 2005’ten itibaren gösterilir (EVDS’te erken yıllar hatalı kayıt içerebilir). «Satın alma» çizgisi yıllık TÜFE ile bileşiklenmiştir.</p>
+          </div>
+
+          <div class="kart">
+            <h3 class="pano-alt-baslik">81 il haritası</h3>
+            <div class="pano-kontroller">
+              <label for="pano-harita-metrik">Gösterge</label>
+              <select id="pano-harita-metrik" onchange="panoHaritaGuncelle()">
+                <option value="m2_kira">TCMB birim kira (TL/m²)</option>
+                <option value="kira_2p1">Tahmini 2+1 kira (TL/ay)</option>
+                <option value="min_gecim">Tahmini aylık minimum geçim (tek, kiracı, orta)</option>
+              </select>
+            </div>
+            <div class="pano-harita-wrap" id="pano-harita-panel">
+              <div class="pano-harita-svg" id="pano-harita-svg"></div>
+              <div class="pano-harita-tooltip" id="pano-harita-tooltip" hidden></div>
+            </div>
+            <div class="pano-legend" id="pano-harita-legend"></div>
+            <p class="pano-il-ozet" id="pano-il-ozet">Bir ile tıklayın veya üzerine gelin.</p>
+            <p class="ipucu-inline">Harita renkleri seçilen göstergeye göre koyulaşır; kira dışı kalemler yaşam maliyeti modülüyle aynı tahmin modelidir.</p>
+            <p class="veri-kaynak-tarih" id="pano-veri-tarih-alt"></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1399,7 +1579,7 @@
     <section id="hakkinda" class="legal-section">
       <h2>Paranın Değeri Hakkında</h2>
       <p><strong>paranindegeri.com</strong>, Türkiye'nin ekonomik gerçekliğini herkesin anlayabileceği, eğlenceli ve görsel bir şekilde sunan bağımsız bir veri platformudur.</p>
-      <p>Platform iki araç sunar: Enflasyon Makinesi ile geçmiş yıllardaki paranızın bugünkü satın alma gücünü farklı göstergelerle hesaplayabilir; Yaşam Maliyeti Hesaplayıcısı ile <strong>81 ilde</strong> aylık geçim maliyetini profilinize göre öğrenebilirsiniz.</p>
+      <p>Platform üç araç sunar: Enflasyon Makinesi ile geçmiş yıllardaki paranızın bugünkü satın alma gücünü hesaplayabilir; Yaşam Maliyeti ile <strong>81 ilde</strong> profilinize göre aylık geçim tahmini alabilir; <strong>Veri Panosu</strong> ile 2003’ten bugüne makro grafikleri ve il haritasını tek ekranda görebilirsiniz.</p>
 
       <h3>Veri kaynakları</h3>
       <ul>
@@ -1719,17 +1899,72 @@
 
     let veriMeta = { kaynak: 'varsayılan (gömülü)', guncelleme_tarihi: null };
 
-    function veriGuncellemeMetni() {
-      if (veriMeta.guncelleme_tarihi) {
-        const t = new Date(veriMeta.guncelleme_tarihi).toLocaleString('tr-TR');
-        return 'Veri güncellemesi: ' + t + (veriMeta.kaynak ? ' — ' + veriMeta.kaynak : '');
+    const VERI_ESKI_GUN = 45;
+    const OTOMATIK_GUNCELLEME_NOTU =
+      'Otomatik güncelleme: GitHub Actions, her ayın 5\'i (TCMB EVDS).';
+
+    function veriDurumuOlustur() {
+      if (!veriMeta.guncelleme_tarihi) {
+        return {
+          satir:
+            'Veri: gömülü varsayılan (canlı data/paranindegeri-data.json yüklenemedi). ' +
+            OTOMATIK_GUNCELLEME_NOTU,
+          uyari: '⚠️ Canlı veri dosyası yüklenemedi; sonuçlar varsayılan tablodan geliyor olabilir.',
+          gun: null
+        };
       }
-      return 'Veri: gömülü varsayılan (canlı data/paranindegeri-data.json yüklenemedi).';
+      const dt = new Date(veriMeta.guncelleme_tarihi);
+      const t = dt.toLocaleString('tr-TR', { dateStyle: 'long', timeStyle: 'short' });
+      const gun = Math.floor((Date.now() - dt.getTime()) / 86400000);
+      const kaynak = veriMeta.kaynak ? ' — ' + veriMeta.kaynak : '';
+      let uyari = '';
+      if (gun > VERI_ESKI_GUN) {
+        uyari =
+          '⚠️ Bu veri paketi ' + gun + ' gündür yenilenmedi. ' +
+          'GitHub Actions çalıştı mı kontrol edin veya GUNCELLE-VERI.bat + YAYIN.bat kullanın.';
+      }
+      return {
+        satir: '📅 Veri son güncelleme: ' + t + kaynak + '. ' + OTOMATIK_GUNCELLEME_NOTU,
+        uyari,
+        gun
+      };
+    }
+
+    function veriGuncellemeMetni() {
+      return veriDurumuOlustur().satir;
     }
 
     function kaynakNotlariGuncelle() {
-      const metin = veriGuncellemeMetni();
-      document.querySelectorAll('.veri-kaynak-tarih').forEach(el => { el.textContent = metin; });
+      const d = veriDurumuOlustur();
+      document.querySelectorAll('.veri-kaynak-tarih').forEach(el => {
+        el.replaceChildren(document.createTextNode(d.satir));
+        if (d.uyari) {
+          const u = document.createElement('span');
+          u.className = 'veri-eski-uyari';
+          u.textContent = d.uyari;
+          el.appendChild(document.createElement('br'));
+          el.appendChild(u);
+        }
+      });
+      ['pano-veri-tarih', 'pano-veri-tarih-alt'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.replaceChildren(document.createTextNode(d.satir));
+      });
+      const footer = document.getElementById('footer-veri-tarih');
+      if (footer) {
+        footer.innerHTML = '';
+        const satir = document.createElement('span');
+        satir.className = 'footer-veri-durum';
+        satir.textContent = d.satir;
+        footer.appendChild(satir);
+        if (d.uyari) {
+          const u = document.createElement('span');
+          u.className = 'veri-eski-uyari';
+          u.textContent = d.uyari;
+          footer.appendChild(u);
+        }
+      }
     }
 
     function yasamKaynakDetayGuncelle(s) {
@@ -1774,6 +2009,7 @@
         sehirVeriUygula(null);
         bugunYilGuncelle();
         kaynakNotlariGuncelle();
+        if (panoHazir) { panoGrafikGuncelle(); panoHaritaGuncelle(); }
         return;
       }
       if (paket.tufe) tufeYillik = yillikBirlestir(DEFAULT_TUFE, paket.tufe);
@@ -1788,6 +2024,10 @@
       };
       kaynakNotlariGuncelle();
       if (sehirVeri[seciliSehir]) yasamKaynakDetayGuncelle(sehirVeri[seciliSehir]);
+      if (panoHazir) {
+        panoGrafikGuncelle();
+        panoHaritaGuncelle();
+      }
     }
 
     function veriPaketiOlustur() {
@@ -2175,6 +2415,11 @@
         eyebrow: 'Yaşam Maliyeti',
         baslik: 'Bu şehirde yaşamak ne kadar?',
         aciklama: '81 il — kira TCMB birim kira verisi; diğer kalemler ölçeklenmiş tahmin. Asgari ücretle kıyaslama bilgilendirme amaçlıdır.'
+      },
+      pano: {
+        eyebrow: 'Veri Panosu',
+        baslik: 'Geçmişten bugüne tek bakış',
+        aciklama: 'TÜFE, kur ve altın çizgileri; 81 ilde kira ve geçim tahmini haritası. TCMB EVDS + site veri paketi.'
       }
     };
 
@@ -2240,7 +2485,7 @@
       document.getElementById('anasayfa').classList.add('aktif');
       history.replaceState(null, '', id === 'anasayfa' ? window.location.pathname : '#' + id);
 
-      if (id === 'enflasyon' || id === 'yasam') modulAc(id);
+      if (id === 'enflasyon' || id === 'yasam' || id === 'pano') modulAc(id);
       else anasayfaGoster();
     }
 
@@ -2267,6 +2512,313 @@
       document.getElementById('panel-' + modul).classList.add('aktif');
       history.replaceState(null, '', '#' + modul);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (modul === 'pano') panoModulHazirla();
+    }
+
+    /* ─── Veri Panosu (grafik + harita) ─── */
+    let panoMakroChart = null;
+    let panoGeojson = null;
+    let panoSeciliGeoIl = null;
+    let panoHazir = false;
+
+    function panoScriptYukle(src) {
+      return new Promise((resolve, reject) => {
+        if (document.querySelector('script[data-pano-src="' + src + '"]')) {
+          resolve();
+          return;
+        }
+        const s = document.createElement('script');
+        s.src = src;
+        s.defer = true;
+        s.dataset.panoSrc = src;
+        s.onload = () => resolve();
+        s.onerror = () => reject(new Error('Script yüklenemedi: ' + src));
+        document.head.appendChild(s);
+      });
+    }
+
+    function yillikListe(obj, filtre) {
+      if (!obj) return [];
+      return Object.keys(obj)
+        .map(y => parseInt(y, 10))
+        .filter(y => !Number.isNaN(y))
+        .filter(y => !filtre || filtre(y, obj[y]))
+        .sort((a, b) => a - b)
+        .map(y => ({ yil: y, deger: obj[String(y)] }));
+    }
+
+    function panoSatinAlmaSerisi() {
+      const liste = yillikListe(tufeYillik);
+      if (!liste.length) return [];
+      const baz = liste[0].yil;
+      let carpan = 1000;
+      const out = [{ yil: baz, deger: 1000 }];
+      for (let i = 1; i < liste.length; i++) {
+        const onceki = liste[i - 1];
+        const tufe = tufeYillik[String(onceki.yil)];
+        if (tufe != null) carpan *= 1 + tufe / 100;
+        out.push({ yil: liste[i].yil, deger: Math.round(carpan) });
+      }
+      return out;
+    }
+
+    function panoMinimumGecim(s) {
+      if (!s || !s.kira) return null;
+      const kira = s.kira['2+1']?.ort ?? s.kira['1+1']?.ort ?? 0;
+      const market = s.market?.orta ?? 0;
+      const ulasim = s.ulasim?.toplutas ?? 0;
+      const fatura = s.fatura?.ort ?? 0;
+      const iletisim = s.iletisim ?? 0;
+      const disarida = Math.round((s.disarida?.tabak ?? 0) * 4);
+      const saglik = s.saglik ?? 0;
+      const eglence = s.eglence?.orta ?? 0;
+      const alt = kira + market + ulasim + fatura + iletisim + disarida + saglik + eglence;
+      return Math.round(alt * 1.15);
+    }
+
+    function panoHaritaDeger(s, metrik) {
+      if (!s) return null;
+      if (metrik === 'm2_kira') return s.m2_kira ?? null;
+      if (metrik === 'kira_2p1') return s.kira?.['2+1']?.ort ?? null;
+      if (metrik === 'min_gecim') return panoMinimumGecim(s);
+      return null;
+    }
+
+    function panoRenkDolgu(t) {
+      const x = Math.max(0, Math.min(1, t));
+      const r = Math.round(245 + (184 - 245) * x);
+      const g = Math.round(241 + (49 - 241) * x);
+      const b = Math.round(232 + (26 - 232) * x);
+      return 'rgb(' + r + ',' + g + ',' + b + ')';
+    }
+
+    function panoGrafikGuncelle() {
+      const canvas = document.getElementById('pano-makro-chart');
+      if (!canvas || typeof Chart === 'undefined') return;
+      if (panoMakroChart) {
+        panoMakroChart.destroy();
+        panoMakroChart = null;
+      }
+
+      const tip = document.querySelector('input[name="pano-grafik-tip"]:checked')?.value || 'cizgi';
+      const showTufe = document.getElementById('pano-seri-tufe')?.checked;
+      const showDolar = document.getElementById('pano-seri-dolar')?.checked;
+      const showAltin = document.getElementById('pano-seri-altin')?.checked;
+      const showSatin = document.getElementById('pano-seri-satin')?.checked;
+
+      const datasets = [];
+      let labels = [];
+
+      if (tip === 'cubuk') {
+        const tufeL = yillikListe(tufeYillik);
+        labels = tufeL.map(x => String(x.yil));
+        datasets.push({
+          label: 'Yıllık TÜFE (%)',
+          data: tufeL.map(x => x.deger),
+          backgroundColor: 'rgba(160, 120, 32, 0.65)',
+          borderColor: '#a07820',
+          borderWidth: 1
+        });
+      } else {
+        const yilSet = new Set();
+        yillikListe(tufeYillik).forEach(x => yilSet.add(x.yil));
+        yillikListe(dolarKuru, (y, v) => v > 0 && v < 500).forEach(x => yilSet.add(x.yil));
+        yillikListe(altinGram).forEach(x => yilSet.add(x.yil));
+        panoSatinAlmaSerisi().forEach(x => yilSet.add(x.yil));
+        labels = [...yilSet].sort((a, b) => a - b).map(String);
+
+        const seri = (liste, renk, label, eksen) => {
+          const map = Object.fromEntries(liste.map(x => [x.yil, x.deger]));
+          datasets.push({
+            label,
+            data: labels.map(y => map[parseInt(y, 10)] ?? null),
+            borderColor: renk,
+            backgroundColor: renk + '22',
+            tension: 0.25,
+            spanGaps: true,
+            yAxisID: eksen
+          });
+        };
+
+        if (showTufe) seri(yillikListe(tufeYillik), '#b8311a', 'TÜFE (%)', 'y');
+        if (showDolar) seri(yillikListe(dolarKuru, (y, v) => y >= 2005 && v > 0 && v < 500), '#1f4d6e', 'Dolar (TL)', 'y1');
+        if (showAltin) seri(yillikListe(altinGram), '#a07820', 'Altın (TL/gr)', 'y1');
+        if (showSatin) seri(panoSatinAlmaSerisi(), '#2d6b3f', '1.000 TL → TÜFE (TL)', 'y1');
+      }
+
+      if (!datasets.length) return;
+
+      panoMakroChart = new Chart(canvas, {
+        type: tip === 'cubuk' ? 'bar' : 'line',
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+          },
+          scales: tip === 'cubuk'
+            ? { y: { beginAtZero: true, title: { display: true, text: '%' } } }
+            : {
+                y: {
+                  position: 'left',
+                  title: { display: showTufe, text: 'TÜFE %' },
+                  grid: { color: 'rgba(200,191,168,0.35)' }
+                },
+                y1: {
+                  position: 'right',
+                  grid: { drawOnChartArea: false },
+                  title: { display: showDolar || showAltin || showSatin, text: 'TL' }
+                }
+              }
+        }
+      });
+    }
+
+    function panoGeoYukle() {
+      if (panoGeojson) return Promise.resolve(panoGeojson);
+      return fetch('data/core/turkiye_iller.geojson')
+        .then(r => {
+          if (!r.ok) throw new Error('geojson');
+          return r.json();
+        })
+        .then(g => {
+          panoGeojson = g;
+          return g;
+        });
+    }
+
+    function panoHaritaBbox(geojson) {
+      let minx = Infinity, miny = Infinity, maxx = -Infinity, maxy = -Infinity;
+      function visit(coords) {
+        if (typeof coords[0] === 'number') {
+          const [lng, lat] = coords;
+          if (lng < minx) minx = lng;
+          if (lat < miny) miny = lat;
+          if (lng > maxx) maxx = lng;
+          if (lat > maxy) maxy = lat;
+        } else coords.forEach(visit);
+      }
+      geojson.features.forEach(f => visit(f.geometry.coordinates));
+      return { minx, miny, maxx, maxy };
+    }
+
+    function panoHaritaGuncelle() {
+      if (!panoGeojson) return;
+      const metrik = document.getElementById('pano-harita-metrik')?.value || 'm2_kira';
+      const ilData = {};
+      Object.entries(sehirVeri).forEach(([slug, s]) => {
+        const geoIl = s.ad.toLocaleUpperCase('tr-TR');
+        const v = panoHaritaDeger(s, metrik);
+        if (v != null && !Number.isNaN(v)) ilData[geoIl] = v;
+      });
+
+      const vals = Object.values(ilData);
+      const min = vals.length ? Math.min(...vals) : 0;
+      const max = vals.length ? Math.max(...vals) : 1;
+      const span = max - min || 1;
+
+      const bbox = panoHaritaBbox(panoGeojson);
+      const pad = 12;
+      const W = 900;
+      const latMid = (bbox.miny + bbox.maxy) / 2;
+      const cosLat = Math.cos((latMid * Math.PI) / 180);
+      const H = Math.round(W * ((bbox.maxy - bbox.miny) / ((bbox.maxx - bbox.minx) * cosLat)) * 0.92);
+
+      function project(lng, lat) {
+        const x = ((lng - bbox.minx) / (bbox.maxx - bbox.minx)) * (W - 2 * pad) + pad;
+        const y = H - (((lat - bbox.miny) / (bbox.maxy - bbox.miny)) * (H - 2 * pad) + pad);
+        return [x, y];
+      }
+
+      function pathFor(geom) {
+        let d = '';
+        const polys = geom.type === 'MultiPolygon' ? geom.coordinates : geom.type === 'Polygon' ? [geom.coordinates] : [];
+        polys.forEach(poly => {
+          poly.forEach(ring => {
+            ring.forEach((coord, i) => {
+              const [x, y] = project(coord[0], coord[1]);
+              d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
+            });
+            d += 'Z';
+          });
+        });
+        return d;
+      }
+
+      const svgEl = document.getElementById('pano-harita-svg');
+      const panel = document.getElementById('pano-harita-panel');
+      const tooltip = document.getElementById('pano-harita-tooltip');
+      const ozet = document.getElementById('pano-il-ozet');
+      const metrikEtiket = document.getElementById('pano-harita-metrik')?.selectedOptions?.[0]?.textContent || '';
+
+      const paths = panoGeojson.features.map(feat => {
+        const il = feat.properties.geo_il_adi;
+        const val = ilData[il];
+        const t = val == null ? null : (val - min) / span;
+        const fill = val == null ? '#ebe5d6' : panoRenkDolgu(t);
+        const secili = panoSeciliGeoIl === il;
+        return '<path class="harita-il-path' + (secili ? ' secili' : '') + '" d="' + pathFor(feat.geometry) +
+          '" fill="' + fill + '" data-il="' + il + '" stroke="' + (secili ? '#1a1814' : '#c8bfa8') +
+          '" stroke-width="' + (secili ? '1.8' : '0.6') + '"></path>';
+      }).join('');
+
+      svgEl.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" class="pano-harita-svg-inner" role="img" aria-label="81 il haritası">' + paths + '</svg>';
+
+      svgEl.querySelectorAll('.harita-il-path').forEach(p => {
+        const il = p.dataset.il;
+        p.addEventListener('mousemove', e => {
+          const v = ilData[il];
+          tooltip.innerHTML = '<strong>' + il + '</strong><br>' + metrikEtiket + ': ' +
+            (v == null ? 'veri yok' : Math.round(v).toLocaleString('tr-TR') + (metrik === 'm2_kira' ? ' TL/m²' : ' TL'));
+          const rect = panel.getBoundingClientRect();
+          tooltip.style.left = (e.clientX - rect.left + 12) + 'px';
+          tooltip.style.top = (e.clientY - rect.top + 12) + 'px';
+          tooltip.hidden = false;
+        });
+        p.addEventListener('mouseleave', () => { tooltip.hidden = true; });
+        p.addEventListener('click', () => {
+          panoSeciliGeoIl = panoSeciliGeoIl === il ? null : il;
+          const v = ilData[il];
+          if (ozet) {
+            ozet.textContent = v == null
+              ? il + ': bu gösterge için veri yok.'
+              : il + ' — ' + metrikEtiket + ': ' + Math.round(v).toLocaleString('tr-TR') +
+                (metrik === 'm2_kira' ? ' TL/m²' : ' TL') + '. Yaşam maliyeti modülünde profilinize göre hesaplayabilirsiniz.';
+          }
+          panoHaritaGuncelle();
+        });
+      });
+
+      const leg = document.getElementById('pano-harita-legend');
+      if (leg) {
+        leg.innerHTML = [
+          ['Düşük', panoRenkDolgu(0)],
+          ['Orta', panoRenkDolgu(0.5)],
+          ['Yüksek', panoRenkDolgu(1)]
+        ].map(([l, c]) => '<span><i style="background:' + c + '"></i> ' + l + '</span>').join('');
+        leg.innerHTML += '<span>Aralık: ' + Math.round(min).toLocaleString('tr-TR') + ' – ' + Math.round(max).toLocaleString('tr-TR') + '</span>';
+      }
+    }
+
+    async function panoModulHazirla() {
+      kaynakNotlariGuncelle();
+      if (panoHazir) {
+        panoGrafikGuncelle();
+        panoHaritaGuncelle();
+        return;
+      }
+      try {
+        await panoScriptYukle('https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js');
+        await panoGeoYukle();
+        panoHazir = true;
+        panoGrafikGuncelle();
+        panoHaritaGuncelle();
+      } catch (e) {
+        console.error(e);
+        toast('Veri Panosu yüklenemedi (grafik veya harita dosyası).');
+      }
     }
 
     function chipSec(el) {
@@ -2561,6 +3113,8 @@
         urlParametreleriOku();
       } else if (hash === 'yasam') {
         modulAc('yasam');
+      } else if (hash === 'pano') {
+        modulAc('pano');
       } else if (hash === 'anasayfa') {
         anasayfaGoster();
       } else if (hash === 'enflasyon' || hash === '') {

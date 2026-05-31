@@ -52,7 +52,20 @@ if not exist ".git" (
   exit /b 1
 )
 
-git pull --rebase origin main 2>nul
+echo  GitHub ile senkron (Actions commitleri dahil)...
+git fetch origin
+if errorlevel 1 (
+  echo  HATA: fetch basarisiz. Internet veya GitHub girisi kontrol edin.
+  pause
+  exit /b 1
+)
+git checkout main 2>nul
+git reset --hard origin/main
+if errorlevel 1 (
+  echo  HATA: origin/main alinamadi.
+  pause
+  exit /b 1
+)
 
 set "MSG=%~1"
 if "%MSG%"=="" set "MSG=deploy: Paranin Degeri guncelleme"
@@ -70,14 +83,18 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-git push -u origin main
+git pull --rebase origin main
 if errorlevel 1 (
-  git push -u origin master
-  if errorlevel 1 (
-    echo  HATA: push basarisiz. GitHub giris veya repo adi kontrol edin.
-    pause
-    exit /b 1
-  )
+  echo  HATA: rebase basarisiz. GitHub Actions ile cakisma olabilir.
+  echo  Cozum: bu pencerede "git pull --rebase origin main" sonra tekrar YAYIN.bat
+  pause
+  exit /b 1
+)
+git push origin main
+if errorlevel 1 (
+  echo  HATA: push basarisiz. GitHub giris veya repo adi kontrol edin.
+  pause
+  exit /b 1
 )
 echo.
 echo  BASARILI - Cloudflare Pages bagliysa birka dakika icinde site guncellenir.
